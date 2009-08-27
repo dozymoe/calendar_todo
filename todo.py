@@ -1058,6 +1058,7 @@ class TodoAttendee(ModelSQL, ModelView):
                     self.write(cursor, 0, attendee_ids, self._attendee2update(
                         cursor, user, attendee, context=context), context=context)
         return res
+
     def delete(self, cursor, user, ids, context=None):
         todo_obj = self.pool.get('calendar.todo')
         attendee_obj = self.pool.get('calendar.attendee')
@@ -1113,7 +1114,6 @@ class TodoAttendee(ModelSQL, ModelView):
             attendee_obj.delete(cursor, user, calendar_attendee_ids,
                     context=context)
         return res
-
 
     def _attendee2update(self, cursor, user, attendee, context=None):
         attendee_obj = self.pool.get('calendar.attendee')
