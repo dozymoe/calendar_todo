@@ -232,7 +232,7 @@ class Collection(ModelSQL, ModelView):
             if not todo_id:
                 return super(Collection, self).get_data(cursor, user, uri,
                         context=context, cache=cache)
-                ical = todo_obj.todo2ical(cursor, user, todo_id, context=context)
+            ical = todo_obj.todo2ical(cursor, user, todo_id, context=context)
             return ical.serialize()
 
         return super(Collection, self).get_data(cursor, user, uri,
