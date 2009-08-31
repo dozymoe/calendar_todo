@@ -41,7 +41,7 @@ class Collection(ModelSQL, ModelView):
 
     def _caldav_filter_domain_todo(self, cursor, user, filter, context=None):
         '''
-        Return a domain for caldav filter on event
+        Return a domain for caldav filter on todo
 
         :param cursor: the database cursor
         :param user: the user id
@@ -50,7 +50,6 @@ class Collection(ModelSQL, ModelView):
         :return: a list for domain
         '''
         res = []
-        return res #REMOVEME
         if not filter:
             return []
         if filter.localName == 'principal-property-search':
@@ -70,17 +69,17 @@ class Collection(ModelSQL, ModelView):
                     continue
                 if vcalendar_filter.getAttribute('name') != 'VCALENDAR':
                     return [('id', '=', 0)]
-                vevent_filter = None
-                for vevent_filter in vcalendar_filter.childNodes:
-                    if vevent_filter.nodeType == vevent_filter.TEXT_NODE:
-                        vevent_filter = None
+                vtodo_filter = None
+                for vtodo_filter in vcalendar_filter.childNodes:
+                    if vtodo_filter.nodeType == vtodo_filter.TEXT_NODE:
+                        vtodo_filter = None
                         continue
-                    if vevent_filter.localName == 'comp-filter':
-                        if vevent_filter.getAttribute('name') != 'VEVENT':
-                            vevent_filter = None
+                    if vtodo_filter.localName == 'comp-filter':
+                        if vtodo_filter.getAttribute('name') != 'VTODO':
+                            vtodo_filter = None
                             continue
                         break
-                if vevent_filter is None:
+                if vtodo_filter is None:
                     return [('id', '=', 0)]
                 break
             return []
@@ -101,9 +100,9 @@ class Collection(ModelSQL, ModelView):
                         continue
                     if uri:
                         uri = urllib.unquote_plus(uri)
-                    event_id = self.event(cursor, user, uri, context=context)
-                    if event_id:
-                        ids.append(event_id)
+                    todo_id = self.todo(cursor, user, uri, context=context)
+                    if todo_id:
+                        ids.append(todo_id)
             return [('id', 'in', ids)]
         return res
 
