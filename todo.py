@@ -1,6 +1,7 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView, fields
+from trytond.tools import Cache
 import uuid
 import vobject
 import dateutil.tz
@@ -201,6 +202,7 @@ class Todo(ModelSQL, ModelView):
 
     def create(self, cursor, user, values, context=None):
         calendar_obj = self.pool.get('calendar.calendar')
+        collection_obj = self.pool.get('webdav.collection')
 
         res = super(Todo, self).create(cursor, user, values, context=context)
         todo = self.browse(cursor, user, res, context=context)
@@ -241,6 +243,8 @@ class Todo(ModelSQL, ModelView):
                             'calendar': parent.calendar.id,
                             'parent': parent.id,
                             }, context=context)
+        # Restart the cache for todo
+        collection_obj.todo(cursor.dbname)
         return res
 
     def _todo2update(self, cursor, user, todo, context=None):
@@ -278,6 +282,7 @@ class Todo(ModelSQL, ModelView):
 
     def write(self, cursor, user, ids, values, context=None):
         calendar_obj = self.pool.get('calendar.calendar')
+        collection_obj = self.pool.get('webdav.collection')
 
         values = values.copy()
         if 'sequence' in values:
@@ -347,10 +352,13 @@ class Todo(ModelSQL, ModelView):
                                 'calendar': parent.calendar.id,
                                 'parent': parent.id,
                                 }, context=context)
+        # Restart the cache for todo
+        collection_obj.todo(cursor.dbname)
         return res
 
     def delete(self, cursor, user, ids, context=None):
         attendee_obj = self.pool.get('calendar.todo.attendee')
+        collection_obj = self.pool.get('webdav.collection')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -390,6 +398,8 @@ class Todo(ModelSQL, ModelView):
                             attendee_obj.write(cursor, 0, attendee.id, {
                                 'status': 'declined',
                                 }, context=context)
+        # Restart the cache for todo
+        collection_obj.todo(cursor.dbname)
         return super(Todo, self).delete(cursor, user, ids, context=context)
 
     def ical2values(self, cursor, user, todo_id, ical, calendar_id,

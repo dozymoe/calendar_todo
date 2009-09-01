@@ -1,6 +1,7 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL
+from trytond.tools import Cache
 from DAV.errors import DAV_NotFound, DAV_Forbidden
 import vobject
 import urllib
@@ -38,6 +39,8 @@ class Collection(ModelSQL, ModelView):
             if todo_ids:
                 return todo_ids[0]
         return False
+
+    todo = Cache('webdav_collection.todo')(todo)
 
     def _caldav_filter_domain_todo(self, cursor, user, filter, context=None):
         '''
@@ -126,6 +129,11 @@ class Collection(ModelSQL, ModelView):
                     ], context=context)
                 todos = todo_obj.browse(cursor, user, todo_ids,
                         context=context)
+                if cache is not None:
+                    cache.setdefault('_calendar', {})
+                    cache['_calendar'].setdefault(todo_obj._name, {})
+                    for todo_id in todo_ids:
+                        cache['_calendar'][todo_obj._name][todo_id] = {}
                 return res + [x.uuid + '.ics' for x in todos]
 
         return res
@@ -158,32 +166,46 @@ class Collection(ModelSQL, ModelView):
         todo_obj = self.pool.get('calendar.todo')
 
         calendar_id = self.calendar(cursor, user, uri, context=context)
-        if calendar_id:
-            if not (uri[10:].split('/', 1) + [None])[1]:
-                cursor.execute('SELECT EXTRACT(epoch FROM create_date) ' \
-                        'FROM "' + calendar_obj._table + '" ' \
-                            'WHERE id = %s', (calendar_id,))
-                fetchone = cursor.fetchone()
-                if fetchone:
-                    return fetchone[0]
-            else:
-                todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                        context=context)
-                if todo_id:
-                    cursor.execute('SELECT EXTRACT(epoch FROM create_date) ' \
-                            'FROM "' + todo_obj._table + '" ' \
-                                'WHERE id = %s', (todo_id,))
-                    fetchone = cursor.fetchone()
-                    if fetchone:
-                        return fetchone[0]
-        calendar_ics_id = self.calendar(cursor, user, uri, context=context)
-        if calendar_ics_id:
-            cursor.execute('SELECT EXTRACT(epoch FROM create_date) ' \
-                    'FROM "' + calendar_obj._table + '" ' \
-                        'WHERE id = %s', (calendar_ics_id,))
-            fetchone = cursor.fetchone()
-            if fetchone:
-                return fetchone[0]
+        if not calendar_id:
+            calendar_id = self.calendar(cursor, user, uri, ics=True,
+                    context=context)
+        if calendar_id and (uri[10:].split('/', 1) + [None])[1]:
+
+            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
+                    context=context)
+            if todo_id:
+                if cache is not None:
+                    cache.setdefault('_calendar', {})
+                    cache['_calendar'].setdefault(todo_obj._name, {})
+                    ids = cache['_calendar'][todo_obj._name].keys()
+                    if todo_id not in ids:
+                        ids.append(todo_id)
+                    elif 'creationdate' in cache['_calendar']\
+                            [todo_obj._name][todo_id]:
+                        return cache['_calendar'][todo_obj._name]\
+                                [todo_id]['creationdate']
+                else:
+                    ids = [todo_id]
+                res = None
+                for i in range(0, len(ids), cursor.IN_MAX):
+                    sub_ids = ids[i:i + cursor.IN_MAX]
+                    cursor.execute('SELECT id, ' \
+                            'EXTRACT(epoch FROM create_date) ' \
+                        'FROM "' + todo_obj._table + '" ' \
+                        'WHERE id IN (' + \
+                            ','.join(('%s',) * len(sub_ids)) + ')',
+                        sub_ids)
+                    for todo_id2, date in cursor.fetchall():
+                        if todo_id2 == todo_id:
+                            res = date
+                        if cache is not None:
+                            cache['_calendar'][todo_obj._name]\
+                                    .setdefault(todo_id2, {})
+                            cache['_calendar'][todo_obj._name]\
+                                    [todo_id2]['creationdate'] = date
+                if res is not None:
+                    return res
+
         return super(Collection, self).get_creationdate(cursor, user, uri,
                 context=context, cache=cache)
 
@@ -196,25 +218,41 @@ class Collection(ModelSQL, ModelView):
             todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
                     context=context)
             if todo_id:
-                cursor.execute('SELECT MAX(EXTRACT(epoch FROM ' \
-                            'COALESCE(write_date, create_date))) ' \
-                        'FROM "' + todo_obj._table + '" ' \
-                            'WHERE id = %s OR parent = %s',
-                            (todo_id, todo_id))
-                fetchone = cursor.fetchone()
-                if fetchone:
-                    return fetchone[0]
+                if cache is not None:
+                    cache.setdefault('_calendar', {})
+                    cache['_calendar'].setdefault(todo_obj._name, {})
+                    ids = cache['_calendar'][todo_obj._name].keys()
+                    if todo_id not in ids:
+                        ids.append(todo_id)
+                    elif 'lastmodified' in cache['_calendar']\
+                            [todo_obj._name][todo_id]:
+                        return cache['_calendar'][todo_obj._name]\
+                                [todo_id]['lastmodified']
+                else:
+                    ids = [todo_id]
+                res = None
+                for i in range(0, len(ids), cursor.IN_MAX/2):
+                    sub_ids = ids[i:i + cursor.IN_MAX/2]
+                    cursor.execute('SELECT COALESCE(parent, id), ' \
+                                'MAX(EXTRACT(epoch FROM ' \
+                                'COALESCE(write_date, create_date))) ' \
+                            'FROM "' + todo_obj._table + '" ' \
+                            'WHERE id IN (' + \
+                                ','.join(('%s',) * len(sub_ids)) + ') ' \
+                                'OR parent IN (' + \
+                                ','.join(('%s',) * len(sub_ids)) + ') ' \
+                            'GROUP BY parent, id', sub_ids + sub_ids)
+                    for todo_id2, date in cursor.fetchall():
+                        if todo_id2 == todo_id:
+                            res = date
+                        if cache is not None:
+                            cache['_calendar'][todo_obj._name]\
+                                    .setdefault(todo_id2, {})
+                            cache['_calendar'][todo_obj._name]\
+                                    [todo_id2]['lastmodified'] = date
+                if res is not None:
+                    return res
 
-        calendar_ics_id = self.calendar(cursor, user, uri, ics=True,
-                context=context)
-        if calendar_ics_id:
-            cursor.execute('SELECT MAX(EXTRACT(epoch FROM ' \
-                        'COALESCE(write_date, create_date))) ' \
-                    'FROM "' + todo_obj._table + '" ' \
-                        'WHERE calendar = %s', (calendar_ics_id,))
-            fetchone = cursor.fetchone()
-            if fetchone:
-                return fetchone[0]
         return super(Collection, self).get_lastmodified(cursor, user, uri,
                 context=context, cache=cache)
 
