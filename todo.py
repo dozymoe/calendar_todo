@@ -462,29 +462,41 @@ class Todo(ModelSQL, ModelView):
                 res['completed'] = datetime.datetime.combine(vtodo.completed.value,
                         datetime.time())
             else:
-                res['completed'] = vtodo.completed.value.astimezone(tzlocal)
+                if vtodo.completed.value.tzinfo:
+                    res['completed'] = vtodo.completed.value.astimezone(tzlocal)
+                else:
+                    res['completed'] = vtodo.completed.value
 
         if hasattr(vtodo, 'dtstart'):
             if not isinstance(vtodo.dtstart.value, datetime.datetime):
                 res['dtstart'] = datetime.datetime.combine(vtodo.dtstart.value,
                         datetime.time())
             else:
-                res['dtstart'] = vtodo.dtstart.value.astimezone(tzlocal)
+                if vtodo.dtstart.value.tzinfo:
+                    res['dtstart'] = vtodo.dtstart.value.astimezone(tzlocal)
+                else:
+                    res['dtstart'] = vtodo.dtstart.value
 
         if hasattr(vtodo, 'due'):
             if not isinstance(vtodo.due.value, datetime.datetime):
                 res['due'] = datetime.datetime.combine(vtodo.due.value,
                         datetime.time())
             else:
-                res['due'] = vtodo.due.value.astimezone(tzlocal)
+                if vtodo.due.value.tzinfo:
+                    res['due'] = vtodo.due.value.astimezone(tzlocal)
+                else:
+                    res['due'] = vtodo.due.value
 
         if hasattr(vtodo, 'recurrence-id'):
             if not isinstance(vtodo.recurrence_id.value, datetime.datetime):
                 res['recurrence'] = datetime.datetime.combine(
                         vtodo.recurrence_id.value, datetime.time())
             else:
-                res['recurrence'] = \
-                        vtodo.recurrence_id.value.astimezone(tzlocal)
+                if vtodo.recurrence_id.value.tzinfo:
+                    res['recurrence'] = \
+                            vtodo.recurrence_id.value.astimezone(tzlocal)
+                else:
+                    res['recurrence'] = vtodo.recurrence_id.value
         else:
             res['recurrence'] = False
         if hasattr(vtodo, 'status'):
