@@ -1,7 +1,7 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView, fields
-from trytond.tools import Cache
+from trytond.tools import Cache, reduce_ids
 import uuid
 import vobject
 import dateutil.tz
@@ -296,10 +296,10 @@ class Todo(ModelSQL, ModelView):
 
         for i in range(0, len(ids), cursor.IN_MAX):
             sub_ids = ids[i:i + cursor.IN_MAX]
+            red_sql, red_ids = reduce_ids('id', sub_ids)
             cursor.execute('UPDATE "' + self._table + '" ' \
                     'SET sequence = sequence + 1 ' \
-                    'WHERE id IN (' + ','.join(('%s',) * len(sub_ids)) + ')',
-                    sub_ids)
+                    'WHERE ' + red_sql, red_ids)
 
         for todo in self.browse(cursor, user, ids, context=context):
             if todo.organizer == todo.calendar.owner.email \

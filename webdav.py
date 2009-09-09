@@ -1,7 +1,7 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL
-from trytond.tools import Cache
+from trytond.tools import Cache, reduce_ids
 from DAV.errors import DAV_NotFound, DAV_Forbidden
 import vobject
 import urllib
@@ -189,12 +189,11 @@ class Collection(ModelSQL, ModelView):
                 res = None
                 for i in range(0, len(ids), cursor.IN_MAX):
                     sub_ids = ids[i:i + cursor.IN_MAX]
+                    red_sql, red_ids = reduce_ids('id', sub_ids)
                     cursor.execute('SELECT id, ' \
                             'EXTRACT(epoch FROM create_date) ' \
                         'FROM "' + todo_obj._table + '" ' \
-                        'WHERE id IN (' + \
-                            ','.join(('%s',) * len(sub_ids)) + ')',
-                        sub_ids)
+                        'WHERE ' + red_sql, red_ids)
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
@@ -233,15 +232,16 @@ class Collection(ModelSQL, ModelView):
                 res = None
                 for i in range(0, len(ids), cursor.IN_MAX/2):
                     sub_ids = ids[i:i + cursor.IN_MAX/2]
+                    red_id_sql, red_id_ids = reduce_ids('id', sub_ids)
+                    red_parent_sql, red_parent_ids = reduce_ids('parent',
+                            sub_ids)
                     cursor.execute('SELECT COALESCE(parent, id), ' \
                                 'MAX(EXTRACT(epoch FROM ' \
                                 'COALESCE(write_date, create_date))) ' \
                             'FROM "' + todo_obj._table + '" ' \
-                            'WHERE id IN (' + \
-                                ','.join(('%s',) * len(sub_ids)) + ') ' \
-                                'OR parent IN (' + \
-                                ','.join(('%s',) * len(sub_ids)) + ') ' \
-                            'GROUP BY parent, id', sub_ids + sub_ids)
+                            'WHERE ' + red_id_sql + ' ' \
+                                'OR ' + red_parent_sql + ' ' \
+                            'GROUP BY parent, id', red_id_ids + red_parent_ids)
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
