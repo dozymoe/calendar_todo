@@ -20,7 +20,6 @@ def mk_prop_response(self, uri, good_props, bad_props, doc):
         cols = res.getElementsByTagName('D:collection')
         if cols:
             cols[0].parentNode.appendChild(vc)
-        print res
     return res
 
 propfind.PROPFIND.mk_prop_response = mk_prop_response
