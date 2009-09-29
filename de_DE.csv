@@ -16,7 +16,7 @@ field,"calendar.todo-calendar.category,todo",0,To-Do,Aufgabe,0
 field,"calendar.todo,calendar_owner",0,Owner,Besitzer,0
 field,"calendar.todo,calendar_read_users",0,Read Users,Benutzer mit Leseberechtigung,0
 field,"calendar.todo,calendar_write_users",0,Write Users,Benutzer mit Schreibberechtigung,0
-field,"calendar.todo,categories",0,Categories,Parteikategorien,0
+field,"calendar.todo,categories",0,Categories,Kategorien,0
 field,"calendar.todo,classification",0,Classification,Klassifizierung,0
 field,"calendar.todo,classification_public",0,Classification Public,Öffentliche Klassifizierung,0
 field,"calendar.todo,completed",0,Completed,Abgeschlossen,0
@@ -72,7 +72,7 @@ selection,"calendar.todo,status",0,Completed,Abgeschlossen,0
 selection,"calendar.todo,status",0,In-Process,In Arbeit,0
 selection,"calendar.todo,status",0,Needs-Action,Benötigt Eingriff,0
 view,calendar.todo,0,Attendees,Teilnehmer,0
-view,calendar.todo,0,Categories,Parteikategorien,0
+view,calendar.todo,0,Categories,Kategorien,0
 view,calendar.todo,0,General,Allgemein,0
 view,calendar.todo,0,Recurrences,Wiederholungen,0
 view,calendar.todo,0,Todo,Aufgabe,0
