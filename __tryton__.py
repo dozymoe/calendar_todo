@@ -3,6 +3,7 @@
 #this repository contains the full copyright notices and license terms.
 {
     'name' : 'Calendar Todo',
+    'name' : 'Tâche Calendrier',
     'name_de_DE' : 'Kalender Aufgaben',
     'version' : '0.0.1',
     'author' : 'B2CK',
@@ -10,6 +11,7 @@
     'website': 'http://www.tryton.org/',
     'description': 'Add Todo support on CalDAV',
     'description_de_DE' : 'Fügt Unterstützung für Aufgaben in CalDAV hinzu',
+    'description': 'Ajoute la gestion des tâches au CalDAV',
     'depends' : [
         'ir',
         'res',

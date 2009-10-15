@@ -1,0 +1,89 @@
+type,name,res_id,src,value,fuzzy
+error,calendar.todo,0,Recurrence can not be recurrent!,Une récurrence ne peut pas être récurrente !,0
+error,calendar.todo,0,UUID and recurrence must be unique in a calendar!,UUID et récurrence doivent être uniques sur un calendrier !,0
+field,"calendar.todo.alarm,calendar_alarm",0,Calendar Alarm,Alarme calendrier,0
+field,"calendar.todo.alarm,rec_name",0,Name,Nom,0
+field,"calendar.todo,alarms",0,Alarms,Alarmes,0
+field,"calendar.todo.alarm,todo",0,Todo,Tâche,0
+field,"calendar.todo.attendee,calendar_attendee",0,Calendar Attendee,Participant calendrier,0
+field,"calendar.todo.attendee,rec_name",0,Name,Nom,0
+field,"calendar.todo,attendees",0,Attendees,Participants,0
+field,"calendar.todo.attendee,todo",0,Todo,Tâche,0
+field,"calendar.todo,calendar",0,Calendar,Calendrier,0
+field,"calendar.todo-calendar.category,category",0,Category,Catégorie,0
+field,"calendar.todo-calendar.category,rec_name",0,Name,Nom,0
+field,"calendar.todo-calendar.category,todo",0,To-Do,Tâche,0
+field,"calendar.todo,calendar_owner",0,Owner,Propriétaire,0
+field,"calendar.todo,calendar_read_users",0,Read Users,Utilisateurs en lecture,0
+field,"calendar.todo,calendar_write_users",0,Write Users,Utilisateurs en écriture,0
+field,"calendar.todo,categories",0,Categories,Catégories,0
+field,"calendar.todo,classification",0,Classification,Classification,0
+field,"calendar.todo,classification_public",0,Classification Public,Classification publique,0
+field,"calendar.todo,completed",0,Completed,Complété,0
+field,"calendar.todo,description",0,Description,Description,0
+field,"calendar.todo,dtstart",0,Start Date,Date de début,0
+field,"calendar.todo,due",0,Due Date,Date d'échéance,0
+field,"calendar.todo.exdate,calendar_rdate",0,Calendar RDate,Date de récurrence,0
+field,"calendar.todo.exdate,rec_name",0,Name,Nom,0
+field,"calendar.todo,exdates",0,Exception Dates,Dates d'exception,0
+field,"calendar.todo.exdate,todo",0,Todo,Tâche,0
+field,"calendar.todo.exrule,calendar_rrule",0,Calendar RRule,Règle de récurrence,0
+field,"calendar.todo.exrule,rec_name",0,Name,Nom,0
+field,"calendar.todo,exrules",0,Exception Rules,Règles d'exception,0
+field,"calendar.todo.exrule,todo",0,Todo,Tâche,0
+field,"calendar.todo,location",0,Location,Emplacement,0
+field,"calendar.todo,organizer",0,Organizer,Organisateur,0
+field,"calendar.todo,parent",0,Parent,Parent,0
+field,"calendar.todo,percent_complete",0,Percent complete,Pourcentage effectué,0
+field,"calendar.todo.rdate,calendar_rdate",0,Calendar RDate,Date de récurrence,0
+field,"calendar.todo.rdate,rec_name",0,Name,Nom,0
+field,"calendar.todo,rdates",0,Recurrence Dates,Dates de récurrence,0
+field,"calendar.todo.rdate,todo",0,Todo,Tâche,0
+field,"calendar.todo,rec_name",0,Name,Nom,0
+field,"calendar.todo,recurrence",0,Recurrence,Récurrence,0
+field,"calendar.todo,recurrences",0,Recurrences,Récurrences,0
+field,"calendar.todo.rrule,calendar_rrule",0,Calendar RRule,Règle de récurrence,0
+field,"calendar.todo.rrule,rec_name",0,Name,Nom,0
+field,"calendar.todo,rrules",0,Recurrence Rules,Règles de récurrence,0
+field,"calendar.todo.rrule,todo",0,Todo,Tâche,0
+field,"calendar.todo,sequence",0,Sequence,Séquence,0
+field,"calendar.todo,status",0,Status,Statut,0
+field,"calendar.todo,summary",0,Summary,Résumé,0
+field,"calendar.todo,timezone",0,Timezone,Fuseau Horaire,0
+field,"calendar.todo,uuid",0,UUID,UUID,0
+field,"calendar.todo,vtodo",0,vtodo,vtodo,0
+help,"calendar.todo,uuid",0,Universally Unique Identifier,Identificateur unique universel,0
+model,"calendar.todo.alarm,name",0,Alarm,Alarme,0
+model,"calendar.todo.attendee,name",0,Attendee,Participant,0
+model,"calendar.todo-calendar.category,name",0,Todo - Category,Todo - Catégorie,0
+model,"calendar.todo.exdate,name",0,Exception Date,Date d'exception,0
+model,"calendar.todo.exrule,name",0,Exception Rule,Règle d'exception,0
+model,"calendar.todo,name",0,Todo,Tâche,0
+model,"calendar.todo.rdate,name",0,Recurrence Date,Date de récurrence,0
+model,"calendar.todo.rrule,name",0,Recurrence Rule,Règle de récurrence,0
+model,"ir.action,name",act_todo_form,Todos,Tâches,0
+model,"ir.ui.menu,name",menu_todo_form,Todos,Tâches,0
+selection,"calendar.todo,classification",0,Confidential,Confidentiel,0
+selection,"calendar.todo,classification",0,Private,Privé,0
+selection,"calendar.todo,classification",0,Public,Publique,0
+selection,"calendar.todo,status",0,,,0
+selection,"calendar.todo,status",0,Cancelled,Annulé,0
+selection,"calendar.todo,status",0,Completed,Complété,0
+selection,"calendar.todo,status",0,In-Process,En court,0
+selection,"calendar.todo,status",0,Needs-Action,Nécessite une action,0
+view,calendar.todo,0,Attendees,Participants,0
+view,calendar.todo,0,Categories,Catégories,0
+view,calendar.todo,0,General,Général,0
+view,calendar.todo,0,Recurrences,Récurrences,0
+view,calendar.todo,0,Todo,Tâche,0
+view,calendar.todo,0,Todos,Tâches,0
+view,calendar.todo.attendee,0,Attendee,Participant,0
+view,calendar.todo.attendee,0,Attendees,Participants,0
+view,calendar.todo.exdate,0,Exception Date,Date d'exception,0
+view,calendar.todo.exdate,0,Exception Dates,Dates d'exception,0
+view,calendar.todo.exrule,0,Exception Rule,Règle d'exception,0
+view,calendar.todo.exrule,0,Exception Rules,Règles d'exception,0
+view,calendar.todo.rdate,0,Recurrence Date,Date de récurrence,0
+view,calendar.todo.rdate,0,Recurrence Dates,Dates de récurrence,0
+view,calendar.todo.rrule,0,Recurrence Rule,Règle de récurrence,0
+view,calendar.todo.rrule,0,Recurrence Rules,Règles de récurrence,0
