@@ -43,7 +43,7 @@ class Todo(ModelSQL, ModelView):
             states={
                 'readonly': "(status not in ('needs-action', 'in-process'))",
             }, depends=['status'])
-    recurrences = fields.One2Many('calendar.todo', 'parent', 'Recurrences',
+    occurences = fields.One2Many('calendar.todo', 'parent', 'Occurences',
             domain=["('uuid', '=', uuid)",
                 "('calendar', '=', calendar)"],
             states={
@@ -196,7 +196,7 @@ class Todo(ModelSQL, ModelView):
                     or todo.rrules \
                     or todo.exdates \
                     or todo.exrules \
-                    or todo.recurrences:
+                    or todo.occurences:
                 return False
         return True
 
@@ -226,10 +226,10 @@ class Todo(ModelSQL, ModelView):
                     for calendar_id in calendar_ids:
                         new_id = self.copy(cursor, 0, todo.id, default={
                             'calendar': calendar_id,
-                            'recurrences': False,
+                            'occurences': False,
                             }, context=context)
-                        for recurrence in todo.recurrences:
-                            self.copy(cursor, 0, recurrence.id, default={
+                        for occurence in todo.occurences:
+                            self.copy(cursor, 0, occurence.id, default={
                                 'calendar': calendar_id,
                                 'parent': new_id,
                                 }, context=context)
@@ -338,10 +338,10 @@ class Todo(ModelSQL, ModelView):
                         for calendar_id in calendar_ids:
                             new_id = self.copy(cursor, 0, todo.id, default={
                                 'calendar': calendar_id,
-                                'recurrences': False,
+                                'occurences': False,
                                 }, context=context)
-                            for recurrence in todo.recurrences:
-                                self.copy(cursor, 0, recurrence.id, default={
+                            for occurence in todo.occurences:
+                                self.copy(cursor, 0, occurence.id, default={
                                     'calendar': calendar_id,
                                     'parent': new_id,
                                     }, context=context)
@@ -643,31 +643,31 @@ class Todo(ModelSQL, ModelView):
 
         res['vtodo'] = vtodo.serialize()
 
-        recurrences_todel = []
+        occurences_todel = []
         if todo:
-            recurrences_todel = [x.id for x in todo.recurrences]
+            occurences_todel = [x.id for x in todo.occurences]
         for vtodo in vtodos:
             todo_id = None
             if todo:
-                for recurrence in todo.recurrences:
-                    if recurrence.recurrence.replace(tzinfo=tzlocal) \
+                for occurence in todo.occurences:
+                    if occurence.recurrence.replace(tzinfo=tzlocal) \
                             == vtodo.recurrence_id.value:
-                        todo_id = recurrence.id
-                        recurrences_todel.remove(recurrence.id)
+                        todo_id = occurence.id
+                        occurences_todel.remove(occurence.id)
             vals = self.ical2values(cursor, user, todo_id, ical,
                     calendar_id, vtodo=vtodo, context=context)
             if todo:
                 vals['uuid'] = todo.uuid
             else:
                 vals['uuid'] = res['uuid']
-            res.setdefault('recurrences', [])
+            res.setdefault('occurences', [])
             if todo_id:
-                res['recurrences'].append(('write', todo_id, vals))
+                res['occurences'].append(('write', todo_id, vals))
             else:
-                res['recurrences'].append(('create', vals))
-        if recurrences_todel:
-            res.setdefault('recurrences', [])
-            res['recurrences'].append(('delete', recurrences_todel))
+                res['occurences'].append(('create', vals))
+        if occurences_todel:
+            res.setdefault('occurences', [])
+            res['occurences'].append(('delete', occurences_todel))
         return res
 
     def todo2ical(self, cursor, user, todo, context=None):
@@ -844,8 +844,8 @@ class Todo(ModelSQL, ModelView):
             if valarm:
                 vtodo.valarm_list.append(valarm)
 
-        for recurrence in todo.recurrences:
-            rical = self.todo2ical(cursor, user, recurrence, context=context)
+        for occurence in todo.occurences:
+            rical = self.todo2ical(cursor, user, occurence, context=context)
             ical.vtodo_list.append(rical.vtodo)
         return ical
 
