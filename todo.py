@@ -206,15 +206,18 @@ class Todo(ModelSQL, ModelView):
 
         res = super(Todo, self).create(cursor, user, values, context=context)
         todo = self.browse(cursor, user, res, context=context)
-        if todo.organizer == todo.calendar.owner.email \
+        if todo.calendar.owner \
+                and (todo.organizer == todo.calendar.owner.email \
                 or (todo.parent \
-                and todo.parent.organizer == todo.parent.calendar.owner.email):
+                and todo.parent.organizer == todo.parent.calendar.owner.email)):
             if todo.organizer == todo.calendar.owner.email:
                 attendee_emails = [x.email for x in todo.attendees
-                        if x.status != 'declined']
+                        if x.status != 'declined'
+                        and x.email != todo.organizer]
             else:
                 attendee_emails = [x.email for x in todo.parent.attendees
-                        if x.status != 'declined']
+                        if x.status != 'declined'
+                        and x.email != todo.parent.organizer]
             if attendee_emails:
                 calendar_ids = calendar_obj.search(cursor, 0, [
                     ('owner.email', 'in', attendee_emails),
@@ -302,15 +305,18 @@ class Todo(ModelSQL, ModelView):
                     'WHERE ' + red_sql, red_ids)
 
         for todo in self.browse(cursor, user, ids, context=context):
-            if todo.organizer == todo.calendar.owner.email \
+            if todo.calendar.owner \
+                    and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email):
+                    and todo.parent.organizer == todo.calendar.owner.email)):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
-                            if x.status != 'declined']
+                            if x.status != 'declined'
+                            and x.email != todo.organizer]
                 else:
                     attendee_emails = [x.email for x in todo.parent.attendees
-                            if x.status != 'declined']
+                            if x.status != 'declined'
+                            and x.email != todo.parent.organizer]
                 if attendee_emails:
                     todo_ids = self.search(cursor, 0, [
                         ('uuid', '=', todo.uuid),
@@ -363,13 +369,16 @@ class Todo(ModelSQL, ModelView):
         if isinstance(ids, (int, long)):
             ids = [ids]
         for todo in self.browse(cursor, user, ids, context=context):
-            if todo.organizer == todo.calendar.owner.email \
+            if todo.calendar.owner \
+                    and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email):
+                    and todo.parent.organizer == todo.calendar.owner.email)):
                 if todo.organizer == todo.calendar.owner.email:
-                    attendee_emails = [x.email for x in todo.attendees]
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.email != todo.organizer]
                 else:
-                    attendee_emails = [x.email for x in todo.parent.attendees]
+                    attendee_emails = [x.email for x in todo.parent.attendees
+                            if x.email != todo.parent.organizer]
                 if attendee_emails:
                     todo_ids = self.search(cursor, 0, [
                         ('uuid', '=', todo.uuid),
@@ -398,9 +407,10 @@ class Todo(ModelSQL, ModelView):
                             attendee_obj.write(cursor, 0, attendee.id, {
                                 'status': 'declined',
                                 }, context=context)
+        res = super(Todo, self).delete(cursor, user, ids, context=context)
         # Restart the cache for todo
         collection_obj.todo(cursor.dbname)
-        return super(Todo, self).delete(cursor, user, ids, context=context)
+        return res
 
     def ical2values(self, cursor, user, todo_id, ical, calendar_id,
             vtodo=None, context=None):
@@ -1020,13 +1030,16 @@ class TodoAttendee(ModelSQL, ModelView):
                 context=context)
         attendee = self.browse(cursor, user, res, context=context)
         todo = attendee.todo
-        if todo.organizer == todo.calendar.owner.email \
+        if todo.calendar.owner \
+                and (todo.organizer == todo.calendar.owner.email \
                 or (todo.parent \
-                and todo.parent.organizer == todo.parent.calendar.owner.email):
+                and todo.parent.organizer == todo.parent.calendar.owner.email)):
             if todo.organizer == todo.calendar.owner.email:
-                attendee_emails = [x.email for x in todo.attendees]
+                attendee_emails = [x.email for x in todo.attendees
+                        if x.email != todo.organizer]
             else:
-                attendee_emails = [x.email for x in todo.parent.attendees]
+                attendee_emails = [x.email for x in todo.parent.attendees
+                        if x.email != todo.parent.organizer]
             if attendee_emails:
                 todo_ids = self.search(cursor, 0, [
                     ('todo.uuid', '=', todo.uuid),
@@ -1062,13 +1075,16 @@ class TodoAttendee(ModelSQL, ModelView):
         attendees = self.browse(cursor, user, ids, context=context)
         for attendee in attendees:
             todo = attendee.todo
-            if todo.organizer == todo.calendar.owner.email \
+            if todo.calendar.owner \
+                    and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email):
+                    and todo.parent.organizer == todo.calendar.owner.email)):
                 if todo.organizer == todo.calendar.owner.email:
-                    attendee_emails = [x.email for x in todo.attendees]
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.email != todo.organizer]
                 else:
-                    attendee_emails = [x.email for x in todo.parent.attendees]
+                    attendee_emails = [x.email for x in todo.parent.attendees
+                            if x.email != todo.parent.organizer]
                 if attendee_emails:
                     attendee_ids = self.search(cursor, 0, [
                         ('todo.uuid', '=', todo.uuid),
@@ -1097,13 +1113,16 @@ class TodoAttendee(ModelSQL, ModelView):
 
         for attendee in self.browse(cursor, user, ids, context=context):
             todo = attendee.todo
-            if todo.organizer == todo.calendar.owner.email \
+            if todo.calendar.owner \
+                    and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email):
+                    and todo.parent.organizer == todo.calendar.owner.email)):
                 if todo.organizer == todo.calendar.owner.email:
-                    attendee_emails = [x.email for x in todo.attendees]
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.email != todo.organizer]
                 else:
-                    attendee_emails = [x.email for x in todo.attendees]
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.email != todo.parent.organizer]
                 if attendee_emails:
                     attendee_ids = self.search(cursor, 0, [
                         ('todo.uuid', '=', todo.uuid),
@@ -1113,9 +1132,10 @@ class TodoAttendee(ModelSQL, ModelView):
                         ('email', '=', attendee.email),
                         ], context=context)
                     self.delete(cursor, 0, attendee_ids, context=context)
-            elif (todo.organizer \
+            elif todo.calendar.organizer \
+                    and ((todo.organizer \
                     or (todo.parent and todo.parent.organizer)) \
-                    and attendee.email == todo.calendar.owner.email:
+                    and attendee.email == todo.calendar.owner.email):
                 if todo.organizer:
                     organizer = todo.organizer
                 else:
