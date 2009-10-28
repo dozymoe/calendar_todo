@@ -1041,11 +1041,11 @@ class TodoAttendee(ModelSQL, ModelView):
                 attendee_emails = [x.email for x in todo.parent.attendees
                         if x.email != todo.parent.organizer]
             if attendee_emails:
-                todo_ids = self.search(cursor, 0, [
-                    ('todo.uuid', '=', todo.uuid),
-                    ('todo.calendar.owner.email', 'in', attendee_emails),
+                todo_ids = todo_obj.search(cursor, 0, [
+                    ('uuid', '=', todo.uuid),
+                    ('calendar.owner.email', 'in', attendee_emails),
                     ('id', '!=', todo.id),
-                    ('todo.recurrence', '=', todo.recurrence or False),
+                    ('recurrence', '=', todo.recurrence or False),
                     ], context=context)
                 for todo_id in todo_ids:
                     self.copy(cursor, 0, res, default={
