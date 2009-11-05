@@ -6,8 +6,8 @@ Prerequisites
 
  * Python 2.5 or later (http://www.python.org/)
  * trytond (http://www.tryton.org/)
- * vobject (http://vobject.skyhouseconsulting.com/)
- * pywebdav (http://sourceforge.net/projects/pywebdav/)
+ * vobject 0.8.0 or later (http://vobject.skyhouseconsulting.com/)
+ * pywebdav 0.9.3 or later (http://sourceforge.net/projects/pywebdav/)
  * python-dateutil (http://labix.org/python-dateutil)
  * pytz (http://pytz.sourceforge.net/)
  * trytond_calendar (http://www.tryton.org/)
