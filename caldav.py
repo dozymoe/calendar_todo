@@ -14,12 +14,13 @@ def mk_prop_response(self, uri, good_props, bad_props, doc):
     if not parent_uri:
         return res
     dbname, parent_uri = TrytonDAVInterface.get_dburi(parent_uri)
-    if  parent_uri in ('Calendars', 'Calendars/'):
-        vc = doc.createElement('vtodo-collection')
-        vc.setAttribute('xmlns', 'http://groupdav.org/')
-        cols = res.getElementsByTagName('D:collection')
-        if cols:
-            cols[0].parentNode.appendChild(vc)
+    #Disable groupdav attribute for iPhone
+    #if  parent_uri in ('Calendars', 'Calendars/'):
+    #    vc = doc.createElement('vtodo-collection')
+    #    vc.setAttribute('xmlns', 'http://groupdav.org/')
+    #    cols = res.getElementsByTagName('D:collection')
+    #    if cols:
+    #        cols[0].parentNode.appendChild(vc)
     return res
 
 propfind.PROPFIND.mk_prop_response = mk_prop_response
