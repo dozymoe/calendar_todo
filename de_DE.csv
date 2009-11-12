@@ -46,7 +46,7 @@ field,"calendar.todo.rrule,calendar_rrule",0,Calendar RRule,Kalender WRegel,0
 field,"calendar.todo.rrule,rec_name",0,Name,Name,0
 field,"calendar.todo,rrules",0,Recurrence Rules,Wiederholungsregeln,0
 field,"calendar.todo.rrule,todo",0,Todo,Aufgabe,0
-field,"calendar.todo,sequence",0,Sequence,Sequenz,0
+field,"calendar.todo,sequence",0,Sequence,Revision,0
 field,"calendar.todo,status",0,Status,Status,0
 field,"calendar.todo,summary",0,Summary,Zusammenfassung,0
 field,"calendar.todo,timezone",0,Timezone,Zeitzone,0
