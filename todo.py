@@ -20,7 +20,7 @@ class Todo(ModelSQL, ModelView):
     _rec_name = 'uuid'
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar',
-            required=True, select=1)
+            required=True, select=1, ondelete="CASCADE")
     alarms = fields.One2Many('calendar.todo.alarm', 'todo', 'Alarms')
     classification = fields.Selection([
         ('public', 'Public'),
