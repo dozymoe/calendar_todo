@@ -50,7 +50,8 @@ class Todo(ModelSQL, ModelView):
                 'invisible': "bool(parent)",
             }, depends=['uuid', 'calendar', 'parent'])
     recurrence = fields.DateTime('Recurrence', select=1, states={
-                'invisible': "not bool(parent)",
+                'invisible': "not bool(globals().get('_parent_parent'))",
+                'required': "bool(globals().get('_parent_parent'))",
                 }, depends=['parent'])
     sequence = fields.Integer('Sequence')
     parent = fields.Many2One('calendar.todo', 'Parent',
@@ -762,7 +763,7 @@ class Todo(ModelSQL, ModelView):
         if not hasattr(vtodo, 'last-modified'):
             vtodo.add('last-modified')
         vtodo.last_modified.value = date.replace(tzinfo=tzlocal).astimezone(tztodo)
-        if todo.recurrence:
+        if todo.recurrence and todo.parent:
             if not hasattr(vtodo, 'recurrence-id'):
                 vtodo.add('recurrence-id')
             if todo.all_day:
@@ -770,6 +771,8 @@ class Todo(ModelSQL, ModelView):
             else:
                 vtodo.recurrence_id.value = todo.recurrence\
                         .replace(tzinfo=tzlocal).astimezone(tztodo)
+        elif hasattr(vtodo, 'recurrence-id'):
+            del vtodo.recurrence_id
         if todo.status:
             if not hasattr(vtodo, 'status'):
                 vtodo.add('status')
