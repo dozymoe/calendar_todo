@@ -11,6 +11,7 @@ class Collection(ModelSQL, ModelView):
 
     _name = "webdav.collection"
 
+    @Cache('webdav_collection.todo')
     def todo(self, cursor, user, uri, calendar_id=False, context=None):
         '''
         Return the todo id in the uri or False
@@ -39,8 +40,6 @@ class Collection(ModelSQL, ModelView):
             if todo_ids:
                 return todo_ids[0]
         return False
-
-    todo = Cache('webdav_collection.todo')(todo)
 
     def _caldav_filter_domain_todo(self, cursor, user, filter, context=None):
         '''
