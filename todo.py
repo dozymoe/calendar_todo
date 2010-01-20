@@ -2,6 +2,7 @@
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.tools import Cache, reduce_ids
+from trytond.pyson import Not, Equal, Eval, If, Bool, In
 import uuid
 import vobject
 import dateutil.tz
@@ -29,35 +30,42 @@ class Todo(ModelSQL, ModelView):
         ], 'Classification', required=True)
     completed = fields.DateTime('Completed',
             states={
-                'readonly': "(status != 'completed')",
+                'readonly': Not(Equal(Eval('status'), 'completed')),
             }, depends=['status'])
     description = fields.Text('Description')
     dtstart = fields.DateTime('Start Date', select=1)
     location = fields.Many2One('calendar.location', 'Location')
     organizer = fields.Char('Organizer', states={
-        'required': "bool(attendees) and not bool(parent)",
+        'required': If(Bool(Eval('attendees')),
+            Not(Bool(Eval('parent'))),
+            False),
         }, depends=['attendees', 'parent'])
     attendees = fields.One2Many('calendar.todo.attendee', 'todo',
             'Attendees')
     percent_complete = fields.Integer('Percent complete',
             states={
-                'readonly': "(status not in ('needs-action', 'in-process'))",
+                'readonly': Not(In(Eval('status'),
+                    ['needs-action', 'in-process'])),
             }, depends=['status'])
     occurences = fields.One2Many('calendar.todo', 'parent', 'Occurences',
-            domain=["('uuid', '=', uuid)",
-                "('calendar', '=', calendar)"],
+            domain=[
+                ('uuid', '=', Eval('uuid')),
+                ('calendar', '=', Eval('calendar')),
+            ],
             states={
-                'invisible': "bool(parent)",
+                'invisible': Bool(Eval('parent')),
             }, depends=['uuid', 'calendar', 'parent'])
     recurrence = fields.DateTime('Recurrence', select=1, states={
-                'invisible': "not bool(globals().get('_parent_parent'))",
-                'required': "bool(globals().get('_parent_parent'))",
+                'invisible': Not(Bool(Eval('_parent_parent'))),
+                'required': Bool(Eval('_parent_parent')),
                 }, depends=['parent'])
     sequence = fields.Integer('Sequence')
     parent = fields.Many2One('calendar.todo', 'Parent',
-            domain=["('uuid', '=', uuid)",
-                "('parent', '=', False)",
-                "('calendar', '=', calendar)"],
+            domain=[
+                ('uuid', '=', Eval('uuid')),
+                ('parent', '=', False),
+                ('calendar', '=', Eval('calendar'))
+            ],
             ondelete='CASCADE', depends=['uuid', 'calendar'])
     timezone = fields.Selection('timezones', 'Timezone')
     status = fields.Selection([
@@ -75,19 +83,19 @@ class Todo(ModelSQL, ModelView):
             'todo', 'category', 'Categories')
     exdates = fields.One2Many('calendar.todo.exdate', 'todo', 'Exception Dates',
             states={
-                'invisible': "bool(parent)",
+                'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
     exrules = fields.One2Many('calendar.todo.exrule', 'todo', 'Exception Rules',
             states={
-                'invisible': "bool(parent)",
+                'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
     rdates = fields.One2Many('calendar.todo.rdate', 'todo', 'Recurrence Dates',
             states={
-                'invisible': "bool(parent)",
+                'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
     rrules = fields.One2Many('calendar.todo.rrule', 'todo', 'Recurrence Rules',
             states={
-                'invisible': "bool(parent)",
+                'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
     calendar_owner = fields.Function('get_calendar_field',
             type='many2one', relation='res.user', string='Owner',
