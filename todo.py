@@ -2,6 +2,7 @@
 #this repository contains the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.tools import reduce_ids
+from trytond.backend import TableHandler
 from trytond.pyson import Not, Equal, Eval, If, Bool, In
 import uuid
 import vobject
@@ -867,16 +868,23 @@ TodoCategory()
 
 
 class TodoRDate(ModelSQL, ModelView):
-    'Recurrence Date'
+    'Todo Recurrence Date'
     _description = __doc__
     _name = 'calendar.todo.rdate'
-    _inherits = {'calendar.rdate': 'calendar_rdate'}
+    _inherits = {'calendar.date': 'calendar_date'}
     _rec_name = 'datetime'
 
-    calendar_rdate = fields.Many2One('calendar.rdate', 'Calendar RDate',
+    calendar_date = fields.Many2One('calendar.date', 'Calendar Date',
             required=True, ondelete='CASCADE', select=1)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             select=1, required=True)
+
+    def init(self, cursor, module_name):
+        # Migration from 1.4: calendar_rdate renamed to calendar_date
+        table = TableHandler(cursor, self, module_name)
+        old_column = 'calendar_rdate'
+        if table.column_exist(old_column):
+            table.column_rename(old_column, 'calendar_date')
 
     def create(self, cursor, user, values, context=None):
         todo_obj = self.pool.get('calendar.todo')
@@ -902,11 +910,11 @@ class TodoRDate(ModelSQL, ModelView):
 
     def delete(self, cursor, user, ids, context=None):
         todo_obj = self.pool.get('calendar.todo')
-        rdate_obj = self.pool.get('calendar.rdate')
+        rdate_obj = self.pool.get('calendar.date')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_rdates = self.browse(cursor, user, ids, context=context)
-        rdate_ids = [a.calendar_rdate.id for a in todo_rdates]
+        rdate_ids = [a.calendar_date.id for a in todo_rdates]
         todo_ids = [x.todo.id for x in todo_rdates]
         if todo_ids:
             # Update write_date of todo
@@ -917,15 +925,15 @@ class TodoRDate(ModelSQL, ModelView):
         return res
 
     def _date2update(self, cursor, user, date, context=None):
-        date_obj = self.pool.get('calendar.rdate')
+        date_obj = self.pool.get('calendar.date')
         return date_obj._date2update(cursor, user, date, context=context)
 
     def date2values(self, cursor, user, date, context=None):
-        date_obj = self.pool.get('calendar.rdate')
+        date_obj = self.pool.get('calendar.date')
         return date_obj.date2values(cursor, user, date, context=context)
 
     def date2date(self, cursor, user, date, context=None):
-        date_obj = self.pool.get('calendar.rdate')
+        date_obj = self.pool.get('calendar.date')
         return date_obj.date2date(cursor, user, date, context=context)
 
 TodoRDate()
