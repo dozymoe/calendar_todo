@@ -30,6 +30,7 @@ setup(name='trytond_calendar_todo',
     package_dir={'trytond.modules.calendar_todo': '.'},
     packages=[
         'trytond.modules.calendar_todo',
+        'trytond.modules.calendar_todo.tests',
     ],
     package_data={
         'trytond.modules.calendar_todo': info.get('xml', []) \
@@ -58,4 +59,6 @@ setup(name='trytond_calendar_todo',
     [trytond.modules]
     calendar_todo = trytond.modules.calendar_todo
     """,
+    test_suite='tests',
+    test_loader='trytond.test_loader:Loader',
 )
