@@ -883,6 +883,8 @@ class TodoRDate(ModelSQL, ModelView):
         if table.column_exist(old_column):
             table.column_rename(old_column, 'calendar_date')
 
+        return super(TodoRDate, self).init(cursor, module_name)
+
     def create(self, cursor, user, values, context=None):
         todo_obj = self.pool.get('calendar.todo')
         if values.get('todo'):
