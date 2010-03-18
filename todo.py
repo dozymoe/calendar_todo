@@ -147,7 +147,7 @@ class Todo(ModelSQL, ModelView):
         user_ = user_obj.browse(cursor, user, user, context=context)
         return user_.timezone
 
-    def on_change_status(self, cursor, user, ids, vals, context=None):
+    def on_change_status(self, cursor, user, vals, context=None):
         res = {}
         if 'status' not in vals:
             return res
