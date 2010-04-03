@@ -18,12 +18,11 @@ field,"calendar.todo,calendar_read_users",0,Read Users,Benutzer mit Leseberechti
 field,"calendar.todo,calendar_write_users",0,Write Users,Benutzer mit Schreibberechtigung,0
 field,"calendar.todo,categories",0,Categories,Kategorien,0
 field,"calendar.todo,classification",0,Classification,Klassifizierung,0
-field,"calendar.todo,classification_public",0,Classification Public,Öffentliche Klassifizierung,0
 field,"calendar.todo,completed",0,Completed,Abgeschlossen,0
 field,"calendar.todo,description",0,Description,Bezeichnung,0
 field,"calendar.todo,dtstart",0,Start Date,Anfangsdatum,0
 field,"calendar.todo,due",0,Due Date,Fälligkeitsdatum,0
-field,"calendar.todo.exdate,calendar_rdate",0,Calendar RDate,Kalender WDatum,0
+field,"calendar.todo.exdate,calendar_date",0,Calendar Date,Kalender Datum,0
 field,"calendar.todo.exdate,rec_name",0,Name,Name,0
 field,"calendar.todo,exdates",0,Exception Dates,Ausnahmedaten,0
 field,"calendar.todo.exdate,todo",0,Todo,Aufgabe,0
@@ -36,7 +35,7 @@ field,"calendar.todo,occurences",0,Occurences,Ereignisse,0
 field,"calendar.todo,organizer",0,Organizer,Organisator,0
 field,"calendar.todo,parent",0,Parent,Übergeordnet (Aufgabe),0
 field,"calendar.todo,percent_complete",0,Percent complete,% erledigt,0
-field,"calendar.todo.rdate,calendar_rdate",0,Calendar RDate,Kalender WDatum,0
+field,"calendar.todo.rdate,calendar_date",0,Calendar Date,Kalender Datum,0
 field,"calendar.todo.rdate,rec_name",0,Name,Name,0
 field,"calendar.todo,rdates",0,Recurrence Dates,Wiederholungsdaten,0
 field,"calendar.todo.rdate,todo",0,Todo,Aufgabe,0
@@ -59,7 +58,7 @@ model,"calendar.todo-calendar.category,name",0,Todo - Category,Aufgabe - Kategor
 model,"calendar.todo.exdate,name",0,Exception Date,Ausnahmedatum,0
 model,"calendar.todo.exrule,name",0,Exception Rule,Ausnahmeregel,0
 model,"calendar.todo,name",0,Todo,Aufgabe,0
-model,"calendar.todo.rdate,name",0,Recurrence Date,Wiederholungsdatum,0
+model,"calendar.todo.rdate,name",0,Todo Recurrence Date,Aufgabe Wiederholungsdatum,0
 model,"calendar.todo.rrule,name",0,Recurrence Rule,Wiederholungsregel,0
 model,"ir.action,name",act_todo_form,Todos,Aufgaben,0
 model,"ir.action,name",act_todo_form2,Todos,Aufgaben,0
