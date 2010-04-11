@@ -18,12 +18,11 @@ field,"calendar.todo,calendar_read_users",0,Read Users,Utilisateurs en lecture,0
 field,"calendar.todo,calendar_write_users",0,Write Users,Utilisateurs en écriture,0
 field,"calendar.todo,categories",0,Categories,Catégories,0
 field,"calendar.todo,classification",0,Classification,Classification,0
-field,"calendar.todo,classification_public",0,Classification Public,Classification publique,0
 field,"calendar.todo,completed",0,Completed,Complété,0
 field,"calendar.todo,description",0,Description,Description,0
 field,"calendar.todo,dtstart",0,Start Date,Date de début,0
 field,"calendar.todo,due",0,Due Date,Date d'échéance,0
-field,"calendar.todo.exdate,calendar_rdate",0,Calendar RDate,Date de récurrence,0
+field,"calendar.todo.exdate,calendar_date",0,Calendar Date,Date calendrier,0
 field,"calendar.todo.exdate,rec_name",0,Name,Nom,0
 field,"calendar.todo,exdates",0,Exception Dates,Dates d'exception,0
 field,"calendar.todo.exdate,todo",0,Todo,Tâche,0
@@ -32,16 +31,16 @@ field,"calendar.todo.exrule,rec_name",0,Name,Nom,0
 field,"calendar.todo,exrules",0,Exception Rules,Règles d'exception,0
 field,"calendar.todo.exrule,todo",0,Todo,Tâche,0
 field,"calendar.todo,location",0,Location,Emplacement,0
+field,"calendar.todo,occurences",0,Occurences,Occurrences,0
 field,"calendar.todo,organizer",0,Organizer,Organisateur,0
 field,"calendar.todo,parent",0,Parent,Parent,0
 field,"calendar.todo,percent_complete",0,Percent complete,Pourcentage effectué,0
-field,"calendar.todo.rdate,calendar_rdate",0,Calendar RDate,Date de récurrence,0
+field,"calendar.todo.rdate,calendar_date",0,Calendar Date,Date calendrier,0
 field,"calendar.todo.rdate,rec_name",0,Name,Nom,0
 field,"calendar.todo,rdates",0,Recurrence Dates,Dates de récurrence,0
 field,"calendar.todo.rdate,todo",0,Todo,Tâche,0
 field,"calendar.todo,rec_name",0,Name,Nom,0
 field,"calendar.todo,recurrence",0,Recurrence,Récurrence,0
-field,"calendar.todo,recurrences",0,Recurrences,Récurrences,0
 field,"calendar.todo.rrule,calendar_rrule",0,Calendar RRule,Règle de récurrence,0
 field,"calendar.todo.rrule,rec_name",0,Name,Nom,0
 field,"calendar.todo,rrules",0,Recurrence Rules,Règles de récurrence,0
@@ -59,9 +58,12 @@ model,"calendar.todo-calendar.category,name",0,Todo - Category,Todo - Catégorie
 model,"calendar.todo.exdate,name",0,Exception Date,Date d'exception,0
 model,"calendar.todo.exrule,name",0,Exception Rule,Règle d'exception,0
 model,"calendar.todo,name",0,Todo,Tâche,0
-model,"calendar.todo.rdate,name",0,Recurrence Date,Date de récurrence,0
+model,"calendar.todo.rdate,name",0,Todo Recurrence Date,Date de récurrence,0
 model,"calendar.todo.rrule,name",0,Recurrence Rule,Règle de récurrence,0
 model,"ir.action,name",act_todo_form,Todos,Tâches,0
+model,"ir.action,name",act_todo_form2,Todos,Tâches,0
+model,"ir.action,name",act_todo_form3,Todos,Tâches,0
+model,"ir.ui.menu,name",menu_todo_form2,New Todo,Nouvelle tâche,0
 model,"ir.ui.menu,name",menu_todo_form,Todos,Tâches,0
 selection,"calendar.todo,classification",0,Confidential,Confidentiel,0
 selection,"calendar.todo,classification",0,Private,Privé,0
@@ -74,6 +76,7 @@ selection,"calendar.todo,status",0,Needs-Action,Nécessite une action,0
 view,calendar.todo,0,Attendees,Participants,0
 view,calendar.todo,0,Categories,Catégories,0
 view,calendar.todo,0,General,Général,0
+view,calendar.todo,0,Occurences,Occurrences,0
 view,calendar.todo,0,Recurrences,Récurrences,0
 view,calendar.todo,0,Todo,Tâche,0
 view,calendar.todo,0,Todos,Tâches,0
