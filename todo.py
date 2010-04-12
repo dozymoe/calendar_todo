@@ -766,11 +766,8 @@ class Todo(ModelSQL, ModelView):
         if todo.recurrence and todo.parent:
             if not hasattr(vtodo, 'recurrence-id'):
                 vtodo.add('recurrence-id')
-            if todo.all_day:
-                vtodo.recurrence_id.value = todo.recurrence.date()
-            else:
-                vtodo.recurrence_id.value = todo.recurrence\
-                        .replace(tzinfo=tzlocal).astimezone(tztodo)
+            vtodo.recurrence_id.value = todo.recurrence\
+                    .replace(tzinfo=tzlocal).astimezone(tztodo)
         elif hasattr(vtodo, 'recurrence-id'):
             del vtodo.recurrence_id
         if todo.status:
