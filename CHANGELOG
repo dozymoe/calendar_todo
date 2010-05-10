@@ -1,3 +1,5 @@
+Version 1.6.0 - 2010-05-10
+* Bug fixes (see mercurial logs for details)
 * Remove classification_public
 * Rename recurrences into occurences on calendar.todo
 
