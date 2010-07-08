@@ -324,7 +324,7 @@ class Collection(ModelSQL, ModelView):
             if todo_id:
                 try:
                     todo_obj.delete(cursor, user, todo_id, context=context)
-                except:
+                except Exception:
                     raise DAV_Forbidden
                 return 200
         return super(Collection, self).rm(cursor, user, uri, context=context,
