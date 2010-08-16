@@ -1,10 +1,11 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
-from trytond.model import ModelView, ModelSQL
-from trytond.tools import Cache, reduce_ids
-from DAV.errors import DAV_NotFound, DAV_Forbidden
 import vobject
 import urllib
+from DAV.errors import DAV_NotFound, DAV_Forbidden
+from trytond.model import ModelView, ModelSQL
+from trytond.tools import Cache, reduce_ids
+from trytond.transaction import Transaction
 
 
 class Collection(ModelSQL, ModelView):
@@ -12,15 +13,12 @@ class Collection(ModelSQL, ModelView):
     _name = "webdav.collection"
 
     @Cache('webdav_collection.todo')
-    def todo(self, cursor, user, uri, calendar_id=False, context=None):
+    def todo(self, uri, calendar_id=False):
         '''
         Return the todo id in the uri or False
 
-        :param cursor: the database cursor
-        :param user: the user id
         :param uri: the uri
         :param calendar_id: the calendar id
-        :param context: the context
         :return: todo id
             or False if there is no todo
         '''
@@ -29,26 +27,23 @@ class Collection(ModelSQL, ModelView):
         if uri and uri.startswith('Calendars/'):
             calendar, todo_uri = (uri[10:].split('/', 1) + [None])[0:2]
             if not calendar_id:
-                calendar_id = self.calendar(cursor, user, uri, context=context)
+                calendar_id = self.calendar(uri)
                 if not calendar_id:
                     return False
-            todo_ids = todo_obj.search(cursor, user, [
+            todo_ids = todo_obj.search([
                 ('calendar', '=', calendar_id),
                 ('uuid', '=', todo_uri[:-4]),
                 ('parent', '=', False),
-                ], limit=1, context=context)
+                ], limit=1)
             if todo_ids:
                 return todo_ids[0]
         return False
 
-    def _caldav_filter_domain_todo(self, cursor, user, filter, context=None):
+    def _caldav_filter_domain_todo(self, filter):
         '''
         Return a domain for caldav filter on todo
 
-        :param cursor: the database cursor
-        :param user: the user id
         :param filter: the DOM Element of filter
-        :param context: the context
         :return: a list for domain
         '''
         res = []
@@ -98,36 +93,33 @@ class Collection(ModelSQL, ModelView):
                     if not dbname:
                         continue
                     dbname == urllib.unquote_plus(dbname)
-                    if dbname != cursor.database_name:
+                    if dbname != Transaction().cursor.database_name:
                         continue
                     if uri:
                         uri = urllib.unquote_plus(uri)
-                    todo_id = self.todo(cursor, user, uri, context=context)
+                    todo_id = self.todo(uri)
                     if todo_id:
                         ids.append(todo_id)
             return [('id', 'in', ids)]
         return res
 
-    def get_childs(self, cursor, user, uri, filter=None, context=None,
-            cache=None):
+    def get_childs(self, uri, filter=None, cache=None):
         calendar_obj = self.pool.get('calendar.calendar')
         todo_obj = self.pool.get('calendar.todo')
 
-        res = super(Collection, self).get_childs(cursor, user, uri,
-                filter=filter, context=context, cache=cache)
+        res = super(Collection, self).get_childs(uri, filter=filter,
+                cache=cache)
 
         if uri and (uri not in ('Calendars', 'Calendars/')) and \
                 uri.startswith('Calendars/'):
-            calendar_id = self.calendar(cursor, user, uri, context=context)
+            calendar_id = self.calendar(uri)
             if  calendar_id and not (uri[10:].split('/', 1) + [None])[1]:
-                domain = self._caldav_filter_domain_todo(cursor, user, filter,
-                        context=context)
-                todo_ids = todo_obj.search(cursor, user, [
+                domain = self._caldav_filter_domain_todo(filter)
+                todo_ids = todo_obj.search([
                     ('calendar', '=', calendar_id),
                     domain,
-                    ], context=context)
-                todos = todo_obj.browse(cursor, user, todo_ids,
-                        context=context)
+                    ])
+                todos = todo_obj.browse(todo_ids)
                 if cache is not None:
                     cache.setdefault('_calendar', {})
                     cache['_calendar'].setdefault(todo_obj._name, {})
@@ -137,41 +129,38 @@ class Collection(ModelSQL, ModelView):
 
         return res
 
-    def get_resourcetype(self, cursor, user, uri, context=None, cache=None):
+    def get_resourcetype(self, uri, cache=None):
         from DAV.constants import COLLECTION, OBJECT
         if uri in ('Calendars', 'Calendars/'):
             return COLLECTION
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        calendar_id = self.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
                 return COLLECTION
-            if self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context):
+            if self.todo(uri, calendar_id=calendar_id):
                 return OBJECT
-        elif self.calendar(cursor, user, uri, ics=True, context=context):
+        elif self.calendar(uri, ics=True):
             return OBJECT
-        return super(Collection, self).get_resourcetype(cursor, user, uri,
-                context=context, cache=cache)
+        return super(Collection, self).get_resourcetype(uri, cache=cache)
 
-    def get_contenttype(self, cursor, user, uri, context=None, cache=None):
-        if self.todo(cursor, user, uri, context=context) \
-                or self.calendar(cursor, user, uri, ics=True, context=context):
+    def get_contenttype(self, uri, cache=None):
+        if self.todo(uri) \
+                or self.calendar(uri, ics=True):
             return 'text/calendar'
-        return super(Collection, self).get_contenttype(cursor, user, uri,
-                context=context, cache=cache)
+        return super(Collection, self).get_contenttype(uri, cache=cache)
 
-    def get_creationdate(self, cursor, user, uri, context=None, cache=None):
+    def get_creationdate(self, uri, cache=None):
         calendar_obj = self.pool.get('calendar.calendar')
         todo_obj = self.pool.get('calendar.todo')
 
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        cursor = Transaction().cursor
+
+        calendar_id = self.calendar(uri)
         if not calendar_id:
-            calendar_id = self.calendar(cursor, user, uri, ics=True,
-                    context=context)
+            calendar_id = self.calendar(uri, ics=True)
         if calendar_id and (uri[10:].split('/', 1) + [None])[1]:
 
-            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context)
+            todo_id = self.todo(uri, calendar_id=calendar_id)
             if todo_id:
                 if cache is not None:
                     cache.setdefault('_calendar', {})
@@ -204,17 +193,17 @@ class Collection(ModelSQL, ModelView):
                 if res is not None:
                     return res
 
-        return super(Collection, self).get_creationdate(cursor, user, uri,
-                context=context, cache=cache)
+        return super(Collection, self).get_creationdate(uri, cache=cache)
 
-    def get_lastmodified(self, cursor, user, uri, context=None, cache=None):
+    def get_lastmodified(self, uri, cache=None):
         calendar_obj = self.pool.get('calendar.calendar')
         todo_obj = self.pool.get('calendar.todo')
 
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        cursor = Transaction().cursor
+
+        calendar_id = self.calendar(uri)
         if calendar_id and (uri[10:].split('/', 1) + [None])[1]:
-            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context)
+            todo_id = self.todo(uri, calendar_id=calendar_id)
             if todo_id:
                 if cache is not None:
                     cache.setdefault('_calendar', {})
@@ -252,95 +241,77 @@ class Collection(ModelSQL, ModelView):
                 if res is not None:
                     return res
 
-        return super(Collection, self).get_lastmodified(cursor, user, uri,
-                context=context, cache=cache)
+        return super(Collection, self).get_lastmodified(uri, cache=cache)
 
-    def get_data(self, cursor, user, uri, context=None, cache=None):
+    def get_data(self, uri, cache=None):
         todo_obj = self.pool.get('calendar.todo')
         calendar_obj = self.pool.get('calendar.calendar')
 
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        calendar_id = self.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
                 raise DAV_NotFound
-            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context)
+            todo_id = self.todo(uri, calendar_id=calendar_id)
             if not todo_id:
-                return super(Collection, self).get_data(cursor, user, uri,
-                        context=context, cache=cache)
-            ical = todo_obj.todo2ical(cursor, user, todo_id, context=context)
+                return super(Collection, self).get_data(uri, cache=cache)
+            ical = todo_obj.todo2ical(todo_id)
             return ical.serialize()
 
-        return super(Collection, self).get_data(cursor, user, uri,
-                context=context, cache=cache)
+        return super(Collection, self).get_data(uri, cache=cache)
 
-    def put(self, cursor, user, uri, data, content_type, context=None,
-            cache=None):
+    def put(self, uri, data, content_type, cache=None):
         todo_obj = self.pool.get('calendar.todo')
         calendar_obj = self.pool.get('calendar.calendar')
 
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        calendar_id = self.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
                 raise DAV_Forbidden
-            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context)
+            todo_id = self.todo(uri, calendar_id=calendar_id)
             ical = vobject.readOne(data)
             if not hasattr(ical, 'vtodo'):
-                return super(Collection, self).put(cursor, user, uri, data,
-                        content_type, context=context)
+                return super(Collection, self).put(uri, data, content_type)
 
             if not todo_id:
 
-                values = todo_obj.ical2values(cursor, user, None, ical,
-                        calendar_id, context=context)
-                todo_id = todo_obj.create(cursor, user, values,
-                        context=context)
-                todo = todo_obj.browse(cursor, user, todo_id,
-                        context=context)
-                calendar = calendar_obj.browse(cursor, user, calendar_id,
-                        context=context)
-                return cursor.database_name + '/Calendars/' + calendar.name + \
-                        '/' + todo.uuid + '.ics'
+                values = todo_obj.ical2values(None, ical, calendar_id)
+                todo_id = todo_obj.create(values)
+                todo = todo_obj.browse(todo_id)
+                calendar = calendar_obj.browse(calendar_id)
+                return Transaction().cursor.database_name + '/Calendars/' + \
+                        calendar.name + '/' + todo.uuid + '.ics'
             else:
-                values = todo_obj.ical2values(cursor, user, todo_id, ical,
-                        calendar_id, context=context)
-                todo_obj.write(cursor, user, todo_id, values,
-                        context=context)
+                values = todo_obj.ical2values(todo_id, ical, calendar_id)
+                todo_obj.write(todo_id, values)
                 return
 
-        return super(Collection, self).put(cursor, user, uri, data,
-                content_type, context=context)
+        return super(Collection, self).put(uri, data, content_type)
 
-    def rm(self, cursor, user, uri, context=None, cache=None):
+    def rm(self, uri, cache=None):
         todo_obj = self.pool.get('calendar.todo')
 
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        calendar_id = self.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
                 raise DAV_Forbidden
-            todo_id = self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context)
+            todo_id = self.todo(uri, calendar_id=calendar_id)
             if todo_id:
                 try:
-                    todo_obj.delete(cursor, user, todo_id, context=context)
+                    todo_obj.delete(todo_id)
                 except Exception:
                     raise DAV_Forbidden
                 return 200
-        return super(Collection, self).rm(cursor, user, uri, context=context,
-                cache=cache)
+        return super(Collection, self).rm(uri, cache=cache)
 
-    def exists(self, cursor, user, uri, context=None, cache=None):
+    def exists(self, uri, cache=None):
         if uri in ('Calendars', 'Calendars/'):
             return 1
-        calendar_id = self.calendar(cursor, user, uri, context=context)
+        calendar_id = self.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
                 return 1
-            if self.todo(cursor, user, uri, calendar_id=calendar_id,
-                    context=context):
+            if self.todo(uri, calendar_id=calendar_id):
                 return 1
-        return super(Collection, self).exists(cursor, user, uri, context=context,
-                cache=cache)
+        return super(Collection, self).exists(uri, cache=cache)
 
 Collection()

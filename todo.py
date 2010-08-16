@@ -1,17 +1,21 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
+from __future__ import with_statement
+import uuid
+import vobject
+import dateutil.tz
+import pytz
+import datetime
+import xml.dom.minidom
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.tools import reduce_ids
 from trytond.backend import TableHandler
 from trytond.pyson import Not, Equal, Eval, If, Bool, In
-import uuid
-import vobject
-import dateutil.tz
+from trytond.transaction import Transaction
+
 tzlocal = dateutil.tz.tzlocal()
 tzutc = dateutil.tz.tzutc()
-import pytz
-import datetime
-import xml.dom.minidom
+
 domimpl = xml.dom.minidom.getDOMImplementation()
 
 
@@ -119,35 +123,36 @@ class Todo(ModelSQL, ModelView):
             'invalid_recurrence': 'Recurrence can not be recurrent!',
         })
 
-    def init(self, cursor, module_name):
+    def init(self, module_name):
         # Migrate from 1.4: remove classification_public
         model_data_obj = self.pool.get('ir.model.data')
         rule_obj = self.pool.get('ir.rule')
-        model_data_ids = model_data_obj.search(cursor, 0, [
-            ('fs_id', '=', 'rule_group_read_todo_line3'),
-            ('module', '=', module_name),
-            ('inherit', '=', False),
-            ], limit=1)
-        if model_data_ids:
-            model_data = model_data_obj.browse(cursor, 0, model_data_ids[0])
-            rule_obj.delete(cursor, 0, model_data.db_id)
-        return super(Todo, self).init(cursor, module_name)
+        with Transaction().set_user(0):
+            model_data_ids = model_data_obj.search([
+                ('fs_id', '=', 'rule_group_read_todo_line3'),
+                ('module', '=', module_name),
+                ('inherit', '=', False),
+                ], limit=1)
+            if model_data_ids:
+                model_data = model_data_obj.browse(model_data_ids[0])
+                rule_obj.delete(model_data.db_id)
+        return super(Todo, self).init(module_name)
 
-    def default_uuid(self, cursor, user, context=None):
+    def default_uuid(self):
         return str(uuid.uuid4())
 
-    def default_sequence(self, cursor, user, context=None):
+    def default_sequence(self):
         return 0
 
-    def default_classification(self, cursor, user, context=None):
+    def default_classification(self):
         return 'public'
 
-    def default_timezone(self, cursor, user, context=None):
+    def default_timezone(self):
         user_obj = self.pool.get('res.user')
-        user_ = user_obj.browse(cursor, user, user, context=context)
-        return user_.timezone
+        user = user_obj.browse(Transaction().user)
+        return user.timezone
 
-    def on_change_status(self, cursor, user, vals, context=None):
+    def on_change_status(self, vals):
         res = {}
         if 'status' not in vals:
             return res
@@ -158,14 +163,14 @@ class Todo(ModelSQL, ModelView):
 
         return res
 
-    def timezones(self, cursor, user, context=None):
+    def timezones(self):
         return [(x, x) for x in pytz.common_timezones] + [('', '')]
 
-    def get_calendar_field(self, cursor, user, ids, name, context=None):
+    def get_calendar_field(self, ids, name):
         assert name in ('calendar_owner', 'calendar_read_users',
                 'calendar_write_users'), 'Invalid name'
         res = {}
-        for todo in self.browse(cursor, user, ids, context=context):
+        for todo in self.browse(ids):
             name = name[9:]
             if name in ('read_users', 'write_users'):
                 res[todo.id] = [x.id for x in todo.calendar[name]]
@@ -173,14 +178,14 @@ class Todo(ModelSQL, ModelView):
                 res[todo.id] = todo.calendar[name].id
         return res
 
-    def search_calendar_field(self, cursor, user, name, clause, context=None):
+    def search_calendar_field(self, name, clause):
         return [('calendar.' + name[9:],) + clause[1:]]
 
-    def check_recurrence(self, cursor, user, ids):
+    def check_recurrence(self, ids):
         '''
         Check the recurrence is not recurrent.
         '''
-        for todo in self.browse(cursor, user, ids):
+        for todo in self.browse(ids):
             if not todo.parent:
                 continue
             if todo.rdates \
@@ -191,12 +196,12 @@ class Todo(ModelSQL, ModelView):
                 return False
         return True
 
-    def create(self, cursor, user, values, context=None):
+    def create(self, values):
         calendar_obj = self.pool.get('calendar.calendar')
         collection_obj = self.pool.get('webdav.collection')
 
-        res = super(Todo, self).create(cursor, user, values, context=context)
-        todo = self.browse(cursor, user, res, context=context)
+        res = super(Todo, self).create(values)
+        todo = self.browse(res)
         if todo.calendar.owner \
                 and (todo.organizer == todo.calendar.owner.email \
                 or (todo.parent \
@@ -210,38 +215,38 @@ class Todo(ModelSQL, ModelView):
                         if x.status != 'declined'
                         and x.email != todo.parent.organizer]
             if attendee_emails:
-                calendar_ids = calendar_obj.search(cursor, 0, [
-                    ('owner.email', 'in', attendee_emails),
-                    ], context=context)
-                if not todo.recurrence:
-                    for calendar_id in calendar_ids:
-                        new_id = self.copy(cursor, 0, todo.id, default={
-                            'calendar': calendar_id,
-                            'occurences': False,
-                            }, context=context)
-                        for occurence in todo.occurences:
-                            self.copy(cursor, 0, occurence.id, default={
+                with Transaction().set_user(0):
+                    calendar_ids = calendar_obj.search([
+                        ('owner.email', 'in', attendee_emails),
+                        ])
+                    if not todo.recurrence:
+                        for calendar_id in calendar_ids:
+                            new_id = self.copy(todo.id, default={
                                 'calendar': calendar_id,
-                                'parent': new_id,
-                                }, context=context)
-                else:
-                    parent_ids = self.search(cursor, 0, [
-                        ('uuid', '=', todo.uuid),
-                        ('calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', todo.id),
-                        ('recurrence', '=', False),
-                        ], context=context)
-                    for parent in self.browse(cursor, 0, parent_ids,
-                            context=context):
-                        self.copy(cursor, 0, todo.id, default={
-                            'calendar': parent.calendar.id,
-                            'parent': parent.id,
-                            }, context=context)
+                                'occurences': False,
+                                })
+                            for occurence in todo.occurences:
+                                self.copy(occurence.id, default={
+                                    'calendar': calendar_id,
+                                    'parent': new_id,
+                                    })
+                    else:
+                        parent_ids = self.search([
+                            ('uuid', '=', todo.uuid),
+                            ('calendar.owner.email', 'in', attendee_emails),
+                            ('id', '!=', todo.id),
+                            ('recurrence', '=', False),
+                            ])
+                        for parent in self.browse(parent_ids):
+                            self.copy(todo.id, default={
+                                'calendar': parent.calendar.id,
+                                'parent': parent.id,
+                                })
         # Restart the cache for todo
-        collection_obj.todo(cursor.dbname)
+        collection_obj.todo.reset()
         return res
 
-    def _todo2update(self, cursor, user, todo, context=None):
+    def _todo2update(self, todo):
         rdate_obj = self.pool.get('calendar.todo.rdate')
         exdate_obj = self.pool.get('calendar.todo.exdate')
         rrule_obj = self.pool.get('calendar.todo.rrule')
@@ -258,32 +263,33 @@ class Todo(ModelSQL, ModelView):
         res['organizer'] = todo.organizer
         res['rdates'] = [('delete_all',)]
         for rdate in todo.rdates:
-            vals = rdate_obj._date2update(cursor, user, rdate, context=context)
+            vals = rdate_obj._date2update(rdate)
             res['rdates'].append(('create', vals))
         res['exdates'] = [('delete_all',)]
         for exdate in todo.exdates:
-            vals = exdate_obj._date2update(cursor, user, exdate, context=context)
+            vals = exdate_obj._date2update(exdate)
             res['exdates'].append(('create', vals))
         res['rrules'] = [('delete_all',)]
         for rrule in todo.rrules:
-            vals = rrule_obj._rule2update(cursor, user, rrule, context=context)
+            vals = rrule_obj._rule2update(rrule)
             res['rrules'].append(('create', vals))
         res['exrules'] = [('delete_all',)]
         for exrule in todo.exrules:
-            vals = exrule_obj._rule2update(cursor, user, exrule, context=context)
+            vals = exrule_obj._rule2update(exrule)
             res['exrules'].append(('create', vals))
         return res
 
-    def write(self, cursor, user, ids, values, context=None):
+    def write(self, ids, values):
         calendar_obj = self.pool.get('calendar.calendar')
         collection_obj = self.pool.get('webdav.collection')
+
+        cursor = Transaction().cursor
 
         values = values.copy()
         if 'sequence' in values:
             del values['sequence']
 
-        res = super(Todo, self).write(cursor, user, ids, values,
-                context=context)
+        res = super(Todo, self).write(ids, values)
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -295,7 +301,7 @@ class Todo(ModelSQL, ModelView):
                     'SET sequence = sequence + 1 ' \
                     'WHERE ' + red_sql, red_ids)
 
-        for todo in self.browse(cursor, user, ids, context=context):
+        for todo in self.browse(ids):
             if todo.calendar.owner \
                     and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
@@ -309,57 +315,57 @@ class Todo(ModelSQL, ModelView):
                             if x.status != 'declined'
                             and x.email != todo.parent.organizer]
                 if attendee_emails:
-                    todo_ids = self.search(cursor, 0, [
-                        ('uuid', '=', todo.uuid),
-                        ('calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', todo.id),
-                        ('recurrence', '=', todo.recurrence or False),
-                        ], context=context)
-                    for todo2 in self.browse(cursor, user, todo_ids,
-                            context=context):
-                        if todo2.calendar.owner.email in attendee_emails:
-                            attendee_emails.remove(todo2.calendar.owner.email)
-                    self.write(cursor, 0, todo_ids, self._todo2update(
-                        cursor, user, todo, context=context), context=context)
-                if attendee_emails:
-                    calendar_ids = calendar_obj.search(cursor, 0, [
-                        ('owner.email', 'in', attendee_emails),
-                        ], context=context)
-                    if not todo.recurrence:
-                        for calendar_id in calendar_ids:
-                            new_id = self.copy(cursor, 0, todo.id, default={
-                                'calendar': calendar_id,
-                                'occurences': False,
-                                }, context=context)
-                            for occurence in todo.occurences:
-                                self.copy(cursor, 0, occurence.id, default={
-                                    'calendar': calendar_id,
-                                    'parent': new_id,
-                                    }, context=context)
-                    else:
-                        parent_ids = self.search(cursor, 0, [
+                    with Transaction().set_user(0):
+                        todo_ids = self.search([
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
                             ('id', '!=', todo.id),
-                            ('recurrence', '=', False),
-                            ], context=context)
-                        for parent in self.browse(cursor, 0, parent_ids,
-                                context=context):
-                            self.copy(cursor, 0, todo.id, default={
-                                'calendar': parent.calendar.id,
-                                'parent': parent.id,
-                                }, context=context)
+                            ('recurrence', '=', todo.recurrence or False),
+                            ])
+                    for todo2 in self.browse(todo_ids):
+                        if todo2.calendar.owner.email in attendee_emails:
+                            attendee_emails.remove(todo2.calendar.owner.email)
+                    with Transaction().set_user(0):
+                        self.write(todo_ids, self._todo2update(todo))
+                if attendee_emails:
+                    with Transaction().set_user(0):
+                        calendar_ids = calendar_obj.search([
+                            ('owner.email', 'in', attendee_emails),
+                            ])
+                        if not todo.recurrence:
+                            for calendar_id in calendar_ids:
+                                new_id = self.copy(todo.id, default={
+                                    'calendar': calendar_id,
+                                    'occurences': False,
+                                    })
+                                for occurence in todo.occurences:
+                                    self.copy(occurence.id, default={
+                                        'calendar': calendar_id,
+                                        'parent': new_id,
+                                        })
+                        else:
+                            parent_ids = self.search([
+                                ('uuid', '=', todo.uuid),
+                                ('calendar.owner.email', 'in', attendee_emails),
+                                ('id', '!=', todo.id),
+                                ('recurrence', '=', False),
+                                ])
+                            for parent in self.browse(parent_ids):
+                                self.copy(todo.id, default={
+                                    'calendar': parent.calendar.id,
+                                    'parent': parent.id,
+                                    })
         # Restart the cache for todo
-        collection_obj.todo(cursor.dbname)
+        collection_obj.todo.reset()
         return res
 
-    def delete(self, cursor, user, ids, context=None):
+    def delete(self, ids):
         attendee_obj = self.pool.get('calendar.todo.attendee')
         collection_obj = self.pool.get('webdav.collection')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
-        for todo in self.browse(cursor, user, ids, context=context):
+        for todo in self.browse(ids):
             if todo.calendar.owner \
                     and (todo.organizer == todo.calendar.owner.email \
                     or (todo.parent \
@@ -371,50 +377,47 @@ class Todo(ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.parent.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    todo_ids = self.search(cursor, 0, [
-                        ('uuid', '=', todo.uuid),
-                        ('calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', todo.id),
-                        ('recurrence', '=', todo.recurrence or False),
-                        ], context=context)
-                    self.delete(cursor, 0, todo_ids, context=context)
+                    with Transaction().set_user(0):
+                        todo_ids = self.search([
+                            ('uuid', '=', todo.uuid),
+                            ('calendar.owner.email', 'in', attendee_emails),
+                            ('id', '!=', todo.id),
+                            ('recurrence', '=', todo.recurrence or False),
+                            ])
+                        self.delete(todo_ids)
             elif todo.organizer \
                     or (todo.parent and todo.parent.organizer):
                 if todo.organizer:
                     organizer = todo.organizer
                 else:
                     organizer = todo.parent.organizer
-                todo_ids = self.search(cursor, 0, [
-                    ('uuid', '=', todo.uuid),
-                    ('calendar.owner.email', '=', organizer),
-                    ('id', '!=', todo.id),
-                    ('recurrence', '=', todo.recurrence or False),
-                    ], context=context, limit=1)
-                if todo_ids:
-                    todo2 = self.browse(cursor, 0, todo_ids[0],
-                            context=context)
-                    for attendee in todo2.attendees:
-                        if attendee.email == todo.calendar.owner.email:
-                            attendee_obj.write(cursor, 0, attendee.id, {
-                                'status': 'declined',
-                                }, context=context)
-        res = super(Todo, self).delete(cursor, user, ids, context=context)
+                with Transaction().set_user(0):
+                    todo_ids = self.search([
+                        ('uuid', '=', todo.uuid),
+                        ('calendar.owner.email', '=', organizer),
+                        ('id', '!=', todo.id),
+                        ('recurrence', '=', todo.recurrence or False),
+                        ], limit=1)
+                    if todo_ids:
+                        todo2 = self.browse(todo_ids[0])
+                        for attendee in todo2.attendees:
+                            if attendee.email == todo.calendar.owner.email:
+                                attendee_obj.write(attendee.id, {
+                                    'status': 'declined',
+                                    })
+        res = super(Todo, self).delete(ids)
         # Restart the cache for todo
-        collection_obj.todo(cursor.dbname)
+        collection_obj.todo.reset()
         return res
 
-    def ical2values(self, cursor, user, todo_id, ical, calendar_id,
-            vtodo=None, context=None):
+    def ical2values(self, todo_id, ical, calendar_id, vtodo=None):
         '''
         Convert iCalendar to values for create or write
 
-        :param cursor: the database cursor
-        :param user: the user id
         :param todo_id: the todo id for write or None for create
         :param ical: a ical instance of vobject
         :param calendar_id: the calendar id of the todo
         :param vtodo: the vtodo of the ical to use if None use the first one
-        :param context: the context
         :return: a dictionary with values
         '''
         category_obj = self.pool.get('calendar.category')
@@ -438,7 +441,7 @@ class Todo(ModelSQL, ModelView):
 
         todo = None
         if todo_id:
-            todo = self.browse(cursor, user, todo_id, context=context)
+            todo = self.browse(todo_id)
         res = {}
         if not todo:
             if hasattr(vtodo, 'uid'):
@@ -505,19 +508,18 @@ class Todo(ModelSQL, ModelView):
         else:
             res['status'] = ''
         if hasattr(vtodo, 'categories'):
-            category_ids = category_obj.search(cursor, user, [
+            category_ids = category_obj.search([
                 ('name', 'in', [x for x in vtodo.categories.value]),
-                ], context=context)
-            categories = category_obj.browse(cursor, user, category_ids,
-                    context=context)
+                ])
+            categories = category_obj.browse(category_ids)
             category_names2ids = {}
             for category in categories:
                 category_names2ids[category.name] = category.id
             for category in vtodo.categories.value:
                 if category not in category_names2ids:
-                    category_ids.append(category_obj.create(cursor, user, {
+                    category_ids.append(category_obj.create({
                         'name': category,
-                        }, context=context))
+                        }))
             res['categories'] = [('set', category_ids)]
         else:
             res['categories'] = [('unlink_all',)]
@@ -530,13 +532,13 @@ class Todo(ModelSQL, ModelView):
         else:
             res['classification'] = 'public'
         if hasattr(vtodo, 'location'):
-            location_ids = location_obj.search(cursor, user, [
+            location_ids = location_obj.search([
                 ('name', '=', vtodo.location.value),
-                ], limit=1, context=context)
+                ], limit=1)
             if not location_ids:
-                location_id = location_obj.create(cursor, user, {
+                location_id = location_obj.create({
                     'name': vtodo.location.value,
-                    }, context=context)
+                    })
             else:
                 location_id = location_ids[0]
             res['location'] = location_id
@@ -561,8 +563,7 @@ class Todo(ModelSQL, ModelView):
         if hasattr(vtodo, 'attendee'):
             while vtodo.attendee_list:
                 attendee = vtodo.attendee_list.pop()
-                vals = attendee_obj.attendee2values(cursor, user, attendee,
-                        context=context)
+                vals = attendee_obj.attendee2values(attendee)
                 if vals['email'] in attendees_todel:
                     res['attendees'].append(('write',
                         attendees_todel[vals['email']], vals))
@@ -578,8 +579,7 @@ class Todo(ModelSQL, ModelView):
             while vtodo.rdate_list:
                 rdate = vtodo.rdate_list.pop()
                 for date in rdate.value:
-                    vals = rdate_obj.date2values(cursor, user, date,
-                            context=context)
+                    vals = rdate_obj.date2values(date)
                     res['rdates'].append(('create', vals))
 
         res['exdates'] = []
@@ -589,8 +589,7 @@ class Todo(ModelSQL, ModelView):
             while vtodo.exdate_list:
                 exdate = vtodo.exdate_list.pop()
                 for date in exdate.value:
-                    vals = exdate_obj.date2values(cursor, user, date,
-                            context=context)
+                    vals = exdate_obj.date2values(date)
                     res['exdates'].append(('create', vals))
 
         res['rrules'] = []
@@ -599,8 +598,7 @@ class Todo(ModelSQL, ModelView):
         if hasattr(vtodo, 'rrule'):
             while vtodo.rrule_list:
                 rrule = vtodo.rrule_list.pop()
-                vals = rrule_obj.rule2values(cursor, user, rrule,
-                        context=context)
+                vals = rrule_obj.rule2values(rrule)
                 res['rrules'].append(('create', vals))
 
         res['exrules'] = []
@@ -609,8 +607,7 @@ class Todo(ModelSQL, ModelView):
         if hasattr(vtodo, 'exrule'):
             while vtodo.exrule_list:
                 exrule = vtodo.exrule_list.pop()
-                vals = exrule_obj.rule2values(cursor, user, exrule,
-                        context=context)
+                vals = exrule_obj.rule2values(exrule)
                 res['exrules'].append(('create', vals))
 
         if todo:
@@ -620,8 +617,7 @@ class Todo(ModelSQL, ModelView):
             res.setdefault('alarms', [])
             while vtodo.valarm_list:
                 valarm = vtodo.valarm_list.pop()
-                vals = alarm_obj.valarm2values(cursor, user, valarm,
-                        context=context)
+                vals = alarm_obj.valarm2values(valarm)
                 res['alarms'].append(('create', vals))
 
         if hasattr(ical, 'vtimezone'):
@@ -645,8 +641,7 @@ class Todo(ModelSQL, ModelView):
                             == vtodo.recurrence_id.value:
                         todo_id = occurence.id
                         occurences_todel.remove(occurence.id)
-            vals = self.ical2values(cursor, user, todo_id, ical,
-                    calendar_id, vtodo=vtodo, context=context)
+            vals = self.ical2values(todo_id, ical, calendar_id, vtodo=vtodo)
             if todo:
                 vals['uuid'] = todo.uuid
             else:
@@ -661,17 +656,12 @@ class Todo(ModelSQL, ModelView):
             res['occurences'].append(('delete', occurences_todel))
         return res
 
-    def todo2ical(self, cursor, user, todo, context=None):
+    def todo2ical(self, todo):
         '''
         Return an iCalendar instance of vobject for todo
 
-        :param cursor: the database cursor
-        :param user: the user id
         :param todo: a BrowseRecord of calendar.todo
             or a calendar.todo id
-        :param calendar: a BrowseRecord of calendar.calendar
-            or a calendar.calendar id
-        :param context: the context
         :return: an iCalendar instance of vobject
         '''
         user_obj = self.pool.get('res.user')
@@ -683,13 +673,13 @@ class Todo(ModelSQL, ModelView):
         exrule_obj = self.pool.get('calendar.todo.exrule')
 
         if isinstance(todo, (int, long)):
-            todo = self.browse(cursor, user, todo, context=context)
+            todo = self.browse(todo)
 
-        user_ = user_obj.browse(cursor, user, user, context=context)
+        user = user_obj.browse(Transaction().user)
         if todo.timezone:
             tztodo = pytz.timezone(todo.timezone)
-        elif user_.timezone:
-                tztodo = pytz.timezone(user_.timezone)
+        elif user.timezone:
+                tztodo = pytz.timezone(user.timezone)
         else:
             tztodo = tzlocal
 
@@ -800,42 +790,36 @@ class Todo(ModelSQL, ModelView):
 
         vtodo.attendee_list = []
         for attendee in todo.attendees:
-            vtodo.attendee_list.append(attendee_obj.attendee2attendee(
-                cursor, user, attendee, context=context))
+            vtodo.attendee_list.append(attendee_obj.attendee2attendee(attendee))
 
         if todo.rdates:
             vtodo.add('rdate')
             vtodo.rdate.value = []
             for rdate in todo.rdates:
-                vtodo.rdate.value.append(rdate_obj.date2date(cursor, user,
-                    rdate, context=context))
+                vtodo.rdate.value.append(rdate_obj.date2date(rdate))
 
         if todo.exdates:
             vtodo.add('exdate')
             vtodo.exdate.value = []
             for exdate in todo.exdates:
-                vtodo.exdate.value.append(exdate_obj.date2date(cursor, user,
-                    exdate, context=context))
+                vtodo.exdate.value.append(exdate_obj.date2date(exdate))
 
         if todo.rrules:
             for rrule in todo.rrules:
-                vtodo.add('rrule').value = rrule_obj.rule2rule(cursor, user,
-                        rrule, context=context)
+                vtodo.add('rrule').value = rrule_obj.rule2rule(rrule)
 
         if todo.exrules:
             for exrule in todo.exrules:
-                vtodo.add('exrule').value = exrule_obj.rule2rule(cursor, user,
-                        exrule, context=context)
+                vtodo.add('exrule').value = exrule_obj.rule2rule(exrule)
 
         vtodo.valarm_list = []
         for alarm in todo.alarms:
-            valarm = alarm_obj.alarm2valarm(cursor, user, alarm,
-                    context=context)
+            valarm = alarm_obj.alarm2valarm(alarm)
             if valarm:
                 vtodo.valarm_list.append(valarm)
 
         for occurence in todo.occurences:
-            rical = self.todo2ical(cursor, user, occurence, context=context)
+            rical = self.todo2ical(occurence)
             ical.vtodo_list.append(rical.vtodo)
         return ical
 
@@ -867,64 +851,62 @@ class TodoRDate(ModelSQL, ModelView):
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             select=1, required=True)
 
-    def init(self, cursor, module_name):
+    def init(self, module_name):
+        cursor = Transaction().cursor
         # Migration from 1.4: calendar_rdate renamed to calendar_date
         table = TableHandler(cursor, self, module_name)
         old_column = 'calendar_rdate'
         if table.column_exist(old_column):
             table.column_rename(old_column, 'calendar_date')
 
-        return super(TodoRDate, self).init(cursor, module_name)
+        return super(TodoRDate, self).init(module_name)
 
-    def create(self, cursor, user, values, context=None):
+    def create(self, values):
         todo_obj = self.pool.get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
-            todo_obj.write(cursor, user, values['todo'], {}, context=context)
-        return super(TodoRDate, self).create(cursor, user, values,
-                context=context)
+            todo_obj.write(values['todo'], {})
+        return super(TodoRDate, self).create(values)
 
-    def write(self, cursor, user, ids, values, context=None):
+    def write(self, ids, values):
         todo_obj = self.pool.get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_ids = [x.todo.id for x in self.browse(cursor, user, ids,
-            context=context)]
+        todo_ids = [x.todo.id for x in self.browse(ids)]
         if values.get('todo'):
             todo_ids.append(values['todo'])
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        return super(TodoRDate, self).write(cursor, user, ids, values,
-                context=context)
+            todo_obj.write(todo_ids, {})
+        return super(TodoRDate, self).write(ids, values)
 
-    def delete(self, cursor, user, ids, context=None):
+    def delete(self, ids):
         todo_obj = self.pool.get('calendar.todo')
         rdate_obj = self.pool.get('calendar.date')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_rdates = self.browse(cursor, user, ids, context=context)
+        todo_rdates = self.browse(ids)
         rdate_ids = [a.calendar_date.id for a in todo_rdates]
         todo_ids = [x.todo.id for x in todo_rdates]
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        res = super(TodoRDate, self).delete(cursor, user, ids, context=context)
+            todo_obj.write(todo_ids, {})
+        res = super(TodoRDate, self).delete(ids)
         if rdate_ids:
-            rdate_obj.delete(cursor, user, rdate_ids, context=context)
+            rdate_obj.delete(rdate_ids)
         return res
 
-    def _date2update(self, cursor, user, date, context=None):
+    def _date2update(self, date):
         date_obj = self.pool.get('calendar.date')
-        return date_obj._date2update(cursor, user, date, context=context)
+        return date_obj._date2update(date)
 
-    def date2values(self, cursor, user, date, context=None):
+    def date2values(self, date):
         date_obj = self.pool.get('calendar.date')
-        return date_obj.date2values(cursor, user, date, context=context)
+        return date_obj.date2values(date)
 
-    def date2date(self, cursor, user, date, context=None):
+    def date2date(self, date):
         date_obj = self.pool.get('calendar.date')
-        return date_obj.date2date(cursor, user, date, context=context)
+        return date_obj.date2date(date)
 
 TodoRDate()
 
@@ -941,53 +923,52 @@ class TodoRRule(ModelSQL, ModelView):
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             select=1, required=True)
 
-    def create(self, cursor, user, values, context=None):
+    def create(self, values):
         todo_obj = self.pool.get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
-            todo_obj.write(cursor, user, values['todo'], {}, context=context)
-        return super(TodoRRule, self).create(cursor, user, values, context=context)
+            todo_obj.write(values['todo'], {})
+        return super(TodoRRule, self).create(values)
 
-    def write(self, cursor, user, ids, values, context=None):
+    def write(self, ids, values):
         todo_obj = self.pool.get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_ids = [x.todo.id for x in self.browse(cursor, user, ids,
-            context=context)]
+        todo_ids = [x.todo.id for x in self.browse(ids)]
         if values.get('todo'):
             todo_ids.append(values['todo'])
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        return super(TodoRRule, self).write(cursor, user, ids, values, context=context)
+            todo_obj.write(todo_ids, {})
+        return super(TodoRRule, self).write(ids, values)
 
-    def delete(self, cursor, user, ids, context=None):
+    def delete(self, ids):
         todo_obj = self.pool.get('calendar.todo')
         rrule_obj = self.pool.get('calendar.rrule')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_rrules = self.browse(cursor, user, ids, context=context)
+        todo_rrules = self.browse(ids)
         rrule_ids = [a.calendar_rrule.id for a in todo_rrules]
         todo_ids = [x.todo.id for x in todo_rrules]
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        res = super(TodoRRule, self).delete(cursor, user, ids, context=context)
+            todo_obj.write(todo_ids, {})
+        res = super(TodoRRule, self).delete(ids)
         if rrule_ids:
-            rrule_obj.delete(cursor, user, rrule_ids, context=context)
+            rrule_obj.delete(rrule_ids)
         return res
 
-    def _rule2update(self, cursor, user, rule, context=None):
+    def _rule2update(self, rule):
         rule_obj = self.pool.get('calendar.rrule')
-        return rule_obj._rule2update(cursor, user, rule, context=context)
+        return rule_obj._rule2update(rule)
 
-    def rule2values(self, cursor, user, rule, context=None):
+    def rule2values(self, rule):
         rule_obj = self.pool.get('calendar.rrule')
-        return rule_obj.rule2values(cursor, user, rule, context=context)
+        return rule_obj.rule2values(rule)
 
-    def rule2rule(self, cursor, user, rule, context=None):
+    def rule2rule(self, rule):
         rule_obj = self.pool.get('calendar.rrule')
-        return rule_obj.rule2rule(cursor, user, rule, context=context)
+        return rule_obj.rule2rule(rule)
 
 TodoRRule()
 
@@ -1019,15 +1000,14 @@ class TodoAttendee(ModelSQL, ModelView):
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             required=True, select=1)
 
-    def create(self, cursor, user, values, context=None):
+    def create(self, values):
         todo_obj = self.pool.get('calendar.todo')
 
         if values.get('todo'):
             # Update write_date of todo
-            todo_obj.write(cursor, user, values['todo'], {}, context=context)
-        res = super(TodoAttendee, self).create(cursor, user, values,
-                context=context)
-        attendee = self.browse(cursor, user, res, context=context)
+            todo_obj.write(values['todo'], {})
+        res = super(TodoAttendee, self).create(values)
+        attendee = self.browse(res)
         todo = attendee.todo
         if todo.calendar.owner \
                 and (todo.organizer == todo.calendar.owner.email \
@@ -1040,38 +1020,37 @@ class TodoAttendee(ModelSQL, ModelView):
                 attendee_emails = [x.email for x in todo.parent.attendees
                         if x.email != todo.parent.organizer]
             if attendee_emails:
-                todo_ids = todo_obj.search(cursor, 0, [
-                    ('uuid', '=', todo.uuid),
-                    ('calendar.owner.email', 'in', attendee_emails),
-                    ('id', '!=', todo.id),
-                    ('recurrence', '=', todo.recurrence or False),
-                    ], context=context)
-                for todo_id in todo_ids:
-                    self.copy(cursor, 0, res, default={
-                        'todo': todo_id,
-                        }, context=context)
+                with Transaction().set_user(0):
+                    todo_ids = todo_obj.search([
+                        ('uuid', '=', todo.uuid),
+                        ('calendar.owner.email', 'in', attendee_emails),
+                        ('id', '!=', todo.id),
+                        ('recurrence', '=', todo.recurrence or False),
+                        ])
+                    for todo_id in todo_ids:
+                        self.copy(res, default={
+                            'todo': todo_id,
+                            })
         return res
 
-    def write(self, cursor, user, ids, values, context=None):
+    def write(self, ids, values):
         todo_obj = self.pool.get('calendar.todo')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_ids = [x.todo.id for x in self.browse(cursor, user, ids,
-            context=context)]
+        todo_ids = [x.todo.id for x in self.browse(ids)]
         if values.get('todo'):
             todo_ids.append(values['todo'])
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
+            todo_obj.write(todo_ids, {})
 
         if 'email' in values:
             values = values.copy()
             del values['email']
 
-        res = super(TodoAttendee, self).write(cursor, user, ids, values,
-                context=context)
-        attendees = self.browse(cursor, user, ids, context=context)
+        res = super(TodoAttendee, self).write(ids, values)
+        attendees = self.browse(ids)
         for attendee in attendees:
             todo = attendee.todo
             if todo.calendar.owner \
@@ -1085,32 +1064,34 @@ class TodoAttendee(ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.parent.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    attendee_ids = self.search(cursor, 0, [
-                        ('todo.uuid', '=', todo.uuid),
-                        ('todo.calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', attendee.id),
-                        ('todo.recurrence', '=', todo.recurrence or False),
-                        ('email', '=', attendee.email),
-                        ], context=context)
-                    self.write(cursor, 0, attendee_ids, self._attendee2update(
-                        cursor, user, attendee, context=context), context=context)
+                    with Transaction().set_user(0):
+                        attendee_ids = self.search([
+                            ('todo.uuid', '=', todo.uuid),
+                            ('todo.calendar.owner.email', 'in',
+                                    attendee_emails),
+                            ('id', '!=', attendee.id),
+                            ('todo.recurrence', '=', todo.recurrence or False),
+                            ('email', '=', attendee.email),
+                            ])
+                        self.write(attendee_ids, self._attendee2update(
+                                attendee))
         return res
 
-    def delete(self, cursor, user, ids, context=None):
+    def delete(self, ids):
         todo_obj = self.pool.get('calendar.todo')
         attendee_obj = self.pool.get('calendar.attendee')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_attendees = self.browse(cursor, user, ids, context=context)
+        todo_attendees = self.browse(ids)
         calendar_attendee_ids = [a.calendar_attendee.id \
                 for a in todo_attendees]
         todo_ids = [x.todo.id for x in todo_attendees]
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
+            todo_obj.write(todo_ids, {})
 
-        for attendee in self.browse(cursor, user, ids, context=context):
+        for attendee in self.browse(ids):
             todo = attendee.todo
             if todo.calendar.owner \
                     and (todo.organizer == todo.calendar.owner.email \
@@ -1123,14 +1104,16 @@ class TodoAttendee(ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    attendee_ids = self.search(cursor, 0, [
-                        ('todo.uuid', '=', todo.uuid),
-                        ('todo.calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', attendee.id),
-                        ('todo.recurrence', '=', todo.recurrence or False),
-                        ('email', '=', attendee.email),
-                        ], context=context)
-                    self.delete(cursor, 0, attendee_ids, context=context)
+                    with Transaction().set_user(0):
+                        attendee_ids = self.search([
+                            ('todo.uuid', '=', todo.uuid),
+                            ('todo.calendar.owner.email', 'in',
+                                attendee_emails),
+                            ('id', '!=', attendee.id),
+                            ('todo.recurrence', '=', todo.recurrence or False),
+                            ('email', '=', attendee.email),
+                            ])
+                        self.delete(attendee_ids)
             elif todo.calendar.organizer \
                     and ((todo.organizer \
                     or (todo.parent and todo.parent.organizer)) \
@@ -1139,24 +1122,24 @@ class TodoAttendee(ModelSQL, ModelView):
                     organizer = todo.organizer
                 else:
                     organizer = todo.parent.organizer
-                attendee_ids = self.search(cursor, 0, [
-                    ('todo.uuid', '=', todo.uuid),
-                    ('todo.calendar.owner.email', '=', organizer),
-                    ('id', '!=', attendee.id),
-                    ('todo.recurrence', '=', todo.recurrence or False),
-                    ('email', '=', attendee.email),
-                    ], context=context)
-                if attendee_ids:
-                    self.write(cursor, 0, attendee_ids, {
-                        'status': 'declined',
-                        }, context=context)
-        res = super(TodoAttendee, self).delete(cursor, user, ids, context=context)
+                with Transaction().set_user(0):
+                    attendee_ids = self.search([
+                        ('todo.uuid', '=', todo.uuid),
+                        ('todo.calendar.owner.email', '=', organizer),
+                        ('id', '!=', attendee.id),
+                        ('todo.recurrence', '=', todo.recurrence or False),
+                        ('email', '=', attendee.email),
+                        ])
+                    if attendee_ids:
+                        self.write(attendee_ids, {
+                            'status': 'declined',
+                            })
+        res = super(TodoAttendee, self).delete(ids)
         if calendar_attendee_ids:
-            attendee_obj.delete(cursor, user, calendar_attendee_ids,
-                    context=context)
+            attendee_obj.delete(calendar_attendee_ids)
         return res
 
-    def copy(self, cursor, user, ids, default=None, context=None):
+    def copy(self, ids, default=None):
         attendee_obj = self.pool.get('calendar.attendee')
 
         int_id = False
@@ -1167,30 +1150,27 @@ class TodoAttendee(ModelSQL, ModelView):
             default = {}
         default = default.copy()
         new_ids = []
-        for attendee in self.browse(cursor, user, ids, context=context):
-            default['calendar_attendee'] = attendee_obj.copy(cursor, user,
-                    attendee.calendar_attendee.id, context=context)
-            new_id = super(TodoAttendee, self).copy(cursor, user, attendee.id,
-                    default=default, context=context)
+        for attendee in self.browse(ids):
+            default['calendar_attendee'] = attendee_obj.copy(
+                    attendee.calendar_attendee.id)
+            new_id = super(TodoAttendee, self).copy(attendee.id,
+                    default=default)
             new_ids.append(new_id)
         if int_id:
             return new_ids[0]
         return new_ids
 
-    def _attendee2update(self, cursor, user, attendee, context=None):
+    def _attendee2update(self, attendee):
         attendee_obj = self.pool.get('calendar.attendee')
-        return attendee_obj._attendee2update(cursor, user, attendee,
-                context=context)
+        return attendee_obj._attendee2update(attendee)
 
-    def attendee2values(self, cursor, user, attendee, context=None):
+    def attendee2values(self, attendee):
         attendee_obj = self.pool.get('calendar.attendee')
-        return attendee_obj.attendee2values(cursor, user, attendee,
-                context=context)
+        return attendee_obj.attendee2values(attendee)
 
-    def attendee2attendee(self, cursor, user, attendee, context=None):
+    def attendee2attendee(self, attendee):
         attendee_obj = self.pool.get('calendar.attendee')
-        return attendee_obj.attendee2attendee(cursor, user, attendee,
-                context=context)
+        return attendee_obj.attendee2attendee(attendee)
 
 TodoAttendee()
 
@@ -1206,49 +1186,47 @@ class TodoAlarm(ModelSQL):
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             required=True, select=1)
 
-    def create(self, cursor, user, values, context=None):
+    def create(self, values):
         todo_obj = self.pool.get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
-            todo_obj.write(cursor, user, values['todo'], {}, context=context)
-        return super(TodoAlarm, self).create(cursor, user, values, context=context)
+            todo_obj.write(values['todo'], {})
+        return super(TodoAlarm, self).create(values)
 
-    def write(self, cursor, user, ids, values, context=None):
+    def write(self, ids, values):
         todo_obj = self.pool.get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_ids = [x.todo.id for x in self.browse(cursor, user, ids,
-            context=context)]
+        todo_ids = [x.todo.id for x in self.browse(ids)]
         if values.get('todo'):
             todo_ids.append(values['todo'])
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        return super(TodoAlarm, self).write(cursor, user, ids, values,
-                context=context)
+            todo_obj.write(todo_ids, {})
+        return super(TodoAlarm, self).write(ids, values)
 
-    def delete(self, cursor, user, ids, context=None):
+    def delete(self, ids):
         todo_obj = self.pool.get('calendar.todo')
         alarm_obj = self.pool.get('calendar.alarm')
         if isinstance(ids, (int, long)):
             ids = [ids]
-        todo_alarms = self.browse(cursor, user, ids, context=context)
+        todo_alarms = self.browse(ids)
         alarm_ids = [a.calendar_alarm.id for a in todo_alarms]
         todo_ids = [x.todo.id for x in todo_alarms]
         if todo_ids:
             # Update write_date of todo
-            todo_obj.write(cursor, user, todo_ids, {}, context=context)
-        res = super(TodoAlarm, self).delete(cursor, user, ids, context=context)
+            todo_obj.write(todo_ids, {})
+        res = super(TodoAlarm, self).delete(ids)
         if alarm_ids:
-            alarm_obj.delete(cursor, user, alarm_ids, context=context)
+            alarm_obj.delete(alarm_ids)
         return res
 
-    def valarm2values(self, cursor, user, alarm, context=None):
+    def valarm2values(self, alarm):
         alarm_obj = self.pool.get('calendar.alarm')
-        return alarm_obj.valarm2values(cursor, user, alarm, context=context)
+        return alarm_obj.valarm2values(alarm)
 
-    def alarm2valarm(self, cursor, user, alarm, context=None):
+    def alarm2valarm(self, alarm):
         alarm_obj = self.pool.get('calendar.alarm')
-        return alarm_obj.alarm2valarm(cursor, user, alarm, context=context)
+        return alarm_obj.alarm2valarm(alarm)
 
 TodoAlarm()
