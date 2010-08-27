@@ -25,7 +25,7 @@ class CalendarTodoTestCase(unittest.TestCase):
         '''
         Test views.
         '''
-        self.assertRaises(Exception, test_view('calendar_todo'))
+        test_view('calendar_todo')
 
 def suite():
     suite = trytond.tests.test_tryton.suite()
