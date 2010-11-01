@@ -7,7 +7,7 @@
     'name_es_CO': 'Calendario de tareas',
     'name_es_ES': 'Calendario de tareas',
     'name_fr_FR' : 'Tâche Calendrier',
-    'version' : '1.7.0',
+    'version' : '1.8.0',
     'author' : 'B2CK',
     'email': 'info@b2ck.com',
     'website': 'http://www.tryton.org/',
