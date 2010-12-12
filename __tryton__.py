@@ -3,6 +3,7 @@
 #this repository contains the full copyright notices and license terms.
 {
     'name' : 'Calendar Todo',
+    'name_bg_BG' : 'Задачи за календар',
     'name_de_DE' : 'Kalender Aufgaben',
     'name_es_CO': 'Calendario de tareas',
     'name_es_ES': 'Calendario de tareas',
@@ -12,6 +13,7 @@
     'email': 'info@b2ck.com',
     'website': 'http://www.tryton.org/',
     'description': 'Add Todo support on CalDAV',
+    'description_bg_BG' : 'Добавя поддръжка на задачи в CalDAV',
     'description_de_DE' : 'Fügt Unterstützung für Aufgaben in CalDAV hinzu',
     'description_es_CO': 'Añade soporte de tareas sobre CalDAV',
     'description_es_ES': 'Añade soporte de tareas sobre CalDAV',
@@ -26,6 +28,7 @@
         'todo.xml',
     ],
     'translation': [
+        'bg_BG.csv',
         'de_DE.csv',
         'es_CO.csv',
         'es_ES.csv',
