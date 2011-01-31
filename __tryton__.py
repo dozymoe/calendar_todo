@@ -8,6 +8,7 @@
     'name_es_CO': 'Calendario de tareas',
     'name_es_ES': 'Calendario de tareas',
     'name_fr_FR' : 'Tâche Calendrier',
+    'name_ru_RU' : 'Задачи для календаря',
     'version' : '1.9.0',
     'author' : 'B2CK',
     'email': 'info@b2ck.com',
@@ -18,6 +19,7 @@
     'description_es_CO': 'Añade soporte de tareas sobre CalDAV',
     'description_es_ES': 'Añade soporte de tareas sobre CalDAV',
     'description_fr_FR': 'Ajoute la gestion des tâches au CalDAV',
+    'description_ru_RU' : 'Добавление поддержки задач для CalDAV',
     'depends' : [
         'ir',
         'res',
@@ -33,5 +35,6 @@
         'es_CO.csv',
         'es_ES.csv',
         'fr_FR.csv',
+        'ru_RU.csv',
     ],
 }

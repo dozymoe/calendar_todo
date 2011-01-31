@@ -1,0 +1,95 @@
+type,name,res_id,src,value,fuzzy
+error,calendar.todo,0,Recurrence can not be recurrent!,,0
+error,calendar.todo,0,UUID and recurrence must be unique in a calendar!,,0
+field,"calendar.todo,alarms",0,Alarms,Вызов,0
+field,"calendar.todo,attendees",0,Attendees,Участники,0
+field,"calendar.todo,calendar",0,Calendar,Календарь,0
+field,"calendar.todo,calendar_owner",0,Owner,Владелец,0
+field,"calendar.todo,calendar_read_users",0,Read Users,Пользователи могут читать,0
+field,"calendar.todo,calendar_write_users",0,Write Users,Пользователи могут писать,0
+field,"calendar.todo,categories",0,Categories,Категория,0
+field,"calendar.todo,classification",0,Classification,Классификация,0
+field,"calendar.todo,classification_public",0,Classification Public,Классификация общая,0
+field,"calendar.todo,completed",0,Completed,Выполнен,0
+field,"calendar.todo,description",0,Description,Описание,0
+field,"calendar.todo,dtstart",0,Start Date,Дата начала,0
+field,"calendar.todo,due",0,Due Date,Срок сдачи,0
+field,"calendar.todo,exdates",0,Exception Dates,Дата исключения,0
+field,"calendar.todo,exrules",0,Exception Rules,Правила исключения,0
+field,"calendar.todo,location",0,Location,Местоположение,0
+field,"calendar.todo,occurences",0,Occurences,Дополнительные задачи,0
+field,"calendar.todo,organizer",0,Organizer,Организатор,0
+field,"calendar.todo,parent",0,Parent,Основной,0
+field,"calendar.todo,percent_complete",0,Percent complete,Процент выполнения,0
+field,"calendar.todo,rdates",0,Recurrence Dates,Даты повторения,0
+field,"calendar.todo,rec_name",0,Name,Наименование,0
+field,"calendar.todo,recurrence",0,Recurrence,Повторение,0
+field,"calendar.todo,recurrences",0,Recurrences,Повторения,0
+field,"calendar.todo,rrules",0,Recurrence Rules,Правила повторения,0
+field,"calendar.todo,sequence",0,Sequence,Последовательность,0
+field,"calendar.todo,status",0,Status,Состояние,0
+field,"calendar.todo,summary",0,Summary,Резюме,0
+field,"calendar.todo,timezone",0,Timezone,Зона времени,0
+field,"calendar.todo,uuid",0,UUID,,0
+field,"calendar.todo,vtodo",0,vtodo,,0
+field,"calendar.todo-calendar.category,category",0,Category,Категории,0
+field,"calendar.todo-calendar.category,rec_name",0,Name,Наименование,0
+field,"calendar.todo-calendar.category,todo",0,To-Do,Дела,0
+field,"calendar.todo.alarm,calendar_alarm",0,Calendar Alarm,Сигнала календаря,0
+field,"calendar.todo.alarm,rec_name",0,Name,Наименование,0
+field,"calendar.todo.alarm,todo",0,Todo,Дело,0
+field,"calendar.todo.attendee,calendar_attendee",0,Calendar Attendee,Календарь участников,0
+field,"calendar.todo.attendee,rec_name",0,Name,Наименование,0
+field,"calendar.todo.attendee,todo",0,Todo,Дело,0
+field,"calendar.todo.exdate,calendar_date",0,Calendar Date,День календаря,0
+field,"calendar.todo.exdate,calendar_rdate",0,Calendar RDate,День календаря,0
+field,"calendar.todo.exdate,rec_name",0,Name,Наименование,0
+field,"calendar.todo.exdate,todo",0,Todo,Дело,0
+field,"calendar.todo.exrule,calendar_rrule",0,Calendar RRule,Правила календаря,0
+field,"calendar.todo.exrule,rec_name",0,Name,Наименование,0
+field,"calendar.todo.exrule,todo",0,Todo,Дело,0
+field,"calendar.todo.rdate,calendar_date",0,Calendar Date,День календаря,0
+field,"calendar.todo.rdate,calendar_rdate",0,Calendar RDate,День календаря,0
+field,"calendar.todo.rdate,rec_name",0,Name,Наименование,0
+field,"calendar.todo.rdate,todo",0,Todo,Дело,0
+field,"calendar.todo.rrule,calendar_rrule",0,Calendar RRule,Правила календаря,0
+field,"calendar.todo.rrule,rec_name",0,Name,Наименование,0
+field,"calendar.todo.rrule,todo",0,Todo,Дело,0
+help,"calendar.todo,uuid",0,Universally Unique Identifier,Универсальный уникальный идентификатор,0
+model,"calendar.todo,name",0,Todo,Дело,0
+model,"calendar.todo-calendar.category,name",0,Todo - Category,Категории - Дел,0
+model,"calendar.todo.alarm,name",0,Alarm,Вызов,0
+model,"calendar.todo.attendee,name",0,Attendee,Участник,0
+model,"calendar.todo.exdate,name",0,Exception Date,Дата исключения,0
+model,"calendar.todo.exrule,name",0,Exception Rule,Правило исключения,0
+model,"calendar.todo.rdate,name",0,Todo Recurrence Date,Дела повторяющиеся по дате,0
+model,"calendar.todo.rrule,name",0,Recurrence Rule,Правила повторения,0
+model,"ir.action,name",act_todo_form,Todos,,0
+model,"ir.action,name",act_todo_form2,Todos,,0
+model,"ir.action,name",act_todo_form3,Todos,,0
+model,"ir.ui.menu,name",menu_todo_form,Todos,Задачи,0
+model,"ir.ui.menu,name",menu_todo_form2,New Todo,Новая задача,0
+selection,"calendar.todo,classification",0,Confidential,Конфиденциальное,0
+selection,"calendar.todo,classification",0,Private,Личное,0
+selection,"calendar.todo,classification",0,Public,Публичное,0
+selection,"calendar.todo,status",0,,,0
+selection,"calendar.todo,status",0,Cancelled,Отмененно,0
+selection,"calendar.todo,status",0,Completed,Выполнен,0
+selection,"calendar.todo,status",0,In-Process,В процессе,0
+selection,"calendar.todo,status",0,Needs-Action,Требуется действие,0
+view,calendar.todo,0,Attendees,Участники,0
+view,calendar.todo,0,Categories,Категория,0
+view,calendar.todo,0,General,Основной,0
+view,calendar.todo,0,Occurences,Повторение,0
+view,calendar.todo,0,Todo,Дело,0
+view,calendar.todo,0,Todos,Дела,0
+view,calendar.todo.attendee,0,Attendee,Участник,0
+view,calendar.todo.attendee,0,Attendees,Участники,0
+view,calendar.todo.exdate,0,Exception Date,Дата исключения,0
+view,calendar.todo.exdate,0,Exception Dates,Дата исключения,0
+view,calendar.todo.exrule,0,Exception Rule,Правило исключения,0
+view,calendar.todo.exrule,0,Exception Rules,Правила исключения,0
+view,calendar.todo.rdate,0,Recurrence Date,Даты повторения,0
+view,calendar.todo.rdate,0,Recurrence Dates,Даты повторения,0
+view,calendar.todo.rrule,0,Recurrence Rule,Правила повторения,0
+view,calendar.todo.rrule,0,Recurrence Rules,Правила повторения,0
