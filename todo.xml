@@ -87,7 +87,6 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_todo_form">
             <field name="name">Todos</field>
             <field name="res_model">calendar.todo</field>
-            <field name="view_type">form</field>
             <field name="domain">[('parent', '=', False)]</field>
         </record>
         <record model="ir.action.act_window.view" id="act_todo_form_view1">
@@ -105,7 +104,6 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_todo_form2">
             <field name="name">Todos</field>
             <field name="res_model">calendar.todo</field>
-            <field name="view_type">form</field>
             <field name="domain">[('parent', '=', False)]</field>
         </record>
         <record model="ir.action.act_window.view" id="act_todo_form2_view1">
@@ -124,7 +122,6 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_todo_form3">
             <field name="name">Todos</field>
             <field name="res_model">calendar.todo</field>
-            <field name="view_type">form</field>
             <field name="domain">[('parent', '=', False), ('calendar', '=', Eval('active_id'))]</field>
         </record>
         <record model="ir.action.act_window.view" id="act_todo_form3_view1">
