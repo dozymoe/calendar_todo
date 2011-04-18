@@ -28,7 +28,7 @@ field,"calendar.todo,sequence",0,Sequence,Последователност,0
 field,"calendar.todo,status",0,Status,Състояние,0
 field,"calendar.todo,summary",0,Summary,Обобщено,0
 field,"calendar.todo,timezone",0,Timezone,Времева зона,0
-field,"calendar.todo,uuid",0,UUID,,0
+field,"calendar.todo,uuid",0,UUID,UUID,0
 field,"calendar.todo,vtodo",0,vtodo,,0
 field,"calendar.todo-calendar.category,category",0,Category,Категория,0
 field,"calendar.todo-calendar.category,rec_name",0,Name,Име,0
