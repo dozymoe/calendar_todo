@@ -53,7 +53,6 @@ this repository contains the full copyright notices and license terms. -->
                             <field name="description" colspan="4"/>
                         </page>
                         <page string="Categories" id="categories">
-                            <separator name="categories" colspan="4"/>
                             <field name="categories" colspan="4"/>
                         </page>
                         <page string="Attendees" id="attendees">
