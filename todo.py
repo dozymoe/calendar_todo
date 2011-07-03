@@ -12,6 +12,7 @@ from trytond.tools import reduce_ids
 from trytond.backend import TableHandler
 from trytond.pyson import Not, Equal, Eval, If, Bool, In
 from trytond.transaction import Transaction
+from trytond.pool import Pool
 
 tzlocal = dateutil.tz.tzlocal()
 tzutc = dateutil.tz.tzutc()
@@ -125,8 +126,8 @@ class Todo(ModelSQL, ModelView):
 
     def init(self, module_name):
         # Migrate from 1.4: remove classification_public
-        model_data_obj = self.pool.get('ir.model.data')
-        rule_obj = self.pool.get('ir.rule')
+        model_data_obj = Pool().get('ir.model.data')
+        rule_obj = Pool().get('ir.rule')
         with Transaction().set_user(0):
             model_data_ids = model_data_obj.search([
                 ('fs_id', '=', 'rule_group_read_todo_line3'),
@@ -148,7 +149,7 @@ class Todo(ModelSQL, ModelView):
         return 'public'
 
     def default_timezone(self):
-        user_obj = self.pool.get('res.user')
+        user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
         return user.timezone
 
@@ -197,8 +198,8 @@ class Todo(ModelSQL, ModelView):
         return True
 
     def create(self, values):
-        calendar_obj = self.pool.get('calendar.calendar')
-        collection_obj = self.pool.get('webdav.collection')
+        calendar_obj = Pool().get('calendar.calendar')
+        collection_obj = Pool().get('webdav.collection')
 
         res = super(Todo, self).create(values)
         todo = self.browse(res)
@@ -247,10 +248,11 @@ class Todo(ModelSQL, ModelView):
         return res
 
     def _todo2update(self, todo):
-        rdate_obj = self.pool.get('calendar.todo.rdate')
-        exdate_obj = self.pool.get('calendar.todo.exdate')
-        rrule_obj = self.pool.get('calendar.todo.rrule')
-        exrule_obj = self.pool.get('calendar.todo.exrule')
+        pool = Pool()
+        rdate_obj = pool.get('calendar.todo.rdate')
+        exdate_obj = pool.get('calendar.todo.exdate')
+        rrule_obj = pool.get('calendar.todo.rrule')
+        exrule_obj = pool.get('calendar.todo.exrule')
 
         res = {}
         res['summary'] = todo.summary
@@ -280,8 +282,8 @@ class Todo(ModelSQL, ModelView):
         return res
 
     def write(self, ids, values):
-        calendar_obj = self.pool.get('calendar.calendar')
-        collection_obj = self.pool.get('webdav.collection')
+        calendar_obj = Pool().get('calendar.calendar')
+        collection_obj = Pool().get('webdav.collection')
 
         cursor = Transaction().cursor
 
@@ -360,8 +362,8 @@ class Todo(ModelSQL, ModelView):
         return res
 
     def delete(self, ids):
-        attendee_obj = self.pool.get('calendar.todo.attendee')
-        collection_obj = self.pool.get('webdav.collection')
+        attendee_obj = Pool().get('calendar.todo.attendee')
+        collection_obj = Pool().get('webdav.collection')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -420,15 +422,16 @@ class Todo(ModelSQL, ModelView):
         :param vtodo: the vtodo of the ical to use if None use the first one
         :return: a dictionary with values
         '''
-        category_obj = self.pool.get('calendar.category')
-        location_obj = self.pool.get('calendar.location')
-        user_obj = self.pool.get('res.user')
-        alarm_obj = self.pool.get('calendar.todo.alarm')
-        attendee_obj = self.pool.get('calendar.todo.attendee')
-        rdate_obj = self.pool.get('calendar.todo.rdate')
-        exdate_obj = self.pool.get('calendar.todo.exdate')
-        rrule_obj = self.pool.get('calendar.todo.rrule')
-        exrule_obj = self.pool.get('calendar.todo.exrule')
+        pool = Pool()
+        category_obj = pool.get('calendar.category')
+        location_obj = pool.get('calendar.location')
+        user_obj = pool.get('res.user')
+        alarm_obj = pool.get('calendar.todo.alarm')
+        attendee_obj = pool.get('calendar.todo.attendee')
+        rdate_obj = pool.get('calendar.todo.rdate')
+        exdate_obj = pool.get('calendar.todo.exdate')
+        rrule_obj = pool.get('calendar.todo.rrule')
+        exrule_obj = pool.get('calendar.todo.exrule')
 
         vtodos = []
         if not vtodo:
@@ -664,13 +667,14 @@ class Todo(ModelSQL, ModelView):
             or a calendar.todo id
         :return: an iCalendar instance of vobject
         '''
-        user_obj = self.pool.get('res.user')
-        alarm_obj = self.pool.get('calendar.todo.alarm')
-        attendee_obj = self.pool.get('calendar.todo.attendee')
-        rdate_obj = self.pool.get('calendar.todo.rdate')
-        exdate_obj = self.pool.get('calendar.todo.exdate')
-        rrule_obj = self.pool.get('calendar.todo.rrule')
-        exrule_obj = self.pool.get('calendar.todo.exrule')
+        pool = Pool()
+        user_obj = pool.get('res.user')
+        alarm_obj = pool.get('calendar.todo.alarm')
+        attendee_obj = pool.get('calendar.todo.attendee')
+        rdate_obj = pool.get('calendar.todo.rdate')
+        exdate_obj = pool.get('calendar.todo.exdate')
+        rrule_obj = pool.get('calendar.todo.rrule')
+        exrule_obj = pool.get('calendar.todo.exrule')
 
         if isinstance(todo, (int, long)):
             todo = self.browse(todo)
@@ -862,14 +866,14 @@ class TodoRDate(ModelSQL, ModelView):
         return super(TodoRDate, self).init(module_name)
 
     def create(self, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
             todo_obj.write(values['todo'], {})
         return super(TodoRDate, self).create(values)
 
     def write(self, ids, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_ids = [x.todo.id for x in self.browse(ids)]
@@ -881,8 +885,8 @@ class TodoRDate(ModelSQL, ModelView):
         return super(TodoRDate, self).write(ids, values)
 
     def delete(self, ids):
-        todo_obj = self.pool.get('calendar.todo')
-        rdate_obj = self.pool.get('calendar.date')
+        todo_obj = Pool().get('calendar.todo')
+        rdate_obj = Pool().get('calendar.date')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_rdates = self.browse(ids)
@@ -897,15 +901,15 @@ class TodoRDate(ModelSQL, ModelView):
         return res
 
     def _date2update(self, date):
-        date_obj = self.pool.get('calendar.date')
+        date_obj = Pool().get('calendar.date')
         return date_obj._date2update(date)
 
     def date2values(self, date):
-        date_obj = self.pool.get('calendar.date')
+        date_obj = Pool().get('calendar.date')
         return date_obj.date2values(date)
 
     def date2date(self, date):
-        date_obj = self.pool.get('calendar.date')
+        date_obj = Pool().get('calendar.date')
         return date_obj.date2date(date)
 
 TodoRDate()
@@ -924,14 +928,14 @@ class TodoRRule(ModelSQL, ModelView):
             select=1, required=True)
 
     def create(self, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
             todo_obj.write(values['todo'], {})
         return super(TodoRRule, self).create(values)
 
     def write(self, ids, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_ids = [x.todo.id for x in self.browse(ids)]
@@ -943,8 +947,8 @@ class TodoRRule(ModelSQL, ModelView):
         return super(TodoRRule, self).write(ids, values)
 
     def delete(self, ids):
-        todo_obj = self.pool.get('calendar.todo')
-        rrule_obj = self.pool.get('calendar.rrule')
+        todo_obj = Pool().get('calendar.todo')
+        rrule_obj = Pool().get('calendar.rrule')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_rrules = self.browse(ids)
@@ -959,15 +963,15 @@ class TodoRRule(ModelSQL, ModelView):
         return res
 
     def _rule2update(self, rule):
-        rule_obj = self.pool.get('calendar.rrule')
+        rule_obj = Pool().get('calendar.rrule')
         return rule_obj._rule2update(rule)
 
     def rule2values(self, rule):
-        rule_obj = self.pool.get('calendar.rrule')
+        rule_obj = Pool().get('calendar.rrule')
         return rule_obj.rule2values(rule)
 
     def rule2rule(self, rule):
-        rule_obj = self.pool.get('calendar.rrule')
+        rule_obj = Pool().get('calendar.rrule')
         return rule_obj.rule2rule(rule)
 
 TodoRRule()
@@ -1001,7 +1005,7 @@ class TodoAttendee(ModelSQL, ModelView):
             required=True, select=1)
 
     def create(self, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
 
         if values.get('todo'):
             # Update write_date of todo
@@ -1034,7 +1038,7 @@ class TodoAttendee(ModelSQL, ModelView):
         return res
 
     def write(self, ids, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -1078,8 +1082,8 @@ class TodoAttendee(ModelSQL, ModelView):
         return res
 
     def delete(self, ids):
-        todo_obj = self.pool.get('calendar.todo')
-        attendee_obj = self.pool.get('calendar.attendee')
+        todo_obj = Pool().get('calendar.todo')
+        attendee_obj = Pool().get('calendar.attendee')
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -1140,7 +1144,7 @@ class TodoAttendee(ModelSQL, ModelView):
         return res
 
     def copy(self, ids, default=None):
-        attendee_obj = self.pool.get('calendar.attendee')
+        attendee_obj = Pool().get('calendar.attendee')
 
         int_id = False
         if isinstance(ids, (int, long)):
@@ -1161,15 +1165,15 @@ class TodoAttendee(ModelSQL, ModelView):
         return new_ids
 
     def _attendee2update(self, attendee):
-        attendee_obj = self.pool.get('calendar.attendee')
+        attendee_obj = Pool().get('calendar.attendee')
         return attendee_obj._attendee2update(attendee)
 
     def attendee2values(self, attendee):
-        attendee_obj = self.pool.get('calendar.attendee')
+        attendee_obj = Pool().get('calendar.attendee')
         return attendee_obj.attendee2values(attendee)
 
     def attendee2attendee(self, attendee):
-        attendee_obj = self.pool.get('calendar.attendee')
+        attendee_obj = Pool().get('calendar.attendee')
         return attendee_obj.attendee2attendee(attendee)
 
 TodoAttendee()
@@ -1187,14 +1191,14 @@ class TodoAlarm(ModelSQL):
             required=True, select=1)
 
     def create(self, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if values.get('todo'):
             # Update write_date of todo
             todo_obj.write(values['todo'], {})
         return super(TodoAlarm, self).create(values)
 
     def write(self, ids, values):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_ids = [x.todo.id for x in self.browse(ids)]
@@ -1206,8 +1210,8 @@ class TodoAlarm(ModelSQL):
         return super(TodoAlarm, self).write(ids, values)
 
     def delete(self, ids):
-        todo_obj = self.pool.get('calendar.todo')
-        alarm_obj = self.pool.get('calendar.alarm')
+        todo_obj = Pool().get('calendar.todo')
+        alarm_obj = Pool().get('calendar.alarm')
         if isinstance(ids, (int, long)):
             ids = [ids]
         todo_alarms = self.browse(ids)
@@ -1222,11 +1226,11 @@ class TodoAlarm(ModelSQL):
         return res
 
     def valarm2values(self, alarm):
-        alarm_obj = self.pool.get('calendar.alarm')
+        alarm_obj = Pool().get('calendar.alarm')
         return alarm_obj.valarm2values(alarm)
 
     def alarm2valarm(self, alarm):
-        alarm_obj = self.pool.get('calendar.alarm')
+        alarm_obj = Pool().get('calendar.alarm')
         return alarm_obj.alarm2valarm(alarm)
 
 TodoAlarm()

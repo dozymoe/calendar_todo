@@ -7,6 +7,7 @@ from trytond.model import ModelView, ModelSQL
 from trytond.tools import reduce_ids
 from trytond.transaction import Transaction
 from trytond.cache import Cache
+from trytond.pool import Pool
 
 
 class Collection(ModelSQL, ModelView):
@@ -23,7 +24,7 @@ class Collection(ModelSQL, ModelView):
         :return: todo id
             or False if there is no todo
         '''
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
 
         if uri and uri.startswith('Calendars/'):
             calendar, todo_uri = (uri[10:].split('/', 1) + [None])[0:2]
@@ -105,8 +106,8 @@ class Collection(ModelSQL, ModelView):
         return res
 
     def get_childs(self, uri, filter=None, cache=None):
-        calendar_obj = self.pool.get('calendar.calendar')
-        todo_obj = self.pool.get('calendar.todo')
+        calendar_obj = Pool().get('calendar.calendar')
+        todo_obj = Pool().get('calendar.todo')
 
         res = super(Collection, self).get_childs(uri, filter=filter,
                 cache=cache)
@@ -151,8 +152,8 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_contenttype(uri, cache=cache)
 
     def get_creationdate(self, uri, cache=None):
-        calendar_obj = self.pool.get('calendar.calendar')
-        todo_obj = self.pool.get('calendar.todo')
+        calendar_obj = Pool().get('calendar.calendar')
+        todo_obj = Pool().get('calendar.todo')
 
         cursor = Transaction().cursor
 
@@ -197,8 +198,8 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_creationdate(uri, cache=cache)
 
     def get_lastmodified(self, uri, cache=None):
-        calendar_obj = self.pool.get('calendar.calendar')
-        todo_obj = self.pool.get('calendar.todo')
+        calendar_obj = Pool().get('calendar.calendar')
+        todo_obj = Pool().get('calendar.todo')
 
         cursor = Transaction().cursor
 
@@ -245,8 +246,8 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_lastmodified(uri, cache=cache)
 
     def get_data(self, uri, cache=None):
-        todo_obj = self.pool.get('calendar.todo')
-        calendar_obj = self.pool.get('calendar.calendar')
+        todo_obj = Pool().get('calendar.todo')
+        calendar_obj = Pool().get('calendar.calendar')
 
         calendar_id = self.calendar(uri)
         if calendar_id:
@@ -261,8 +262,8 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_data(uri, cache=cache)
 
     def put(self, uri, data, content_type, cache=None):
-        todo_obj = self.pool.get('calendar.todo')
-        calendar_obj = self.pool.get('calendar.calendar')
+        todo_obj = Pool().get('calendar.todo')
+        calendar_obj = Pool().get('calendar.calendar')
 
         calendar_id = self.calendar(uri)
         if calendar_id:
@@ -289,7 +290,7 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).put(uri, data, content_type)
 
     def rm(self, uri, cache=None):
-        todo_obj = self.pool.get('calendar.todo')
+        todo_obj = Pool().get('calendar.todo')
 
         calendar_id = self.calendar(uri)
         if calendar_id:
