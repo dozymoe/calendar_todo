@@ -9,7 +9,7 @@ import xml.dom.minidom
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.tools import reduce_ids
 from trytond.backend import TableHandler
-from trytond.pyson import Not, Equal, Eval, If, Bool, In
+from trytond.pyson import Eval, If, Bool
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
@@ -34,23 +34,21 @@ class Todo(ModelSQL, ModelView):
         ('confidential', 'Confidential'),
         ], 'Classification', required=True)
     completed = fields.DateTime('Completed',
-            states={
-                'readonly': Not(Equal(Eval('status'), 'completed')),
+        states={
+            'readonly': Eval('status') != 'completed',
             }, depends=['status'])
     description = fields.Text('Description')
     dtstart = fields.DateTime('Start Date', select=1)
     location = fields.Many2One('calendar.location', 'Location')
     organizer = fields.Char('Organizer', states={
-        'required': If(Bool(Eval('attendees')),
-            Not(Bool(Eval('parent'))),
-            False),
-        }, depends=['attendees', 'parent'])
+            'required': If(Bool(Eval('attendees')),
+                ~Eval('parent'), False),
+            }, depends=['attendees', 'parent'])
     attendees = fields.One2Many('calendar.todo.attendee', 'todo',
             'Attendees')
     percent_complete = fields.Integer('Percent complete',
-            states={
-                'readonly': Not(In(Eval('status'),
-                    ['needs-action', 'in-process'])),
+        states={
+            'readonly': ~Eval('status').in_(['needs-action', 'in-process']),
             }, depends=['status'])
     occurences = fields.One2Many('calendar.todo', 'parent', 'Occurences',
             domain=[
@@ -61,9 +59,9 @@ class Todo(ModelSQL, ModelView):
                 'invisible': Bool(Eval('parent')),
             }, depends=['uuid', 'calendar', 'parent'])
     recurrence = fields.DateTime('Recurrence', select=1, states={
-                'invisible': Not(Bool(Eval('_parent_parent'))),
-                'required': Bool(Eval('_parent_parent')),
-                }, depends=['parent'])
+            'invisible': ~Eval('_parent_parent'),
+            'required': Bool(Eval('_parent_parent')),
+            }, depends=['parent'])
     sequence = fields.Integer('Sequence')
     parent = fields.Many2One('calendar.todo', 'Parent',
             domain=[
