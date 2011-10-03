@@ -10,12 +10,12 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Todos">
-                    <field name="calendar" select="1"/>
-                    <field name="summary" select="1"/>
-                    <field name="dtstart" select="1"/>
-                    <field name="due" select="1"/>
-                    <field name="status" select="2"/>
-                    <field name="percent_complete" select="2"/>
+                    <field name="calendar"/>
+                    <field name="summary"/>
+                    <field name="dtstart"/>
+                    <field name="due"/>
+                    <field name="status"/>
+                    <field name="percent_complete"/>
                 </tree>
                 ]]>
             </field>
@@ -68,12 +68,12 @@ this repository contains the full copyright notices and license terms. -->
                             <field name="exdates" colspan="2"/>
                             <field name="occurences" colspan="4">
                                 <tree string="Todos">
-                                    <field name="summary" select="1"/>
-                                    <field name="recurrence" select="1"/>
-                                    <field name="dtstart" select="2"/>
-                                    <field name="due" select="2"/>
-                                    <field name="status" select="2"/>
-                                    <field name="percent_complete" select="2"/>
+                                    <field name="summary"/>
+                                    <field name="recurrence"/>
+                                    <field name="dtstart"/>
+                                    <field name="due"/>
+                                    <field name="status"/>
+                                    <field name="percent_complete"/>
                                 </tree>
                             </field>
                         </page>
@@ -173,9 +173,9 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Attendees">
-                    <field name="todo" select="1"/>
-                    <field name="email" select="1"/>
-                    <field name="status" select="1"/>
+                    <field name="todo"/>
+                    <field name="email"/>
+                    <field name="status"/>
                 </tree>
                 ]]>
             </field>
@@ -204,9 +204,9 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Recurrence Dates">
-                    <field name="todo" select="1"/>
-                    <field name="datetime" select="1"/>
-                    <field name="date" select="2"/>
+                    <field name="todo"/>
+                    <field name="datetime"/>
+                    <field name="date"/>
                 </tree>
                 ]]>
             </field>
@@ -235,9 +235,9 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Exception Dates">
-                    <field name="todo" select="1"/>
-                    <field name="datetime" select="1"/>
-                    <field name="date" select="2"/>
+                    <field name="todo"/>
+                    <field name="datetime"/>
+                    <field name="date"/>
                 </tree>
                 ]]>
             </field>
@@ -266,8 +266,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Recurrence Rules">
-                    <field name="todo" select="1"/>
-                    <field name="freq" select="1"/>
+                    <field name="todo"/>
+                    <field name="freq"/>
                 </tree>
                 ]]>
             </field>
@@ -322,8 +322,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Exception Rules">
-                    <field name="todo" select="1"/>
-                    <field name="freq" select="1"/>
+                    <field name="todo"/>
+                    <field name="freq"/>
                 </tree>
                 ]]>
             </field>
