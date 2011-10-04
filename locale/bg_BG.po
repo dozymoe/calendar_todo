@@ -1,0 +1,355 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:calendar.todo:0"
+msgid "Recurrence can not be recurrent!"
+msgstr "Повторението не може да е периодично!"
+
+msgctxt "error:calendar.todo:0"
+msgid "UUID and recurrence must be unique in a calendar!"
+msgstr "UUID и взаимна вложеност трябва да са уникални в календар!"
+
+msgctxt "field:calendar.todo,alarms:0"
+msgid "Alarms"
+msgstr "Аларми"
+
+msgctxt "field:calendar.todo,attendees:0"
+msgid "Attendees"
+msgstr "Присъстващи"
+
+msgctxt "field:calendar.todo,calendar:0"
+msgid "Calendar"
+msgstr "Календар"
+
+msgctxt "field:calendar.todo,calendar_owner:0"
+msgid "Owner"
+msgstr "Собственик"
+
+msgctxt "field:calendar.todo,calendar_read_users:0"
+msgid "Read Users"
+msgstr "Потребители с права за четене"
+
+msgctxt "field:calendar.todo,calendar_write_users:0"
+msgid "Write Users"
+msgstr "Записване на потребители"
+
+msgctxt "field:calendar.todo,categories:0"
+msgid "Categories"
+msgstr "Категории"
+
+msgctxt "field:calendar.todo,classification:0"
+msgid "Classification"
+msgstr "Класификация"
+
+msgctxt "field:calendar.todo,completed:0"
+msgid "Completed"
+msgstr "Изпълнен"
+
+msgctxt "field:calendar.todo,description:0"
+msgid "Description"
+msgstr "Описание"
+
+msgctxt "field:calendar.todo,dtstart:0"
+msgid "Start Date"
+msgstr "Начална дата"
+
+msgctxt "field:calendar.todo,due:0"
+msgid "Due Date"
+msgstr "Дата на изпълнение"
+
+msgctxt "field:calendar.todo,exdates:0"
+msgid "Exception Dates"
+msgstr "Дати на грешките"
+
+msgctxt "field:calendar.todo,exrules:0"
+msgid "Exception Rules"
+msgstr "Правила при грешка"
+
+msgctxt "field:calendar.todo,location:0"
+msgid "Location"
+msgstr "Местоположение"
+
+msgctxt "field:calendar.todo,occurences:0"
+msgid "Occurences"
+msgstr "Събития"
+
+msgctxt "field:calendar.todo,organizer:0"
+msgid "Organizer"
+msgstr "Организатор"
+
+msgctxt "field:calendar.todo,parent:0"
+msgid "Parent"
+msgstr "Родител"
+
+msgctxt "field:calendar.todo,percent_complete:0"
+msgid "Percent complete"
+msgstr "Процент изпълнено"
+
+msgctxt "field:calendar.todo,rdates:0"
+msgid "Recurrence Dates"
+msgstr "Дати на повторяемост"
+
+msgctxt "field:calendar.todo,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo,recurrence:0"
+msgid "Recurrence"
+msgstr "Повторение"
+
+msgctxt "field:calendar.todo,rrules:0"
+msgid "Recurrence Rules"
+msgstr "Правила за повторяемост"
+
+msgctxt "field:calendar.todo,sequence:0"
+msgid "Sequence"
+msgstr "Последователност"
+
+msgctxt "field:calendar.todo,status:0"
+msgid "Status"
+msgstr "Състояние"
+
+msgctxt "field:calendar.todo,summary:0"
+msgid "Summary"
+msgstr "Обобщено"
+
+msgctxt "field:calendar.todo,timezone:0"
+msgid "Timezone"
+msgstr "Времева зона"
+
+msgctxt "field:calendar.todo,uuid:0"
+msgid "UUID"
+msgstr "UUID"
+
+msgctxt "field:calendar.todo,vtodo:0"
+msgid "vtodo"
+msgstr ""
+
+msgctxt "field:calendar.todo-calendar.category,category:0"
+msgid "Category"
+msgstr "Категория"
+
+msgctxt "field:calendar.todo-calendar.category,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo-calendar.category,todo:0"
+msgid "To-Do"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.alarm,calendar_alarm:0"
+msgid "Calendar Alarm"
+msgstr "Аларма на календар"
+
+msgctxt "field:calendar.todo.alarm,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.alarm,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.attendee,calendar_attendee:0"
+msgid "Calendar Attendee"
+msgstr "Присъстващ на календар"
+
+msgctxt "field:calendar.todo.attendee,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.attendee,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.exdate,calendar_date:0"
+msgid "Calendar Date"
+msgstr "Дата от календар"
+
+msgctxt "field:calendar.todo.exdate,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.exdate,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.exrule,calendar_rrule:0"
+msgid "Calendar RRule"
+msgstr ""
+
+msgctxt "field:calendar.todo.exrule,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.exrule,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.rdate,calendar_date:0"
+msgid "Calendar Date"
+msgstr "Дата от календар"
+
+msgctxt "field:calendar.todo.rdate,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.rdate,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "field:calendar.todo.rrule,calendar_rrule:0"
+msgid "Calendar RRule"
+msgstr ""
+
+msgctxt "field:calendar.todo.rrule,rec_name:0"
+msgid "Name"
+msgstr "Име"
+
+msgctxt "field:calendar.todo.rrule,todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "help:calendar.todo,uuid:0"
+msgid "Universally Unique Identifier"
+msgstr "Универсален иникален идентификатор"
+
+msgctxt "model:calendar.todo,name:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "model:calendar.todo-calendar.category,name:0"
+msgid "Todo - Category"
+msgstr "Задача - Категория"
+
+msgctxt "model:calendar.todo.alarm,name:0"
+msgid "Alarm"
+msgstr "Аларма"
+
+msgctxt "model:calendar.todo.attendee,name:0"
+msgid "Attendee"
+msgstr "Присъстващ"
+
+msgctxt "model:calendar.todo.exdate,name:0"
+msgid "Exception Date"
+msgstr "Дата на грешка"
+
+msgctxt "model:calendar.todo.exrule,name:0"
+msgid "Exception Rule"
+msgstr "Правило при грешка"
+
+msgctxt "model:calendar.todo.rdate,name:0"
+msgid "Todo Recurrence Date"
+msgstr "Дата на повторение на задача"
+
+msgctxt "model:calendar.todo.rrule,name:0"
+msgid "Recurrence Rule"
+msgstr "Правило за повторение"
+
+msgctxt "model:ir.action,name:act_todo_form"
+msgid "Todos"
+msgstr "Задачи"
+
+msgctxt "model:ir.action,name:act_todo_form3"
+msgid "Todos"
+msgstr "Задачи"
+
+msgctxt "model:ir.ui.menu,name:menu_todo_form"
+msgid "Todos"
+msgstr "Задачи"
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Confidential"
+msgstr "Поверителен"
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Private"
+msgstr "Частен"
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Public"
+msgstr "Публичен"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Cancelled"
+msgstr "Отказан"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Completed"
+msgstr "Изпълнен"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "In-Process"
+msgstr "Обработва се"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Needs-Action"
+msgstr "Необходимо е действие"
+
+msgctxt "view:calendar.todo.attendee:0"
+msgid "Attendee"
+msgstr "Присъстващ"
+
+msgctxt "view:calendar.todo.attendee:0"
+msgid "Attendees"
+msgstr "Присъстващи"
+
+msgctxt "view:calendar.todo.exdate:0"
+msgid "Exception Date"
+msgstr "Дата на грешка"
+
+msgctxt "view:calendar.todo.exdate:0"
+msgid "Exception Dates"
+msgstr "Дати на грешките"
+
+msgctxt "view:calendar.todo.exrule:0"
+msgid "Exception Rule"
+msgstr "Правило при грешка"
+
+msgctxt "view:calendar.todo.exrule:0"
+msgid "Exception Rules"
+msgstr "Правила при грешка"
+
+msgctxt "view:calendar.todo.rdate:0"
+msgid "Recurrence Date"
+msgstr "Повтаряща се дата"
+
+msgctxt "view:calendar.todo.rdate:0"
+msgid "Recurrence Dates"
+msgstr "Дати на повторяемост"
+
+msgctxt "view:calendar.todo.rrule:0"
+msgid "Recurrence Rule"
+msgstr "Правило за повторение"
+
+msgctxt "view:calendar.todo.rrule:0"
+msgid "Recurrence Rules"
+msgstr "Правила за повторяемост"
+
+msgctxt "view:calendar.todo:0"
+msgid "Attendees"
+msgstr "Присъстващи"
+
+msgctxt "view:calendar.todo:0"
+msgid "Categories"
+msgstr "Категории"
+
+msgctxt "view:calendar.todo:0"
+msgid "General"
+msgstr "Основен"
+
+msgctxt "view:calendar.todo:0"
+msgid "Occurences"
+msgstr "Събития"
+
+msgctxt "view:calendar.todo:0"
+msgid "Todo"
+msgstr "Задача"
+
+msgctxt "view:calendar.todo:0"
+msgid "Todos"
+msgstr "Задачи"

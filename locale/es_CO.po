@@ -1,0 +1,363 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:calendar.todo:0"
+msgid "Recurrence can not be recurrent!"
+msgstr "¡La repetición no puede repetirse!"
+
+msgctxt "error:calendar.todo:0"
+msgid "UUID and recurrence must be unique in a calendar!"
+msgstr "¡El UUID y la recurrencia deben ser únicos por calendario! "
+
+msgctxt "field:calendar.todo,alarms:0"
+msgid "Alarms"
+msgstr "Alarmas"
+
+msgctxt "field:calendar.todo,attendees:0"
+msgid "Attendees"
+msgstr "Asistentes"
+
+msgctxt "field:calendar.todo,calendar:0"
+msgid "Calendar"
+msgstr "Calendario"
+
+msgctxt "field:calendar.todo,calendar_owner:0"
+msgid "Owner"
+msgstr "Propietario"
+
+msgctxt "field:calendar.todo,calendar_read_users:0"
+msgid "Read Users"
+msgstr "Leer Usuarios"
+
+msgctxt "field:calendar.todo,calendar_write_users:0"
+msgid "Write Users"
+msgstr "Escribir Usuarios"
+
+msgctxt "field:calendar.todo,categories:0"
+msgid "Categories"
+msgstr "Categorías"
+
+msgctxt "field:calendar.todo,classification:0"
+msgid "Classification"
+msgstr "Clasificación"
+
+msgctxt "field:calendar.todo,classification_public:0"
+msgid "Classification Public"
+msgstr "Clasificación Pública"
+
+msgctxt "field:calendar.todo,completed:0"
+msgid "Completed"
+msgstr ""
+
+msgctxt "field:calendar.todo,description:0"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:calendar.todo,dtstart:0"
+msgid "Start Date"
+msgstr "Fecha Inicio"
+
+msgctxt "field:calendar.todo,due:0"
+msgid "Due Date"
+msgstr ""
+
+msgctxt "field:calendar.todo,exdates:0"
+msgid "Exception Dates"
+msgstr "Fechas de Excepción"
+
+msgctxt "field:calendar.todo,exrules:0"
+msgid "Exception Rules"
+msgstr "Reglas de Excepción"
+
+msgctxt "field:calendar.todo,location:0"
+msgid "Location"
+msgstr "Lugar"
+
+msgctxt "field:calendar.todo,occurences:0"
+msgid "Occurences"
+msgstr "Ocurrencias"
+
+msgctxt "field:calendar.todo,organizer:0"
+msgid "Organizer"
+msgstr "Organizador"
+
+msgctxt "field:calendar.todo,parent:0"
+msgid "Parent"
+msgstr "Padre"
+
+msgctxt "field:calendar.todo,percent_complete:0"
+msgid "Percent complete"
+msgstr ""
+
+msgctxt "field:calendar.todo,rdates:0"
+msgid "Recurrence Dates"
+msgstr "Fechas de Repetición"
+
+msgctxt "field:calendar.todo,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo,recurrence:0"
+msgid "Recurrence"
+msgstr "Repetición"
+
+msgctxt "field:calendar.todo,rrules:0"
+msgid "Recurrence Rules"
+msgstr "Reglas de Repetición"
+
+msgctxt "field:calendar.todo,sequence:0"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:calendar.todo,status:0"
+msgid "Status"
+msgstr "Estado"
+
+msgctxt "field:calendar.todo,summary:0"
+msgid "Summary"
+msgstr "Resumen"
+
+msgctxt "field:calendar.todo,timezone:0"
+msgid "Timezone"
+msgstr "Zona horaria"
+
+msgctxt "field:calendar.todo,uuid:0"
+msgid "UUID"
+msgstr "UUID"
+
+msgctxt "field:calendar.todo,vtodo:0"
+msgid "vtodo"
+msgstr ""
+
+msgctxt "field:calendar.todo-calendar.category,category:0"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:calendar.todo-calendar.category,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo-calendar.category,todo:0"
+msgid "To-Do"
+msgstr ""
+
+msgctxt "field:calendar.todo.alarm,calendar_alarm:0"
+msgid "Calendar Alarm"
+msgstr ""
+
+msgctxt "field:calendar.todo.alarm,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.alarm,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "field:calendar.todo.attendee,calendar_attendee:0"
+msgid "Calendar Attendee"
+msgstr ""
+
+msgctxt "field:calendar.todo.attendee,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.attendee,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "field:calendar.todo.exdate,calendar_rdate:0"
+msgid "Calendar RDate"
+msgstr ""
+
+msgctxt "field:calendar.todo.exdate,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.exdate,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "field:calendar.todo.exrule,calendar_rrule:0"
+msgid "Calendar RRule"
+msgstr ""
+
+msgctxt "field:calendar.todo.exrule,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.exrule,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "field:calendar.todo.rdate,calendar_rdate:0"
+msgid "Calendar RDate"
+msgstr ""
+
+msgctxt "field:calendar.todo.rdate,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.rdate,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "field:calendar.todo.rrule,calendar_rrule:0"
+msgid "Calendar RRule"
+msgstr ""
+
+msgctxt "field:calendar.todo.rrule,rec_name:0"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:calendar.todo.rrule,todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "help:calendar.todo,uuid:0"
+msgid "Universally Unique Identifier"
+msgstr "Identificador Único Universal"
+
+msgctxt "model:calendar.todo,name:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "model:calendar.todo-calendar.category,name:0"
+msgid "Todo - Category"
+msgstr ""
+
+msgctxt "model:calendar.todo.alarm,name:0"
+msgid "Alarm"
+msgstr "Alarma"
+
+msgctxt "model:calendar.todo.attendee,name:0"
+msgid "Attendee"
+msgstr "Asistente"
+
+msgctxt "model:calendar.todo.exdate,name:0"
+msgid "Exception Date"
+msgstr "Fecha de Excepción"
+
+msgctxt "model:calendar.todo.exrule,name:0"
+msgid "Exception Rule"
+msgstr "Regla de Excepción"
+
+msgctxt "model:calendar.todo.rdate,name:0"
+msgid "Recurrence Date"
+msgstr "Fecha de Repetición"
+
+msgctxt "model:calendar.todo.rrule,name:0"
+msgid "Recurrence Rule"
+msgstr "Regla de Repetición"
+
+msgctxt "model:ir.action,name:act_todo_form"
+msgid "Todos"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_todo_form3"
+msgid "Todos"
+msgstr "Por hacer"
+
+msgctxt "model:ir.ui.menu,name:menu_todo_form"
+msgid "Todos"
+msgstr ""
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Confidential"
+msgstr "Confidencial"
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Private"
+msgstr "Privado"
+
+msgctxt "selection:calendar.todo,classification:0"
+msgid "Public"
+msgstr "Público"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Cancelled"
+msgstr "Cancelado"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Completed"
+msgstr ""
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "In-Process"
+msgstr ""
+
+msgctxt "selection:calendar.todo,status:0"
+msgid "Needs-Action"
+msgstr ""
+
+msgctxt "view:calendar.todo.attendee:0"
+msgid "Attendee"
+msgstr "Asistente"
+
+msgctxt "view:calendar.todo.attendee:0"
+msgid "Attendees"
+msgstr "Asistentes"
+
+msgctxt "view:calendar.todo.exdate:0"
+msgid "Exception Date"
+msgstr "Fecha de Excepción"
+
+msgctxt "view:calendar.todo.exdate:0"
+msgid "Exception Dates"
+msgstr "Fechas de Excepción"
+
+msgctxt "view:calendar.todo.exrule:0"
+msgid "Exception Rule"
+msgstr "Regla de Excepción"
+
+msgctxt "view:calendar.todo.exrule:0"
+msgid "Exception Rules"
+msgstr "Reglas de Excepción"
+
+msgctxt "view:calendar.todo.rdate:0"
+msgid "Recurrence Date"
+msgstr "Fecha de Repetición"
+
+msgctxt "view:calendar.todo.rdate:0"
+msgid "Recurrence Dates"
+msgstr "Fechas de Repetición"
+
+msgctxt "view:calendar.todo.rrule:0"
+msgid "Recurrence Rule"
+msgstr "Regla de Repetición"
+
+msgctxt "view:calendar.todo.rrule:0"
+msgid "Recurrence Rules"
+msgstr "Reglas de Repetición"
+
+msgctxt "view:calendar.todo:0"
+msgid "Attendees"
+msgstr "Asistentes"
+
+msgctxt "view:calendar.todo:0"
+msgid "Categories"
+msgstr "Categorías"
+
+msgctxt "view:calendar.todo:0"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:calendar.todo:0"
+msgid "Occurences"
+msgstr "Ocurrencias"
+
+msgctxt "view:calendar.todo:0"
+msgid "Todo"
+msgstr ""
+
+msgctxt "view:calendar.todo:0"
+msgid "Todos"
+msgstr ""
+
+msgctxt "view:calendar.todo:0"
+msgid "Recurrences"
+msgstr "Repeticiones"
