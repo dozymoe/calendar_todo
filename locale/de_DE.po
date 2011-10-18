@@ -273,10 +273,6 @@ msgid "Public"
 msgstr "Öffentlich"
 
 msgctxt "selection:calendar.todo,status:0"
-msgid ""
-msgstr ""
-
-msgctxt "selection:calendar.todo,status:0"
 msgid "Cancelled"
 msgstr "Abgesagt"
 
@@ -291,6 +287,10 @@ msgstr "In Arbeit"
 msgctxt "selection:calendar.todo,status:0"
 msgid "Needs-Action"
 msgstr "Benötigt Eingriff"
+
+msgctxt "selection:calendar.todo,status:0"
+msgid ""
+msgstr ""
 
 msgctxt "view:calendar.todo.attendee:0"
 msgid "Attendee"
