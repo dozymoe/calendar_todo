@@ -4,274 +4,285 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:calendar.todo:0"
 msgid "Recurrence can not be recurrent!"
-msgstr "Una recurrencia no puede ser recurrente"
+msgstr ""
 
 msgctxt "error:calendar.todo:0"
 msgid "UUID and recurrence must be unique in a calendar!"
-msgstr "UUID y recurrencia deben ser únicos en un calendario"
+msgstr ""
 
 msgctxt "field:calendar.todo,alarms:0"
 msgid "Alarms"
-msgstr "Alarmas"
+msgstr ""
 
 msgctxt "field:calendar.todo,attendees:0"
 msgid "Attendees"
-msgstr "Asistentes"
+msgstr ""
 
 msgctxt "field:calendar.todo,calendar:0"
 msgid "Calendar"
-msgstr "Calendario"
+msgstr ""
 
 msgctxt "field:calendar.todo,calendar_owner:0"
 msgid "Owner"
-msgstr "Dueño"
+msgstr ""
 
 msgctxt "field:calendar.todo,calendar_read_users:0"
 msgid "Read Users"
-msgstr "Usuarios con lectura"
+msgstr ""
 
 msgctxt "field:calendar.todo,calendar_write_users:0"
 msgid "Write Users"
-msgstr "Usuarios con escritura"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,categories:0"
 msgid "Categories"
-msgstr "Categorías"
+msgstr "Categorieën"
 
 msgctxt "field:calendar.todo,classification:0"
 msgid "Classification"
-msgstr "Clasificación"
+msgstr ""
 
 msgctxt "field:calendar.todo,completed:0"
 msgid "Completed"
-msgstr "Completada"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,description:0"
 msgid "Description"
-msgstr "Descripción"
+msgstr "Specificatie"
 
+#, fuzzy
 msgctxt "field:calendar.todo,dtstart:0"
 msgid "Start Date"
-msgstr "Fecha inicio"
+msgstr "Start datum"
 
 msgctxt "field:calendar.todo,due:0"
 msgid "Due Date"
-msgstr "Fecha de vencimiento"
+msgstr ""
 
 msgctxt "field:calendar.todo,exdates:0"
 msgid "Exception Dates"
-msgstr "Fechas excluidas"
+msgstr ""
 
 msgctxt "field:calendar.todo,exrules:0"
 msgid "Exception Rules"
-msgstr "Reglas de excepciones"
+msgstr ""
 
 msgctxt "field:calendar.todo,location:0"
 msgid "Location"
-msgstr "Ubicación"
+msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo,occurences:0"
 msgid "Occurences"
-msgstr "Ocurrencias"
+msgstr ""
 
 msgctxt "field:calendar.todo,organizer:0"
 msgid "Organizer"
-msgstr "Organizador"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,parent:0"
 msgid "Parent"
-msgstr "Padre"
+msgstr "Bovenliggend niveau"
 
 msgctxt "field:calendar.todo,percent_complete:0"
 msgid "Percent complete"
-msgstr "Porcentaje total"
+msgstr ""
 
 msgctxt "field:calendar.todo,rdates:0"
 msgid "Recurrence Dates"
-msgstr "Fechas de recurrencia"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo,recurrence:0"
 msgid "Recurrence"
-msgstr "Recurrencia"
+msgstr ""
 
 msgctxt "field:calendar.todo,rrules:0"
 msgid "Recurrence Rules"
-msgstr "Reglas de recurrencia"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,sequence:0"
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr "Reeks"
 
 msgctxt "field:calendar.todo,status:0"
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 msgctxt "field:calendar.todo,summary:0"
 msgid "Summary"
-msgstr "Resumen"
+msgstr ""
 
 msgctxt "field:calendar.todo,timezone:0"
 msgid "Timezone"
-msgstr "Zona horaria"
+msgstr ""
 
 msgctxt "field:calendar.todo,uuid:0"
 msgid "UUID"
-msgstr "UUID"
+msgstr ""
 
 msgctxt "field:calendar.todo,vtodo:0"
 msgid "vtodo"
-msgstr "vtodo"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,category:0"
 msgid "Category"
-msgstr "Categoría"
+msgstr "Categorie"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo-calendar.category,todo:0"
 msgid "To-Do"
-msgstr "Por hacer"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,calendar_alarm:0"
 msgid "Calendar Alarm"
-msgstr "Alarma del calendario"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.alarm,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,calendar_attendee:0"
 msgid "Calendar Attendee"
-msgstr "Calendario de asistentes"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.attendee,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,calendar_date:0"
 msgid "Calendar Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.exdate,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,calendar_rrule:0"
 msgid "Calendar RRule"
-msgstr "Regla de recurrencia"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.exrule,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,calendar_date:0"
 msgid "Calendar Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.rdate,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,calendar_rrule:0"
 msgid "Calendar RRule"
-msgstr "Regla de recurrencia"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,rec_name:0"
 msgid "Name"
-msgstr "Nombre"
+msgstr "Naam bijlage"
 
 msgctxt "field:calendar.todo.rrule,todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "help:calendar.todo,uuid:0"
 msgid "Universally Unique Identifier"
-msgstr "Identificador universal único"
+msgstr ""
 
 msgctxt "model:calendar.todo,name:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "model:calendar.todo-calendar.category,name:0"
 msgid "Todo - Category"
-msgstr "Tarea - Categoría"
+msgstr ""
 
 msgctxt "model:calendar.todo.alarm,name:0"
 msgid "Alarm"
-msgstr "Alarma"
+msgstr ""
 
 msgctxt "model:calendar.todo.attendee,name:0"
 msgid "Attendee"
-msgstr "Asistentes"
+msgstr ""
 
 msgctxt "model:calendar.todo.exdate,name:0"
 msgid "Exception Date"
-msgstr "Fecha excluida"
+msgstr ""
 
 msgctxt "model:calendar.todo.exrule,name:0"
 msgid "Exception Rule"
-msgstr "Regla de excepción"
+msgstr ""
 
-#, fuzzy
 msgctxt "model:calendar.todo.rdate,name:0"
 msgid "Todo Recurrence Date"
-msgstr "Fecha de recurrencia"
+msgstr ""
 
 msgctxt "model:calendar.todo.rrule,name:0"
 msgid "Recurrence Rule"
-msgstr "Regla de recurrencia"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr "Tareas"
+msgstr ""
 
-#, fuzzy
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
-msgstr "Tareas"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
-msgstr "Tareas"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:0"
 msgid "Confidential"
-msgstr "Confidencial"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:0"
 msgid "Private"
-msgstr "Privado"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:0"
 msgid "Public"
-msgstr "Público"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:0"
 msgid ""
@@ -279,85 +290,82 @@ msgstr ""
 
 msgctxt "selection:calendar.todo,status:0"
 msgid "Cancelled"
-msgstr "Cancelada"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:0"
 msgid "Completed"
-msgstr "Completado"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:0"
 msgid "In-Process"
-msgstr "En proceso"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:0"
 msgid "Needs-Action"
-msgstr "Necesita una acción"
+msgstr ""
 
 msgctxt "view:calendar.todo.attendee:0"
 msgid "Attendee"
-msgstr "Asistentes"
+msgstr ""
 
 msgctxt "view:calendar.todo.attendee:0"
 msgid "Attendees"
-msgstr "Asistentes"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:0"
 msgid "Exception Date"
-msgstr "Fecha excluida"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:0"
 msgid "Exception Dates"
-msgstr "Fechas excluidas"
+msgstr ""
 
 msgctxt "view:calendar.todo.exrule:0"
 msgid "Exception Rule"
-msgstr "Regla de excepción"
+msgstr ""
 
 msgctxt "view:calendar.todo.exrule:0"
 msgid "Exception Rules"
-msgstr "Reglas de excepciones"
+msgstr ""
 
 msgctxt "view:calendar.todo.rdate:0"
 msgid "Recurrence Date"
-msgstr "Fecha de recurrencia"
+msgstr ""
 
 msgctxt "view:calendar.todo.rdate:0"
 msgid "Recurrence Dates"
-msgstr "Fechas de recurrencia"
+msgstr ""
 
 msgctxt "view:calendar.todo.rrule:0"
 msgid "Recurrence Rule"
-msgstr "Regla de recurrencia"
+msgstr ""
 
 msgctxt "view:calendar.todo.rrule:0"
 msgid "Recurrence Rules"
-msgstr "Reglas de recurrencia"
+msgstr ""
 
 msgctxt "view:calendar.todo:0"
 msgid "Attendees"
-msgstr "Asistentes"
-
-msgctxt "view:calendar.todo:0"
-msgid "Categories"
-msgstr "Categorías"
-
-msgctxt "view:calendar.todo:0"
-msgid "General"
-msgstr "General"
+msgstr ""
 
 #, fuzzy
 msgctxt "view:calendar.todo:0"
-msgid "Occurences"
-msgstr "Ocurrencias"
+msgid "Categories"
+msgstr "Categorieën"
+
+#, fuzzy
+msgctxt "view:calendar.todo:0"
+msgid "General"
+msgstr "Algemeen"
 
 msgctxt "view:calendar.todo:0"
-msgid "Recurrences"
-msgstr "Recurrencias"
+msgid "Occurences"
+msgstr ""
 
 msgctxt "view:calendar.todo:0"
 msgid "Todo"
-msgstr "Tarea"
+msgstr ""
 
 msgctxt "view:calendar.todo:0"
 msgid "Todos"
-msgstr "Tareas"
+msgstr ""

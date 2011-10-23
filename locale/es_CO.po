@@ -42,10 +42,6 @@ msgctxt "field:calendar.todo,classification:0"
 msgid "Classification"
 msgstr "Clasificación"
 
-msgctxt "field:calendar.todo,classification_public:0"
-msgid "Classification Public"
-msgstr "Clasificación Pública"
-
 msgctxt "field:calendar.todo,completed:0"
 msgid "Completed"
 msgstr ""
@@ -166,9 +162,10 @@ msgctxt "field:calendar.todo.attendee,todo:0"
 msgid "Todo"
 msgstr ""
 
-msgctxt "field:calendar.todo.exdate,calendar_rdate:0"
-msgid "Calendar RDate"
-msgstr ""
+#, fuzzy
+msgctxt "field:calendar.todo.exdate,calendar_date:0"
+msgid "Calendar Date"
+msgstr "Fecha Calendario"
 
 msgctxt "field:calendar.todo.exdate,rec_name:0"
 msgid "Name"
@@ -190,9 +187,10 @@ msgctxt "field:calendar.todo.exrule,todo:0"
 msgid "Todo"
 msgstr ""
 
-msgctxt "field:calendar.todo.rdate,calendar_rdate:0"
-msgid "Calendar RDate"
-msgstr ""
+#, fuzzy
+msgctxt "field:calendar.todo.rdate,calendar_date:0"
+msgid "Calendar Date"
+msgstr "Fecha Calendario"
 
 msgctxt "field:calendar.todo.rdate,rec_name:0"
 msgid "Name"
@@ -242,25 +240,28 @@ msgctxt "model:calendar.todo.exrule,name:0"
 msgid "Exception Rule"
 msgstr "Regla de Excepción"
 
+#, fuzzy
 msgctxt "model:calendar.todo.rdate,name:0"
-msgid "Recurrence Date"
+msgid "Todo Recurrence Date"
 msgstr "Fecha de Repetición"
 
 msgctxt "model:calendar.todo.rrule,name:0"
 msgid "Recurrence Rule"
 msgstr "Regla de Repetición"
 
+#, fuzzy
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr ""
+msgstr "Por hacer"
 
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
 msgstr "Por hacer"
 
+#, fuzzy
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
-msgstr ""
+msgstr "Por hacer"
 
 msgctxt "selection:calendar.todo,classification:0"
 msgid "Confidential"
@@ -351,13 +352,14 @@ msgid "Occurences"
 msgstr "Ocurrencias"
 
 msgctxt "view:calendar.todo:0"
+msgid "Recurrences"
+msgstr "Repeticiones"
+
+msgctxt "view:calendar.todo:0"
 msgid "Todo"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo:0"
 msgid "Todos"
-msgstr ""
-
-msgctxt "view:calendar.todo:0"
-msgid "Recurrences"
-msgstr "Repeticiones"
+msgstr "Por hacer"

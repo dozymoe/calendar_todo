@@ -42,10 +42,6 @@ msgctxt "field:calendar.todo,classification:0"
 msgid "Classification"
 msgstr "Классификация"
 
-msgctxt "field:calendar.todo,classification_public:0"
-msgid "Classification Public"
-msgstr "Классификация общая"
-
 msgctxt "field:calendar.todo,completed:0"
 msgid "Completed"
 msgstr "Выполнен"
@@ -101,10 +97,6 @@ msgstr "Наименование"
 msgctxt "field:calendar.todo,recurrence:0"
 msgid "Recurrence"
 msgstr "Повторение"
-
-msgctxt "field:calendar.todo,recurrences:0"
-msgid "Recurrences"
-msgstr "Повторения"
 
 msgctxt "field:calendar.todo,rrules:0"
 msgid "Recurrence Rules"
@@ -174,10 +166,6 @@ msgctxt "field:calendar.todo.exdate,calendar_date:0"
 msgid "Calendar Date"
 msgstr "День календаря"
 
-msgctxt "field:calendar.todo.exdate,calendar_rdate:0"
-msgid "Calendar RDate"
-msgstr "День календаря"
-
 msgctxt "field:calendar.todo.exdate,rec_name:0"
 msgid "Name"
 msgstr "Наименование"
@@ -200,10 +188,6 @@ msgstr "Дело"
 
 msgctxt "field:calendar.todo.rdate,calendar_date:0"
 msgid "Calendar Date"
-msgstr "День календаря"
-
-msgctxt "field:calendar.todo.rdate,calendar_rdate:0"
-msgid "Calendar RDate"
 msgstr "День календаря"
 
 msgctxt "field:calendar.todo.rdate,rec_name:0"
@@ -262,13 +246,15 @@ msgctxt "model:calendar.todo.rrule,name:0"
 msgid "Recurrence Rule"
 msgstr "Правила повторения"
 
+#, fuzzy
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr ""
+msgstr "Задачи"
 
+#, fuzzy
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
-msgstr ""
+msgstr "Задачи"
 
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
@@ -286,9 +272,10 @@ msgctxt "selection:calendar.todo,classification:0"
 msgid "Public"
 msgstr "Публичное"
 
+#, fuzzy
 msgctxt "selection:calendar.todo,status:0"
 msgid ""
-msgstr ""
+msgstr "Резервный счет"
 
 msgctxt "selection:calendar.todo,status:0"
 msgid "Cancelled"
