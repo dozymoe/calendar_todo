@@ -4,6 +4,7 @@
 {
     'name' : 'Calendar Todo',
     'name_bg_BG' : 'Задачи за календар',
+    'name_ca_ES': 'Calendari de tasques pendents',
     'name_de_DE' : 'Kalender Aufgaben',
     'name_es_CO': 'Calendario de tareas',
     'name_es_ES': 'Calendario de tareas',
@@ -15,6 +16,7 @@
     'website': 'http://www.tryton.org/',
     'description': 'Add Todo support on CalDAV',
     'description_bg_BG' : 'Добавя поддръжка на задачи в CalDAV',
+    'description_ca_ES' : 'Afegeix suport per tasques pendents al CalDAV.',
     'description_de_DE' : 'Fügt Unterstützung für Aufgaben in CalDAV hinzu',
     'description_es_CO': 'Añade soporte de tareas sobre CalDAV',
     'description_es_ES': 'Añade soporte de tareas sobre CalDAV',
@@ -31,6 +33,7 @@
     ],
     'translation': [
         'locale/bg_BG.po',
+        'locale/ca_ES.po',
         'locale/cs_CZ.po',
         'locale/de_DE.po',
         'locale/es_CO.po',
