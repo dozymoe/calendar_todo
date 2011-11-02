@@ -106,7 +106,6 @@ class Collection(ModelSQL, ModelView):
         return res
 
     def get_childs(self, uri, filter=None, cache=None):
-        calendar_obj = Pool().get('calendar.calendar')
         todo_obj = Pool().get('calendar.todo')
 
         res = super(Collection, self).get_childs(uri, filter=filter,
@@ -152,7 +151,6 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_contenttype(uri, cache=cache)
 
     def get_creationdate(self, uri, cache=None):
-        calendar_obj = Pool().get('calendar.calendar')
         todo_obj = Pool().get('calendar.todo')
 
         cursor = Transaction().cursor
@@ -198,7 +196,6 @@ class Collection(ModelSQL, ModelView):
         return super(Collection, self).get_creationdate(uri, cache=cache)
 
     def get_lastmodified(self, uri, cache=None):
-        calendar_obj = Pool().get('calendar.calendar')
         todo_obj = Pool().get('calendar.todo')
 
         cursor = Transaction().cursor
@@ -247,7 +244,6 @@ class Collection(ModelSQL, ModelView):
 
     def get_data(self, uri, cache=None):
         todo_obj = Pool().get('calendar.todo')
-        calendar_obj = Pool().get('calendar.calendar')
 
         calendar_id = self.calendar(uri)
         if calendar_id:

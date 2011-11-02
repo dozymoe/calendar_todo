@@ -422,7 +422,6 @@ class Todo(ModelSQL, ModelView):
         pool = Pool()
         category_obj = pool.get('calendar.category')
         location_obj = pool.get('calendar.location')
-        user_obj = pool.get('res.user')
         alarm_obj = pool.get('calendar.todo.alarm')
         attendee_obj = pool.get('calendar.todo.attendee')
         rdate_obj = pool.get('calendar.todo.rdate')
