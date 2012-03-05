@@ -26,7 +26,7 @@ class Todo(ModelSQL, ModelView):
     _rec_name = 'uuid'
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar',
-            required=True, select=1, ondelete="CASCADE")
+            required=True, select=True, ondelete="CASCADE")
     alarms = fields.One2Many('calendar.todo.alarm', 'todo', 'Alarms')
     classification = fields.Selection([
         ('public', 'Public'),
@@ -38,7 +38,7 @@ class Todo(ModelSQL, ModelView):
             'readonly': Eval('status') != 'completed',
             }, depends=['status'])
     description = fields.Text('Description')
-    dtstart = fields.DateTime('Start Date', select=1)
+    dtstart = fields.DateTime('Start Date', select=True)
     location = fields.Many2One('calendar.location', 'Location')
     organizer = fields.Char('Organizer', states={
             'required': If(Bool(Eval('attendees')),
@@ -58,7 +58,7 @@ class Todo(ModelSQL, ModelView):
             states={
                 'invisible': Bool(Eval('parent')),
             }, depends=['uuid', 'calendar', 'parent'])
-    recurrence = fields.DateTime('Recurrence', select=1, states={
+    recurrence = fields.DateTime('Recurrence', select=True, states={
             'invisible': ~Eval('_parent_parent'),
             'required': Bool(Eval('_parent_parent')),
             }, depends=['parent'])
@@ -80,8 +80,8 @@ class Todo(ModelSQL, ModelView):
         ], 'Status', on_change=['status', 'completed', 'percent_complete'])
     summary = fields.Char('Summary')
     uuid = fields.Char('UUID', required=True,
-            help='Universally Unique Identifier', select=1)
-    due = fields.DateTime('Due Date', select=1)
+            help='Universally Unique Identifier', select=True)
+    due = fields.DateTime('Due Date', select=True)
     categories = fields.Many2Many('calendar.todo-calendar.category',
             'todo', 'category', 'Categories')
     exdates = fields.One2Many('calendar.todo.exdate', 'todo', 'Exception Dates',
@@ -832,9 +832,9 @@ class TodoCategory(ModelSQL):
     _name = 'calendar.todo-calendar.category'
 
     todo = fields.Many2One('calendar.todo', 'To-Do', ondelete='CASCADE',
-            required=True, select=1)
+            required=True, select=True)
     category = fields.Many2One('calendar.category', 'Category',
-            ondelete='CASCADE', required=True, select=1)
+            ondelete='CASCADE', required=True, select=True)
 
 TodoCategory()
 
@@ -847,9 +847,9 @@ class TodoRDate(ModelSQL, ModelView):
     _rec_name = 'datetime'
 
     calendar_date = fields.Many2One('calendar.date', 'Calendar Date',
-            required=True, ondelete='CASCADE', select=1)
+            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
-            select=1, required=True)
+            select=True, required=True)
 
     def init(self, module_name):
         cursor = Transaction().cursor
@@ -919,9 +919,9 @@ class TodoRRule(ModelSQL, ModelView):
     _rec_name = 'freq'
 
     calendar_rrule = fields.Many2One('calendar.rrule', 'Calendar RRule',
-            required=True, ondelete='CASCADE', select=1)
+            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
-            select=1, required=True)
+            select=True, required=True)
 
     def create(self, values):
         todo_obj = Pool().get('calendar.todo')
@@ -996,9 +996,9 @@ class TodoAttendee(ModelSQL, ModelView):
     _inherits = {'calendar.attendee': 'calendar_attendee'}
 
     calendar_attendee = fields.Many2One('calendar.attendee',
-            'Calendar Attendee', required=True, ondelete='CASCADE', select=1)
+            'Calendar Attendee', required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
-            required=True, select=1)
+            required=True, select=True)
 
     def create(self, values):
         todo_obj = Pool().get('calendar.todo')
@@ -1182,9 +1182,9 @@ class TodoAlarm(ModelSQL):
     _inherits = {'calendar.alarm': 'calendar_alarm'}
 
     calendar_alarm = fields.Many2One('calendar.alarm', 'Calendar Alarm',
-            required=True, ondelete='CASCADE', select=1)
+            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
-            required=True, select=1)
+            required=True, select=True)
 
     def create(self, values):
         todo_obj = Pool().get('calendar.todo')
