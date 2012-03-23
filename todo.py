@@ -46,7 +46,7 @@ class Todo(ModelSQL, ModelView):
             }, depends=['attendees', 'parent'])
     attendees = fields.One2Many('calendar.todo.attendee', 'todo',
             'Attendees')
-    percent_complete = fields.Integer('Percent complete',
+    percent_complete = fields.Integer('Percent complete', required=True,
         states={
             'readonly': ~Eval('status').in_(['needs-action', 'in-process']),
             }, depends=['status'])
@@ -62,7 +62,7 @@ class Todo(ModelSQL, ModelView):
             'invisible': ~Eval('_parent_parent'),
             'required': Bool(Eval('_parent_parent')),
             }, depends=['parent'])
-    sequence = fields.Integer('Sequence')
+    sequence = fields.Integer('Sequence', required=True)
     parent = fields.Many2One('calendar.todo', 'Parent',
             domain=[
                 ('uuid', '=', Eval('uuid')),
@@ -149,6 +149,9 @@ class Todo(ModelSQL, ModelView):
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
         return user.timezone
+
+    def default_percent_complete(self):
+        return 0
 
     def on_change_status(self, vals):
         res = {}
