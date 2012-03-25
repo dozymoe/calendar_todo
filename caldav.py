@@ -2,8 +2,8 @@
 #this repository contains the full copyright notices and license terms.
 _TRYTON_RELOAD = False
 
-from DAV import propfind
-from DAV.utils import get_uriparentpath
+from pywebdav.lib import propfind
+from pywebdav.lib.utils import get_uriparentpath
 from trytond.protocols.webdav import TrytonDAVInterface
 
 _mk_prop_response = propfind.PROPFIND.mk_prop_response
