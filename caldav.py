@@ -1,7 +1,5 @@
 #This file is part of Tryton.  The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
-_TRYTON_RELOAD = False
-
 from pywebdav.lib import propfind
 from pywebdav.lib.utils import get_uriparentpath
 from trytond.protocols.webdav import TrytonDAVInterface
