@@ -17,12 +17,12 @@ class Collection(ModelSQL, ModelView):
     @Cache('webdav_collection.todo')
     def todo(self, uri, calendar_id=False):
         '''
-        Return the todo id in the uri or False
+        Return the todo id in the uri
 
         :param uri: the uri
         :param calendar_id: the calendar id
         :return: todo id
-            or False if there is no todo
+            or None if there is no todo
         '''
         todo_obj = Pool().get('calendar.todo')
 
@@ -31,15 +31,14 @@ class Collection(ModelSQL, ModelView):
             if not calendar_id:
                 calendar_id = self.calendar(uri)
                 if not calendar_id:
-                    return False
+                    return None
             todo_ids = todo_obj.search([
                 ('calendar', '=', calendar_id),
                 ('uuid', '=', todo_uri[:-4]),
-                ('parent', '=', False),
+                ('parent', '=', None),
                 ], limit=1)
             if todo_ids:
                 return todo_ids[0]
-        return False
 
     def _caldav_filter_domain_todo(self, filter):
         '''

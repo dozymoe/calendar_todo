@@ -66,7 +66,7 @@ class Todo(ModelSQL, ModelView):
     parent = fields.Many2One('calendar.todo', 'Parent',
             domain=[
                 ('uuid', '=', Eval('uuid')),
-                ('parent', '=', False),
+                ('parent', '=', None),
                 ('calendar', '=', Eval('calendar'))
             ],
             ondelete='CASCADE', depends=['uuid', 'calendar'])
@@ -129,7 +129,7 @@ class Todo(ModelSQL, ModelView):
             model_data_ids = model_data_obj.search([
                 ('fs_id', '=', 'rule_group_read_todo_line3'),
                 ('module', '=', module_name),
-                ('inherit', '=', False),
+                ('inherit', '=', None),
                 ], limit=1)
             if model_data_ids:
                 model_data = model_data_obj.browse(model_data_ids[0])
@@ -224,7 +224,7 @@ class Todo(ModelSQL, ModelView):
                         for calendar_id in calendar_ids:
                             new_id = self.copy(todo.id, default={
                                 'calendar': calendar_id,
-                                'occurences': False,
+                                'occurences': None,
                                 })
                             for occurence in todo.occurences:
                                 self.copy(occurence.id, default={
@@ -236,7 +236,7 @@ class Todo(ModelSQL, ModelView):
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
                             ('id', '!=', todo.id),
-                            ('recurrence', '=', False),
+                            ('recurrence', '=', None),
                             ])
                         for parent in self.browse(parent_ids):
                             self.copy(todo.id, default={
@@ -322,7 +322,7 @@ class Todo(ModelSQL, ModelView):
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
                             ('id', '!=', todo.id),
-                            ('recurrence', '=', todo.recurrence or False),
+                            ('recurrence', '=', todo.recurrence),
                             ])
                     for todo2 in self.browse(todo_ids):
                         if todo2.calendar.owner.email in attendee_emails:
@@ -338,7 +338,7 @@ class Todo(ModelSQL, ModelView):
                             for calendar_id in calendar_ids:
                                 new_id = self.copy(todo.id, default={
                                     'calendar': calendar_id,
-                                    'occurences': False,
+                                    'occurences': None,
                                     })
                                 for occurence in todo.occurences:
                                     self.copy(occurence.id, default={
@@ -350,7 +350,7 @@ class Todo(ModelSQL, ModelView):
                                 ('uuid', '=', todo.uuid),
                                 ('calendar.owner.email', 'in', attendee_emails),
                                 ('id', '!=', todo.id),
-                                ('recurrence', '=', False),
+                                ('recurrence', '=', None),
                                 ])
                             for parent in self.browse(parent_ids):
                                 self.copy(todo.id, default={
@@ -384,7 +384,7 @@ class Todo(ModelSQL, ModelView):
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
                             ('id', '!=', todo.id),
-                            ('recurrence', '=', todo.recurrence or False),
+                            ('recurrence', '=', todo.recurrence),
                             ])
                         self.delete(todo_ids)
             elif todo.organizer \
@@ -398,7 +398,7 @@ class Todo(ModelSQL, ModelView):
                         ('uuid', '=', todo.uuid),
                         ('calendar.owner.email', '=', organizer),
                         ('id', '!=', todo.id),
-                        ('recurrence', '=', todo.recurrence or False),
+                        ('recurrence', '=', todo.recurrence),
                         ], limit=1)
                     if todo_ids:
                         todo2 = self.browse(todo_ids[0])
@@ -453,15 +453,15 @@ class Todo(ModelSQL, ModelView):
         if hasattr(vtodo, 'summary'):
             res['summary'] = vtodo.summary.value
         else:
-            res['summary'] = False
+            res['summary'] = None
         if hasattr(vtodo, 'description'):
             res['description'] = vtodo.description.value
         else:
-            res['description'] = False
+            res['description'] = None
         if hasattr(vtodo, 'percent_complete'):
             res['percent_complete'] = int(vtodo.percent_complete.value)
         else:
-            res['percent_complete'] = False
+            res['percent_complete'] = None
 
         if hasattr(vtodo, 'completed'):
             if not isinstance(vtodo.completed.value, datetime.datetime):
@@ -504,7 +504,7 @@ class Todo(ModelSQL, ModelView):
                 else:
                     res['recurrence'] = vtodo.recurrence_id.value
         else:
-            res['recurrence'] = False
+            res['recurrence'] = None
         if hasattr(vtodo, 'status'):
             res['status'] = vtodo.status.value.lower()
         else:
@@ -545,7 +545,7 @@ class Todo(ModelSQL, ModelView):
                 location_id = location_ids[0]
             res['location'] = location_id
         else:
-            res['location'] = False
+            res['location'] = None
 
         res['calendar'] = calendar_id
 
@@ -555,7 +555,7 @@ class Todo(ModelSQL, ModelView):
             else:
                 res['organizer'] = vtodo.organizer.value
         else:
-            res['organizer'] = False
+            res['organizer'] = None
 
         attendees_todel = {}
         if todo:
@@ -1028,7 +1028,7 @@ class TodoAttendee(ModelSQL, ModelView):
                         ('uuid', '=', todo.uuid),
                         ('calendar.owner.email', 'in', attendee_emails),
                         ('id', '!=', todo.id),
-                        ('recurrence', '=', todo.recurrence or False),
+                        ('recurrence', '=', todo.recurrence),
                         ])
                     for todo_id in todo_ids:
                         self.copy(res, default={
@@ -1073,7 +1073,7 @@ class TodoAttendee(ModelSQL, ModelView):
                             ('todo.calendar.owner.email', 'in',
                                     attendee_emails),
                             ('id', '!=', attendee.id),
-                            ('todo.recurrence', '=', todo.recurrence or False),
+                            ('todo.recurrence', '=', todo.recurrence),
                             ('email', '=', attendee.email),
                             ])
                         self.write(attendee_ids, self._attendee2update(
@@ -1113,7 +1113,7 @@ class TodoAttendee(ModelSQL, ModelView):
                             ('todo.calendar.owner.email', 'in',
                                 attendee_emails),
                             ('id', '!=', attendee.id),
-                            ('todo.recurrence', '=', todo.recurrence or False),
+                            ('todo.recurrence', '=', todo.recurrence),
                             ('email', '=', attendee.email),
                             ])
                         self.delete(attendee_ids)
@@ -1130,7 +1130,7 @@ class TodoAttendee(ModelSQL, ModelView):
                         ('todo.uuid', '=', todo.uuid),
                         ('todo.calendar.owner.email', '=', organizer),
                         ('id', '!=', attendee.id),
-                        ('todo.recurrence', '=', todo.recurrence or False),
+                        ('todo.recurrence', '=', todo.recurrence),
                         ('email', '=', attendee.email),
                         ])
                     if attendee_ids:
