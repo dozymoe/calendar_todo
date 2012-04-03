@@ -167,10 +167,10 @@ class Collection(ModelSQL, ModelView):
                     ids = cache['_calendar'][todo_obj._name].keys()
                     if todo_id not in ids:
                         ids.append(todo_id)
-                    elif 'creationdate' in cache['_calendar']\
-                            [todo_obj._name][todo_id]:
-                        return cache['_calendar'][todo_obj._name]\
-                                [todo_id]['creationdate']
+                    elif 'creationdate' in cache['_calendar'][
+                            todo_obj._name][todo_id]:
+                        return cache['_calendar'][todo_obj._name][
+                            todo_id]['creationdate']
                 else:
                     ids = [todo_id]
                 res = None
@@ -187,8 +187,8 @@ class Collection(ModelSQL, ModelView):
                         if cache is not None:
                             cache['_calendar'][todo_obj._name]\
                                     .setdefault(todo_id2, {})
-                            cache['_calendar'][todo_obj._name]\
-                                    [todo_id2]['creationdate'] = date
+                            cache['_calendar'][todo_obj._name][
+                                todo_id2]['creationdate'] = date
                 if res is not None:
                     return res
 
@@ -209,15 +209,15 @@ class Collection(ModelSQL, ModelView):
                     ids = cache['_calendar'][todo_obj._name].keys()
                     if todo_id not in ids:
                         ids.append(todo_id)
-                    elif 'lastmodified' in cache['_calendar']\
-                            [todo_obj._name][todo_id]:
-                        return cache['_calendar'][todo_obj._name]\
-                                [todo_id]['lastmodified']
+                    elif 'lastmodified' in cache['_calendar'][
+                            todo_obj._name][todo_id]:
+                        return cache['_calendar'][todo_obj._name][
+                            todo_id]['lastmodified']
                 else:
                     ids = [todo_id]
                 res = None
-                for i in range(0, len(ids), cursor.IN_MAX/2):
-                    sub_ids = ids[i:i + cursor.IN_MAX/2]
+                for i in range(0, len(ids), cursor.IN_MAX / 2):
+                    sub_ids = ids[i:i + cursor.IN_MAX / 2]
                     red_id_sql, red_id_ids = reduce_ids('id', sub_ids)
                     red_parent_sql, red_parent_ids = reduce_ids('parent',
                             sub_ids)
@@ -234,8 +234,8 @@ class Collection(ModelSQL, ModelView):
                         if cache is not None:
                             cache['_calendar'][todo_obj._name]\
                                     .setdefault(todo_id2, {})
-                            cache['_calendar'][todo_obj._name]\
-                                    [todo_id2]['lastmodified'] = date
+                            cache['_calendar'][todo_obj._name][
+                                todo_id2]['lastmodified'] = date
                 if res is not None:
                     return res
 

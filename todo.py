@@ -84,13 +84,15 @@ class Todo(ModelSQL, ModelView):
     due = fields.DateTime('Due Date', select=True)
     categories = fields.Many2Many('calendar.todo-calendar.category',
             'todo', 'category', 'Categories')
-    exdates = fields.One2Many('calendar.todo.exdate', 'todo', 'Exception Dates',
-            states={
-                'invisible': Bool(Eval('parent')),
+    exdates = fields.One2Many('calendar.todo.exdate', 'todo',
+        'Exception Dates',
+        states={
+            'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
-    exrules = fields.One2Many('calendar.todo.exrule', 'todo', 'Exception Rules',
-            states={
-                'invisible': Bool(Eval('parent')),
+    exrules = fields.One2Many('calendar.todo.exrule', 'todo',
+        'Exception Rules',
+        states={
+            'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
     rdates = fields.One2Many('calendar.todo.rdate', 'todo', 'Recurrence Dates',
             states={
@@ -111,8 +113,9 @@ class Todo(ModelSQL, ModelView):
     def __init__(self):
         super(Todo, self).__init__()
         self._sql_constraints = [
+            #XXX should be unique across all componenets
             ('uuid_recurrence_uniq', 'UNIQUE(uuid, calendar, recurrence)',
-                'UUID and recurrence must be unique in a calendar!'), #XXX should be unique across all componenets
+                'UUID and recurrence must be unique in a calendar!'),
         ]
         self._constraints += [
             ('check_recurrence', 'invalid_recurrence'),
@@ -203,10 +206,11 @@ class Todo(ModelSQL, ModelView):
 
         res = super(Todo, self).create(values)
         todo = self.browse(res)
-        if todo.calendar.owner \
-                and (todo.organizer == todo.calendar.owner.email \
-                or (todo.parent \
-                and todo.parent.organizer == todo.parent.calendar.owner.email)):
+        if (todo.calendar.owner
+                and (todo.organizer == todo.calendar.owner.email
+                    or (todo.parent
+                        and todo.parent.organizer == \
+                            todo.parent.calendar.owner.email))):
             if todo.organizer == todo.calendar.owner.email:
                 attendee_emails = [x.email for x in todo.attendees
                         if x.status != 'declined'
@@ -347,11 +351,12 @@ class Todo(ModelSQL, ModelView):
                                         })
                         else:
                             parent_ids = self.search([
-                                ('uuid', '=', todo.uuid),
-                                ('calendar.owner.email', 'in', attendee_emails),
-                                ('id', '!=', todo.id),
-                                ('recurrence', '=', None),
-                                ])
+                                    ('uuid', '=', todo.uuid),
+                                    ('calendar.owner.email', 'in',
+                                        attendee_emails),
+                                    ('id', '!=', todo.id),
+                                    ('recurrence', '=', None),
+                                    ])
                             for parent in self.browse(parent_ids):
                                 self.copy(todo.id, default={
                                     'calendar': parent.calendar.id,
@@ -465,11 +470,12 @@ class Todo(ModelSQL, ModelView):
 
         if hasattr(vtodo, 'completed'):
             if not isinstance(vtodo.completed.value, datetime.datetime):
-                res['completed'] = datetime.datetime.combine(vtodo.completed.value,
-                        datetime.time())
+                res['completed'] = datetime.datetime.combine(
+                    vtodo.completed.value, datetime.time())
             else:
                 if vtodo.completed.value.tzinfo:
-                    res['completed'] = vtodo.completed.value.astimezone(tzlocal)
+                    res['completed'] = vtodo.completed.value.astimezone(
+                        tzlocal)
                 else:
                     res['completed'] = vtodo.completed.value
 
@@ -735,17 +741,18 @@ class Todo(ModelSQL, ModelView):
         elif hasattr(vtodo, 'due'):
             del vtodo.due
 
-
         if not hasattr(vtodo, 'created'):
             vtodo.add('created')
-        vtodo.created.value = todo.create_date.replace(tzinfo=tzlocal).astimezone(tztodo)
+        vtodo.created.value = todo.create_date.replace(
+            tzinfo=tzlocal).astimezone(tztodo)
         if not hasattr(vtodo, 'dtstamp'):
             vtodo.add('dtstamp')
         date = todo.write_date or todo.create_date
         vtodo.dtstamp.value = date.replace(tzinfo=tzlocal).astimezone(tztodo)
         if not hasattr(vtodo, 'last-modified'):
             vtodo.add('last-modified')
-        vtodo.last_modified.value = date.replace(tzinfo=tzlocal).astimezone(tztodo)
+        vtodo.last_modified.value = date.replace(
+            tzinfo=tzlocal).astimezone(tztodo)
         if todo.recurrence and todo.parent:
             if not hasattr(vtodo, 'recurrence-id'):
                 vtodo.add('recurrence-id')
@@ -793,7 +800,8 @@ class Todo(ModelSQL, ModelView):
 
         vtodo.attendee_list = []
         for attendee in todo.attendees:
-            vtodo.attendee_list.append(attendee_obj.attendee2attendee(attendee))
+            vtodo.attendee_list.append(
+                attendee_obj.attendee2attendee(attendee))
 
         if todo.rdates:
             vtodo.add('rdate')
@@ -999,7 +1007,7 @@ class TodoAttendee(ModelSQL, ModelView):
     _inherits = {'calendar.attendee': 'calendar_attendee'}
 
     calendar_attendee = fields.Many2One('calendar.attendee',
-            'Calendar Attendee', required=True, ondelete='CASCADE', select=True)
+        'Calendar Attendee', required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             required=True, select=True)
 
@@ -1012,10 +1020,11 @@ class TodoAttendee(ModelSQL, ModelView):
         res = super(TodoAttendee, self).create(values)
         attendee = self.browse(res)
         todo = attendee.todo
-        if todo.calendar.owner \
-                and (todo.organizer == todo.calendar.owner.email \
-                or (todo.parent \
-                and todo.parent.organizer == todo.parent.calendar.owner.email)):
+        if (todo.calendar.owner
+                and (todo.organizer == todo.calendar.owner.email
+                    or (todo.parent
+                        and todo.parent.organizer == \
+                            todo.parent.calendar.owner.email))):
             if todo.organizer == todo.calendar.owner.email:
                 attendee_emails = [x.email for x in todo.attendees
                         if x.email != todo.organizer]

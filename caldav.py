@@ -6,6 +6,7 @@ from trytond.protocols.webdav import TrytonDAVInterface
 
 _mk_prop_response = propfind.PROPFIND.mk_prop_response
 
+
 def mk_prop_response(self, uri, good_props, bad_props, doc):
     res = _mk_prop_response(self, uri, good_props, bad_props, doc)
     parent_uri = get_uriparentpath(uri and uri.strip('/') or '')
