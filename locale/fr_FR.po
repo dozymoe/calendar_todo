@@ -54,6 +54,14 @@ msgctxt "field:calendar.todo,completed:"
 msgid "Completed"
 msgstr "Complété"
 
+msgctxt "field:calendar.todo,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
 msgstr "Description"
@@ -73,6 +81,10 @@ msgstr "Dates d'exception"
 msgctxt "field:calendar.todo,exrules:"
 msgid "Exception Rules"
 msgstr "Règles d'exception"
+
+msgctxt "field:calendar.todo,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo,location:"
 msgid "Location"
@@ -134,9 +146,29 @@ msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
 msgstr "vtodo"
 
+msgctxt "field:calendar.todo,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
 msgstr "Catégorie"
+
+msgctxt "field:calendar.todo-calendar.category,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo-calendar.category,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo-calendar.category,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo-calendar.category,rec_name:"
 msgid "Name"
@@ -146,9 +178,29 @@ msgctxt "field:calendar.todo-calendar.category,todo:"
 msgid "To-Do"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo-calendar.category,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo-calendar.category,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.alarm,calendar_alarm:"
 msgid "Calendar Alarm"
 msgstr "Alarme calendrier"
+
+msgctxt "field:calendar.todo.alarm,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.alarm,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.alarm,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.alarm,rec_name:"
 msgid "Name"
@@ -158,9 +210,29 @@ msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo.alarm,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.alarm,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.attendee,calendar_attendee:"
 msgid "Calendar Attendee"
 msgstr "Participant calendrier"
+
+msgctxt "field:calendar.todo.attendee,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.attendee,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.attendee,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.attendee,rec_name:"
 msgid "Name"
@@ -170,9 +242,29 @@ msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo.attendee,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.attendee,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.exdate,calendar_date:"
 msgid "Calendar Date"
 msgstr "Date calendrier"
+
+msgctxt "field:calendar.todo.exdate,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.exdate,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.exdate,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.exdate,rec_name:"
 msgid "Name"
@@ -182,9 +274,29 @@ msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo.exdate,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.exdate,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.exrule,calendar_rrule:"
 msgid "Calendar RRule"
 msgstr "Règle de récurrence"
+
+msgctxt "field:calendar.todo.exrule,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.exrule,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.exrule,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
@@ -194,9 +306,29 @@ msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo.exrule,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.exrule,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.rdate,calendar_date:"
 msgid "Calendar Date"
 msgstr "Date calendrier"
+
+msgctxt "field:calendar.todo.rdate,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.rdate,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.rdate,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.rdate,rec_name:"
 msgid "Name"
@@ -206,9 +338,29 @@ msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
 msgstr "Tâche"
 
+msgctxt "field:calendar.todo.rdate,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.rdate,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
+
 msgctxt "field:calendar.todo.rrule,calendar_rrule:"
 msgid "Calendar RRule"
 msgstr "Règle de récurrence"
+
+msgctxt "field:calendar.todo.rrule,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:calendar.todo.rrule,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:calendar.todo.rrule,id:"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
@@ -217,6 +369,14 @@ msgstr "Nom"
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
 msgstr "Tâche"
+
+msgctxt "field:calendar.todo.rrule,write_date:"
+msgid "Write Date"
+msgstr "Date de mise à jour"
+
+msgctxt "field:calendar.todo.rrule,write_uid:"
+msgid "Write User"
+msgstr "Mis à jour par"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
@@ -265,6 +425,10 @@ msgstr "Tâches"
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
 msgstr "Tâches"
+
+msgctxt "model:webdav.collection,name:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Confidential"
