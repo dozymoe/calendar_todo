@@ -11,7 +11,7 @@
     'name_es_ES': 'Calendario de tareas',
     'name_fr_FR': 'Tâche Calendrier',
     'name_ru_RU': 'Задачи для календаря',
-    'version': '2.4.0',
+    'version': '2.5.0',
     'author': 'B2CK',
     'email': 'info@b2ck.com',
     'website': 'http://www.tryton.org/',
