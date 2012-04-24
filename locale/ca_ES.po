@@ -48,7 +48,7 @@ msgstr "Completada"
 
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo,create_uid:"
@@ -77,7 +77,7 @@ msgstr "Regles d'excepcions"
 
 msgctxt "field:calendar.todo,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo,location:"
 msgid "Location"
@@ -142,11 +142,11 @@ msgstr "vtodo"
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
@@ -154,7 +154,7 @@ msgstr "Categoria"
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
@@ -163,7 +163,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo-calendar.category,rec_name:"
 msgid "Name"
@@ -175,11 +175,11 @@ msgstr "Per fer"
 
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo-calendar.category,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.alarm,calendar_alarm:"
 msgid "Calendar Alarm"
@@ -187,7 +187,7 @@ msgstr "Alarma del calendari"
 
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.alarm,create_uid:"
@@ -196,7 +196,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.alarm,rec_name:"
 msgid "Name"
@@ -208,11 +208,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.alarm,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.attendee,calendar_attendee:"
 msgid "Calendar Attendee"
@@ -220,7 +220,7 @@ msgstr "Calendari d'assistents"
 
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.attendee,create_uid:"
@@ -229,7 +229,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.attendee,rec_name:"
 msgid "Name"
@@ -241,19 +241,19 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.attendee,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.exdate,calendar_date:"
 msgid "Calendar Date"
-msgstr ""
+msgstr "Data calendari"
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.exdate,create_uid:"
@@ -262,7 +262,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.exdate,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.exdate,rec_name:"
 msgid "Name"
@@ -274,11 +274,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.exdate,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.exrule,calendar_rrule:"
 msgid "Calendar RRule"
@@ -286,7 +286,7 @@ msgstr "Regla de recurrencia"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.exrule,create_uid:"
@@ -295,7 +295,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.exrule,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
@@ -307,19 +307,19 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.exrule,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.rdate,calendar_date:"
 msgid "Calendar Date"
-msgstr ""
+msgstr "Data calendari"
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.rdate,create_uid:"
@@ -328,7 +328,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.rdate,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.rdate,rec_name:"
 msgid "Name"
@@ -340,11 +340,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.rdate,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "field:calendar.todo.rrule,calendar_rrule:"
 msgid "Calendar RRule"
@@ -352,7 +352,7 @@ msgstr "Regla de recurrencia"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Data creació"
 
 #, fuzzy
 msgctxt "field:calendar.todo.rrule,create_uid:"
@@ -361,7 +361,7 @@ msgstr "Crear usuari"
 
 msgctxt "field:calendar.todo.rrule,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
@@ -373,11 +373,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Data modificació"
 
 msgctxt "field:calendar.todo.rrule,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Usuari modificació"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
@@ -443,7 +443,7 @@ msgstr "Públic"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr ""
+msgstr "Necessita acció"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
