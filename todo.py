@@ -686,9 +686,9 @@ class Todo(ModelSQL, ModelView):
 
         user = user_obj.browse(Transaction().user)
         if todo.timezone:
-            tztodo = pytz.timezone(todo.timezone)
+            tztodo = dateutil.tz.gettz(todo.timezone)
         elif user.timezone:
-                tztodo = pytz.timezone(user.timezone)
+            tztodo = dateutil.tz.gettz(user.timezone)
         else:
             tztodo = tzlocal
 
