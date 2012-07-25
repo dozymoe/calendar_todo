@@ -687,7 +687,7 @@ class Todo(ModelSQL, ModelView):
         ical = vobject.iCalendar()
         vtodo = ical.add('vtodo')
         if todo.vtodo:
-            ical.vtodo = vobject.readOne(todo.vtodo)
+            ical.vtodo = vobject.readOne(str(todo.vtodo))
             vtodo = ical.vtodo
             ical.vtodo.transformToNative()
         if todo.summary:
