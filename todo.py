@@ -417,6 +417,25 @@ class Todo(ModelSQL, ModelView):
         collection_obj.todo.reset()
         return res
 
+    def copy(self, ids, default=None):
+        int_id = isinstance(ids, (int, long))
+        if int_id:
+            ids = [ids]
+
+        if default is None:
+            default = {}
+
+        new_ids = []
+        for todo_id in ids:
+            current_default = default.copy()
+            current_default['uuid'] = self.default_uuid()
+            new_id = super(Event, self).copy(todo_id, default=current_default)
+            new_ids.append(new_id)
+
+        if int_id:
+            return new_ids[0]
+        return new_ids
+
     def ical2values(self, todo_id, ical, calendar_id, vtodo=None):
         '''
         Convert iCalendar to values for create or write
