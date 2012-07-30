@@ -403,6 +403,26 @@ class Todo(ModelSQL, ModelView):
         collection_obj.todo(cursor.dbname)
         return res
 
+    def copy(self, cursor, user, ids, default=None, context=None):
+        int_id = isinstance(ids, (int, long))
+        if int_id:
+            ids = [ids]
+
+        if default is None:
+            default = {}
+
+        new_ids = []
+        for todo_id in ids:
+            current_default = default.copy()
+            current_default['uuid'] = self.default_uuid()
+            new_id = super(Event, self).copy(cursor, user, todo_id,
+                default=current_default, context=context)
+            new_ids.append(new_id)
+
+        if int_id:
+            return new_ids[0]
+        return new_ids
+
     def ical2values(self, cursor, user, todo_id, ical, calendar_id,
             vtodo=None, context=None):
         '''
