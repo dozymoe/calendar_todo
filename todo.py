@@ -415,7 +415,7 @@ class Todo(ModelSQL, ModelView):
         for todo_id in ids:
             current_default = default.copy()
             current_default['uuid'] = self.default_uuid()
-            new_id = super(Event, self).copy(cursor, user, todo_id,
+            new_id = super(Todo, self).copy(cursor, user, todo_id,
                 default=current_default, context=context)
             new_ids.append(new_id)
 
