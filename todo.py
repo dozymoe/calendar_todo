@@ -187,7 +187,8 @@ class Todo(ModelSQL, ModelView):
         else:
             return getattr(self.calendar, name).id
 
-    def search_calendar_field(self, name, clause):
+    @classmethod
+    def search_calendar_field(cls, name, clause):
         return [('calendar.' + name[9:],) + tuple(clause[1:])]
 
     def check_recurrence(self):
