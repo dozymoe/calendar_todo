@@ -232,14 +232,16 @@ class Todo(ModelSQL, ModelView):
                         ])
                     if not todo.recurrence:
                         for calendar in calendars:
-                            new_todo = cls.copy([todo], default={
+                            new_todo, = cls.copy([todo], default={
                                 'calendar': calendar.id,
                                 'occurences': None,
+                                'uuid': todo.uuid,
                                 })
                             for occurence in todo.occurences:
                                 cls.copy([occurence], default={
                                     'calendar': calendar.id,
                                     'parent': new_todo.id,
+                                    'uuid': occurence.uuid,
                                     })
                     else:
                         parents = cls.search([
@@ -252,6 +254,7 @@ class Todo(ModelSQL, ModelView):
                             cls.copy([todo], default={
                                 'calendar': parent.calendar.id,
                                 'parent': parent.id,
+                                'uuid': todo.uuid,
                                 })
         # Restart the cache for todo
         Collection._todo_cache.clear()
@@ -343,11 +346,13 @@ class Todo(ModelSQL, ModelView):
                                 new_todo, = cls.copy([todo], default={
                                     'calendar': calendar.id,
                                     'occurences': None,
+                                    'uuid': todo.uuid,
                                     })
                                 for occurence in todo.occurences:
                                     cls.copy([occurence], default={
                                         'calendar': calendar.id,
                                         'parent': new_todo.id,
+                                        'uuid': occurence.uuid,
                                         })
                         else:
                             parents = cls.search([
@@ -361,6 +366,7 @@ class Todo(ModelSQL, ModelView):
                                 cls.copy([todo], default={
                                     'calendar': parent.calendar.id,
                                     'parent': parent.id,
+                                    'uuid': todo.uuid,
                                     })
         # Restart the cache for todo
         Collection._todo_cache.clear()
@@ -423,7 +429,7 @@ class Todo(ModelSQL, ModelView):
         new_todos = []
         for todo in todos:
             current_default = default.copy()
-            current_default['uuid'] = cls.default_uuid()
+            current_default.setdefault('uuid', cls.default_uuid())
             new_todo, = super(Todo, cls).copy([todo], default=current_default)
             new_todos.append(new_todo)
         return new_todos
