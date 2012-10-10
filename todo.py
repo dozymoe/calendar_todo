@@ -218,11 +218,13 @@ class Todo(ModelSQL, ModelView):
                         new_id = self.copy(cursor, 0, todo.id, default={
                             'calendar': calendar_id,
                             'occurences': False,
+                            'uuid': todo.uuid,
                             }, context=context)
                         for occurence in todo.occurences:
                             self.copy(cursor, 0, occurence.id, default={
                                 'calendar': calendar_id,
                                 'parent': new_id,
+                                'uuid': occurence.uuid,
                                 }, context=context)
                 else:
                     parent_ids = self.search(cursor, 0, [
@@ -236,6 +238,7 @@ class Todo(ModelSQL, ModelView):
                         self.copy(cursor, 0, todo.id, default={
                             'calendar': parent.calendar.id,
                             'parent': parent.id,
+                            'uuid': todo.uuid,
                             }, context=context)
         # Restart the cache for todo
         collection_obj.todo(cursor.dbname)
@@ -330,11 +333,13 @@ class Todo(ModelSQL, ModelView):
                             new_id = self.copy(cursor, 0, todo.id, default={
                                 'calendar': calendar_id,
                                 'occurences': False,
+                                'uuid': todo.uuid,
                                 }, context=context)
                             for occurence in todo.occurences:
                                 self.copy(cursor, 0, occurence.id, default={
                                     'calendar': calendar_id,
                                     'parent': new_id,
+                                    'uuid': occurence.uuid,
                                     }, context=context)
                     else:
                         parent_ids = self.search(cursor, 0, [
@@ -348,6 +353,7 @@ class Todo(ModelSQL, ModelView):
                             self.copy(cursor, 0, todo.id, default={
                                 'calendar': parent.calendar.id,
                                 'parent': parent.id,
+                                'uuid': todo.uuid,
                                 }, context=context)
         # Restart the cache for todo
         collection_obj.todo(cursor.dbname)
@@ -414,7 +420,7 @@ class Todo(ModelSQL, ModelView):
         new_ids = []
         for todo_id in ids:
             current_default = default.copy()
-            current_default['uuid'] = self.default_uuid()
+            current_default.setdefault('uuid', self.default_uuid())
             new_id = super(Todo, self).copy(cursor, user, todo_id,
                 default=current_default, context=context)
             new_ids.append(new_id)
