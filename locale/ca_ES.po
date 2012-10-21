@@ -24,15 +24,15 @@ msgstr "Calendari"
 
 msgctxt "field:calendar.todo,calendar_owner:"
 msgid "Owner"
-msgstr "Amo"
+msgstr "Propietaris"
 
 msgctxt "field:calendar.todo,calendar_read_users:"
 msgid "Read Users"
-msgstr "Usuaris amb lectura"
+msgstr "Usuaris amb permisos de lectura"
 
 msgctxt "field:calendar.todo,calendar_write_users:"
 msgid "Write Users"
-msgstr "Usuaris amb escriptura"
+msgstr "Usuaris amb permisos d'escriptura"
 
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
@@ -50,10 +50,9 @@ msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
@@ -83,7 +82,6 @@ msgctxt "field:calendar.todo,location:"
 msgid "Location"
 msgstr "Ubicació"
 
-#, fuzzy
 msgctxt "field:calendar.todo,occurences:"
 msgid "Occurences"
 msgstr "Ocurrències"
@@ -156,10 +154,9 @@ msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
@@ -189,10 +186,9 @@ msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
@@ -222,10 +218,9 @@ msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
@@ -255,10 +250,9 @@ msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.exdate,id:"
 msgid "ID"
@@ -288,10 +282,9 @@ msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.exrule,id:"
 msgid "ID"
@@ -321,10 +314,9 @@ msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.rdate,id:"
 msgid "ID"
@@ -354,10 +346,9 @@ msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
 msgstr "Data creació"
 
-#, fuzzy
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr "Crear usuari"
+msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.rrule,id:"
 msgid "ID"
@@ -397,7 +388,7 @@ msgstr "Alarma"
 
 msgctxt "model:calendar.todo.attendee,name:"
 msgid "Attendee"
-msgstr "Assistents"
+msgstr "Assistent"
 
 msgctxt "model:calendar.todo.exdate,name:"
 msgid "Exception Date"
@@ -407,7 +398,6 @@ msgctxt "model:calendar.todo.exrule,name:"
 msgid "Exception Rule"
 msgstr "Regla d'excepció"
 
-#, fuzzy
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
 msgstr "Data de recurrencia"
@@ -420,7 +410,6 @@ msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
 msgstr "Tasques"
 
-#, fuzzy
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
 msgstr "Tasques"
@@ -443,7 +432,7 @@ msgstr "Públic"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr "Necessita acció"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -463,7 +452,7 @@ msgstr "Necessita una acció"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
-msgstr "Assistents"
+msgstr "Assistent"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
@@ -513,14 +502,13 @@ msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "General"
 
-#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
 msgstr "Ocurrències"
 
 msgctxt "view:calendar.todo:"
 msgid "Recurrences"
-msgstr "Recurrencias"
+msgstr "Recurrencies"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
