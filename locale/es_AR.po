@@ -64,7 +64,7 @@ msgstr "Fecha inicio"
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
-msgstr "Fecha de vencimiento"
+msgstr "Fecha vencimiento"
 
 msgctxt "field:calendar.todo,exdates:"
 msgid "Exception Dates"
@@ -136,7 +136,7 @@ msgstr "UUID"
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
-msgstr "vtodo"
+msgstr "v- por hacer"
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
@@ -244,7 +244,7 @@ msgstr "Usuario modificación"
 
 msgctxt "field:calendar.todo.exdate,calendar_date:"
 msgid "Calendar Date"
-msgstr "Fecha Calendario"
+msgstr "Fecha calendario"
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
@@ -308,7 +308,7 @@ msgstr "Usuario modificación"
 
 msgctxt "field:calendar.todo.rdate,calendar_date:"
 msgid "Calendar Date"
-msgstr "Fecha Calendario"
+msgstr "Fecha calendario"
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
@@ -400,7 +400,7 @@ msgstr "Regla de excepción"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Fecha de recurrencia"
+msgstr "Fecha recurrencia"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
@@ -476,7 +476,7 @@ msgstr "Reglas de excepciones"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
-msgstr "Fecha de recurrencia"
+msgstr "Fecha recurrencia"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
