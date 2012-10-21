@@ -28,11 +28,11 @@ msgstr "Propietario"
 
 msgctxt "field:calendar.todo,calendar_read_users:"
 msgid "Read Users"
-msgstr "Usuarios con lectura"
+msgstr "Usuarios con permisos de lectura"
 
 msgctxt "field:calendar.todo,calendar_write_users:"
 msgid "Write Users"
-msgstr "Usuarios con escritura"
+msgstr "Usuarios con permisos de escritura"
 
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
@@ -452,7 +452,7 @@ msgstr "Necesita acción"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
-msgstr "Asistentes"
+msgstr "Asistente"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
