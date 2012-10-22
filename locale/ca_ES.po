@@ -430,9 +430,10 @@ msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
 msgstr "Públic"
 
+#, fuzzy
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr ""
+msgstr "Servidor"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
