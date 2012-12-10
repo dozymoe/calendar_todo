@@ -126,7 +126,7 @@ class Collection:
 
     @classmethod
     def get_resourcetype(cls, uri, cache=None):
-        from DAV.constants import COLLECTION, OBJECT
+        from pywebdav.lib.constants import COLLECTION, OBJECT
         if uri in ('Calendars', 'Calendars/'):
             return COLLECTION
         calendar_id = cls.calendar(uri)
