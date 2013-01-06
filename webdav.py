@@ -274,7 +274,7 @@ class Collection:
             if not todo_id:
 
                 values = Todo.ical2values(None, ical, calendar_id)
-                todo = Todo.create(values)
+                todo, = Todo.create([values])
                 calendar = Calendar(calendar_id)
                 return Transaction().cursor.database_name + '/Calendars/' + \
                         calendar.name + '/' + todo.uuid + '.ics'

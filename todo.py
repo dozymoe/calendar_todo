@@ -206,59 +206,60 @@ class Todo(ModelSQL, ModelView):
         return True
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         pool = Pool()
         Calendar = pool.get('calendar.calendar')
         Collection = pool.get('webdav.collection')
 
-        todo = super(Todo, cls).create(values)
-        if (todo.calendar.owner
-                and (todo.organizer == todo.calendar.owner.email
-                    or (todo.parent
-                        and todo.parent.organizer == \
-                            todo.parent.calendar.owner.email))):
-            if todo.organizer == todo.calendar.owner.email:
-                attendee_emails = [x.email for x in todo.attendees
-                        if x.status != 'declined'
-                        and x.email != todo.organizer]
-            else:
-                attendee_emails = [x.email for x in todo.parent.attendees
-                        if x.status != 'declined'
-                        and x.email != todo.parent.organizer]
-            if attendee_emails:
-                with Transaction().set_user(0):
-                    calendars = Calendar.search([
-                        ('owner.email', 'in', attendee_emails),
-                        ])
-                    if not todo.recurrence:
-                        for calendar in calendars:
-                            new_todo, = cls.copy([todo], default={
-                                'calendar': calendar.id,
-                                'occurences': None,
-                                'uuid': todo.uuid,
-                                })
-                            for occurence in todo.occurences:
-                                cls.copy([occurence], default={
-                                    'calendar': calendar.id,
-                                    'parent': new_todo.id,
-                                    'uuid': occurence.uuid,
-                                    })
-                    else:
-                        parents = cls.search([
-                            ('uuid', '=', todo.uuid),
-                            ('calendar.owner.email', 'in', attendee_emails),
-                            ('id', '!=', todo.id),
-                            ('recurrence', '=', None),
+        todos = super(Todo, cls).create(vlist)
+        for todo in todos:
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer == \
+                                todo.parent.calendar.owner.email))):
+                if todo.organizer == todo.calendar.owner.email:
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.status != 'declined'
+                            and x.email != todo.organizer]
+                else:
+                    attendee_emails = [x.email for x in todo.parent.attendees
+                            if x.status != 'declined'
+                            and x.email != todo.parent.organizer]
+                if attendee_emails:
+                    with Transaction().set_user(0):
+                        calendars = Calendar.search([
+                            ('owner.email', 'in', attendee_emails),
                             ])
-                        for parent in parents:
-                            cls.copy([todo], default={
-                                'calendar': parent.calendar.id,
-                                'parent': parent.id,
-                                'uuid': todo.uuid,
-                                })
+                        if not todo.recurrence:
+                            for calendar in calendars:
+                                new_todo, = cls.copy([todo], default={
+                                    'calendar': calendar.id,
+                                    'occurences': None,
+                                    'uuid': todo.uuid,
+                                    })
+                                for occurence in todo.occurences:
+                                    cls.copy([occurence], default={
+                                        'calendar': calendar.id,
+                                        'parent': new_todo.id,
+                                        'uuid': occurence.uuid,
+                                        })
+                        else:
+                            parents = cls.search([
+                                ('uuid', '=', todo.uuid),
+                                ('calendar.owner.email', 'in', attendee_emails),
+                                ('id', '!=', todo.id),
+                                ('recurrence', '=', None),
+                                ])
+                            for parent in parents:
+                                cls.copy([todo], default={
+                                    'calendar': parent.calendar.id,
+                                    'parent': parent.id,
+                                    'uuid': todo.uuid,
+                                    })
         # Restart the cache for todo
         Collection._todo_cache.clear()
-        return todo
+        return todos
 
     def _todo2update(self):
         res = {}
@@ -271,21 +272,21 @@ class Todo(ModelSQL, ModelView):
         res['status'] = self.status
         res['organizer'] = self.organizer
         res['rdates'] = [('delete_all',)]
-        for rdate in self.rdates:
-            vals = rdate._date2update()
-            res['rdates'].append(('create', vals))
+        to_create = [rdate._date2update() for rdate in self.rdates]
+        if to_create:
+            res['rdates'].append(('create', to_create))
         res['exdates'] = [('delete_all',)]
-        for exdate in self.exdates:
-            vals = exdate._date2update()
-            res['exdates'].append(('create', vals))
+        to_create = [exdate._date2update() for exdate in self.exdates]
+        if to_create:
+            res['exdates'].append(('create', to_create))
         res['rrules'] = [('delete_all',)]
-        for rrule in self.rrules:
-            vals = rrule._rule2update()
-            res['rrules'].append(('create', vals))
+        to_create = [rrule._rule2update() for rrule in self.rrules]
+        if to_create:
+            res['rrules'].append(('create', to_create))
         res['exrules'] = [('delete_all',)]
-        for exrule in self.exrules:
-            vals = exrule._rule2update()
-            res['exrules'].append(('create', vals))
+        to_create = [exrule._rule2update() for exrule in self.exrules]
+        if to_create:
+            res['exrules'].append(('create', to_create))
         return res
 
     @classmethod
@@ -538,11 +539,14 @@ class Todo(ModelSQL, ModelView):
             category_names2ids = {}
             for category in categories:
                 category_names2ids[category.name] = category.id
+            to_create = []
             for category in vtodo.categories.value:
                 if category not in category_names2ids:
-                    categories.append(Category.create({
-                        'name': category,
-                        }))
+                    to_create.append({
+                            'name': category,
+                            })
+            if to_create:
+                categories += Category.create(to_create)
             res['categories'] = [('set', [c.id for c in categories])]
         else:
             res['categories'] = [('unlink_all',)]
@@ -559,9 +563,9 @@ class Todo(ModelSQL, ModelView):
                 ('name', '=', vtodo.location.value),
                 ], limit=1)
             if not locations:
-                location, = Location.create({
-                    'name': vtodo.location.value,
-                    })
+                location, = Location.create([{
+                            'name': vtodo.location.value,
+                            }])
             else:
                 location, = locations
             res['location'] = location.id
@@ -584,6 +588,7 @@ class Todo(ModelSQL, ModelView):
                 attendees_todel[attendee.email] = attendee.id
         res['attendees'] = []
         if hasattr(vtodo, 'attendee'):
+            to_create = []
             while vtodo.attendee_list:
                 attendee = vtodo.attendee_list.pop()
                 vals = Attendee.attendee2values(attendee)
@@ -592,56 +597,66 @@ class Todo(ModelSQL, ModelView):
                         attendees_todel[vals['email']], vals))
                     del attendees_todel[vals['email']]
                 else:
-                    res['attendees'].append(('create', vals))
+                    to_create.append(vals)
+            if to_create:
+                res['attendees'].append(('create', to_create))
         res['attendees'].append(('delete', attendees_todel.values()))
 
         res['rdates'] = []
         if todo:
             res['rdates'].append(('delete', [x.id for x in todo.rdates]))
         if hasattr(vtodo, 'rdate'):
+            to_create = []
             while vtodo.rdate_list:
                 rdate = vtodo.rdate_list.pop()
-                for date in rdate.value:
-                    vals = Rdate.date2values(date)
-                    res['rdates'].append(('create', vals))
+                to_create += [Rdate.date2values(date) for date in rdate.value]
+            if to_create:
+                res['rdates'].append(('create', to_create))
 
         res['exdates'] = []
         if todo:
             res['exdates'].append(('delete', [x.id for x in todo.exdates]))
         if hasattr(vtodo, 'exdate'):
+            to_create = []
             while vtodo.exdate_list:
                 exdate = vtodo.exdate_list.pop()
-                for date in exdate.value:
-                    vals = Exdate.date2values(date)
-                    res['exdates'].append(('create', vals))
+                to_create += [Exdate.date2values(date) for date in exdate.value]
+            if to_create:
+                res['exdates'].append(('create', to_create))
 
         res['rrules'] = []
         if todo:
             res['rrules'].append(('delete', [x.id for x in todo.rrules]))
         if hasattr(vtodo, 'rrule'):
+            to_create = []
             while vtodo.rrule_list:
                 rrule = vtodo.rrule_list.pop()
-                vals = Rrule.rule2values(rrule)
-                res['rrules'].append(('create', vals))
+                to_create.append(Rrule.rule2values(rrule))
+            if to_create:
+                res['rrules'].append(('create', to_create))
 
         res['exrules'] = []
         if todo:
             res['exrules'].append(('delete', [x.id for x in todo.exrules]))
         if hasattr(vtodo, 'exrule'):
+            to_create = []
             while vtodo.exrule_list:
                 exrule = vtodo.exrule_list.pop()
-                vals = Exrule.rule2values(exrule)
-                res['exrules'].append(('create', vals))
+                to_create.append(Exrule.rule2values(exrule))
+            if to_create:
+                res['exrules'].append(('create', to_create))
 
         if todo:
             res.setdefault('alarms', [])
             res['alarms'].append(('delete', [x.id for x in todo.alarms]))
         if hasattr(vtodo, 'valarm'):
             res.setdefault('alarms', [])
+            to_create = []
             while vtodo.valarm_list:
                 valarm = vtodo.valarm_list.pop()
-                vals = Alarm.valarm2values(valarm)
-                res['alarms'].append(('create', vals))
+                to_create.append(Alarm.valarm2values(valarm))
+            if to_create:
+                res['alarms'].append(('create', to_create))
 
         if hasattr(ical, 'vtimezone'):
             if ical.vtimezone.tzid.value in pytz.common_timezones:
@@ -656,6 +671,7 @@ class Todo(ModelSQL, ModelView):
         occurences_todel = []
         if todo:
             occurences_todel = [x.id for x in todo.occurences]
+        to_create = []
         for vtodo in vtodos:
             todo_id = None
             if todo:
@@ -673,7 +689,9 @@ class Todo(ModelSQL, ModelView):
             if todo_id:
                 res['occurences'].append(('write', todo_id, vals))
             else:
-                res['occurences'].append(('create', vals))
+                to_create.append(vals)
+        if to_create:
+            res['occurences'].append(('create', to_create))
         if occurences_todel:
             res.setdefault('occurences', [])
             res['occurences'].append(('delete', occurences_todel))
@@ -867,12 +885,16 @@ class TodoRDate(ModelSQL, ModelView):
         super(TodoRDate, cls).__register__(module_name)
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Todo = Pool().get('calendar.todo')
-        if values.get('todo'):
-            # Update write_date of todo
-            Todo.write([Todo(values['todo'])], {})
-        return super(TodoRDate, cls).create(values)
+        towrite = []
+        for values in vlist:
+            if values.get('todo'):
+                # Update write_date of todo
+                towrite.append(values['todo'])
+        if towrite:
+            Todo.write(Todo.browse(towrite), {})
+        return super(TodoRDate, cls).create(vlist)
 
     @classmethod
     def write(cls, rdates, values):
@@ -924,12 +946,16 @@ class TodoRRule(ModelSQL, ModelView):
             select=True, required=True)
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Todo = Pool().get('calendar.todo')
-        if values.get('todo'):
-            # Update write_date of todo
-            Todo.write([Todo(values['todo'])], {})
-        return super(TodoRRule, cls).create(values)
+        towrite = []
+        for values in vlist:
+            if values.get('todo'):
+                # Update write_date of todo
+                towrite.append(values['todo'])
+        if towrite:
+            Todo.write(Todo.browse(towrite), {})
+        return super(TodoRRule, cls).create(vlist)
 
     @classmethod
     def write(cls, todo_rrules, values):
@@ -992,38 +1018,43 @@ class TodoAttendee(ModelSQL, ModelView):
             required=True, select=True)
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Todo = Pool().get('calendar.todo')
 
-        if values.get('todo'):
-            # Update write_date of todo
-            Todo.write([Todo(values['todo'])], {})
-        attendee = super(TodoAttendee, cls).create(values)
-        todo = attendee.todo
-        if (todo.calendar.owner
-                and (todo.organizer == todo.calendar.owner.email
-                    or (todo.parent
-                        and todo.parent.organizer == \
-                            todo.parent.calendar.owner.email))):
-            if todo.organizer == todo.calendar.owner.email:
-                attendee_emails = [x.email for x in todo.attendees
-                        if x.email != todo.organizer]
-            else:
-                attendee_emails = [x.email for x in todo.parent.attendees
-                        if x.email != todo.parent.organizer]
-            if attendee_emails:
-                with Transaction().set_user(0):
-                    todos = Todo.search([
-                        ('uuid', '=', todo.uuid),
-                        ('calendar.owner.email', 'in', attendee_emails),
-                        ('id', '!=', todo.id),
-                        ('recurrence', '=', todo.recurrence),
-                        ])
-                    for todo in todos:
-                        cls.copy([attendee], default={
-                            'todo': todo.id,
-                            })
-        return attendee
+        towrite = []
+        for values in vlist:
+            if values.get('todo'):
+                # Update write_date of todo
+                towrite.append(values['todo'])
+        if towrite:
+            Todo.write(Todo.browse(towrite), {})
+        attendees = super(TodoAttendee, cls).create(vlist)
+        for attendee in attendees:
+            todo = attendee.todo
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer == \
+                                todo.parent.calendar.owner.email))):
+                if todo.organizer == todo.calendar.owner.email:
+                    attendee_emails = [x.email for x in todo.attendees
+                            if x.email != todo.organizer]
+                else:
+                    attendee_emails = [x.email for x in todo.parent.attendees
+                            if x.email != todo.parent.organizer]
+                if attendee_emails:
+                    with Transaction().set_user(0):
+                        todos = Todo.search([
+                            ('uuid', '=', todo.uuid),
+                            ('calendar.owner.email', 'in', attendee_emails),
+                            ('id', '!=', todo.id),
+                            ('recurrence', '=', todo.recurrence),
+                            ])
+                        for todo in todos:
+                            cls.copy([attendee], default={
+                                'todo': todo.id,
+                                })
+        return attendees
 
     @classmethod
     def write(cls, attendees, values):
@@ -1164,12 +1195,16 @@ class TodoAlarm(ModelSQL):
             required=True, select=True)
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Todo = Pool().get('calendar.todo')
-        if values.get('todo'):
-            # Update write_date of todo
-            Todo.write([Todo(values['todo'])], {})
-        return super(TodoAlarm, cls).create(values)
+        towrite = []
+        for values in vlist:
+            if values.get('todo'):
+                # Update write_date of todo
+                towrite.append(values['todo'])
+        if towrite:
+            Todo.write(Todo.browse(towrite), {})
+        return super(TodoAlarm, cls).create(vlist)
 
     @classmethod
     def write(cls, alarms, values):
