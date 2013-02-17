@@ -216,8 +216,8 @@ class Todo(ModelSQL, ModelView):
             if (todo.calendar.owner
                     and (todo.organizer == todo.calendar.owner.email
                         or (todo.parent
-                            and todo.parent.organizer == \
-                                todo.parent.calendar.owner.email))):
+                            and todo.parent.organizer
+                            == todo.parent.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.status != 'declined'
@@ -246,11 +246,12 @@ class Todo(ModelSQL, ModelView):
                                         })
                         else:
                             parents = cls.search([
-                                ('uuid', '=', todo.uuid),
-                                ('calendar.owner.email', 'in', attendee_emails),
-                                ('id', '!=', todo.id),
-                                ('recurrence', '=', None),
-                                ])
+                                    ('uuid', '=', todo.uuid),
+                                    ('calendar.owner.email', 'in',
+                                        attendee_emails),
+                                    ('id', '!=', todo.id),
+                                    ('recurrence', '=', None),
+                                    ])
                             for parent in parents:
                                 cls.copy([todo], default={
                                     'calendar': parent.calendar.id,
@@ -307,15 +308,16 @@ class Todo(ModelSQL, ModelView):
         for i in range(0, len(ids), cursor.IN_MAX):
             sub_ids = ids[i:i + cursor.IN_MAX]
             red_sql, red_ids = reduce_ids('id', sub_ids)
-            cursor.execute('UPDATE "' + cls._table + '" ' \
-                    'SET sequence = sequence + 1 ' \
-                    'WHERE ' + red_sql, red_ids)
+            cursor.execute('UPDATE "' + cls._table + '" '
+                'SET sequence = sequence + 1 '
+                'WHERE ' + red_sql, red_ids)
 
         for todo in todos:
-            if todo.calendar.owner \
-                    and (todo.organizer == todo.calendar.owner.email \
-                    or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email)):
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer
+                            == todo.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.status != 'declined'
@@ -379,10 +381,11 @@ class Todo(ModelSQL, ModelView):
         Collection = pool.get('webdav.collection')
 
         for todo in todos:
-            if todo.calendar.owner \
-                    and (todo.organizer == todo.calendar.owner.email \
-                    or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email)):
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer
+                            == todo.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.organizer]
@@ -523,7 +526,7 @@ class Todo(ModelSQL, ModelView):
             else:
                 if vtodo.recurrence_id.value.tzinfo:
                     res['recurrence'] = \
-                            vtodo.recurrence_id.value.astimezone(tzlocal)
+                        vtodo.recurrence_id.value.astimezone(tzlocal)
                 else:
                     res['recurrence'] = vtodo.recurrence_id.value
         else:
@@ -620,7 +623,8 @@ class Todo(ModelSQL, ModelView):
             to_create = []
             while vtodo.exdate_list:
                 exdate = vtodo.exdate_list.pop()
-                to_create += [Exdate.date2values(date) for date in exdate.value]
+                to_create += [Exdate.date2values(date)
+                    for date in exdate.value]
             if to_create:
                 res['exdates'].append(('create', to_create))
 
@@ -741,7 +745,7 @@ class Todo(ModelSQL, ModelView):
             if not hasattr(vtodo, 'completed'):
                 vtodo.add('completed')
             vtodo.completed.value = self.completed.replace(tzinfo=tzlocal)\
-                    .astimezone(tzutc)
+                .astimezone(tzutc)
         elif hasattr(vtodo, 'completed'):
             del vtodo.completed
 
@@ -749,7 +753,7 @@ class Todo(ModelSQL, ModelView):
             if not hasattr(vtodo, 'dtstart'):
                 vtodo.add('dtstart')
             vtodo.dtstart.value = self.dtstart.replace(tzinfo=tzlocal)\
-                    .astimezone(tztodo)
+                .astimezone(tztodo)
         elif hasattr(vtodo, 'dtstart'):
             del vtodo.dtstart
 
@@ -757,7 +761,7 @@ class Todo(ModelSQL, ModelView):
             if not hasattr(vtodo, 'due'):
                 vtodo.add('due')
             vtodo.due.value = self.due.replace(tzinfo=tzlocal)\
-                    .astimezone(tztodo)
+                .astimezone(tztodo)
         elif hasattr(vtodo, 'due'):
             del vtodo.due
 
@@ -777,7 +781,7 @@ class Todo(ModelSQL, ModelView):
             if not hasattr(vtodo, 'recurrence-id'):
                 vtodo.add('recurrence-id')
             vtodo.recurrence_id.value = self.recurrence\
-                    .replace(tzinfo=tzlocal).astimezone(tztodo)
+                .replace(tzinfo=tzlocal).astimezone(tztodo)
         elif hasattr(vtodo, 'recurrence-id'):
             del vtodo.recurrence_id
         if self.status:
@@ -1034,8 +1038,8 @@ class TodoAttendee(ModelSQL, ModelView):
             if (todo.calendar.owner
                     and (todo.organizer == todo.calendar.owner.email
                         or (todo.parent
-                            and todo.parent.organizer == \
-                                todo.parent.calendar.owner.email))):
+                            and todo.parent.organizer
+                            == todo.parent.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.organizer]
@@ -1074,10 +1078,11 @@ class TodoAttendee(ModelSQL, ModelView):
         super(TodoAttendee, cls).write(attendees, values)
         for attendee in attendees:
             todo = attendee.todo
-            if todo.calendar.owner \
-                    and (todo.organizer == todo.calendar.owner.email \
-                    or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email)):
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer
+                            == todo.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.organizer]
@@ -1087,13 +1092,13 @@ class TodoAttendee(ModelSQL, ModelView):
                 if attendee_emails:
                     with Transaction().set_user(0):
                         attendees2 = cls.search([
-                            ('todo.uuid', '=', todo.uuid),
-                            ('todo.calendar.owner.email', 'in',
+                                ('todo.uuid', '=', todo.uuid),
+                                ('todo.calendar.owner.email', 'in',
                                     attendee_emails),
-                            ('id', '!=', attendee.id),
-                            ('todo.recurrence', '=', todo.recurrence),
-                            ('email', '=', attendee.email),
-                            ])
+                                ('id', '!=', attendee.id),
+                                ('todo.recurrence', '=', todo.recurrence),
+                                ('email', '=', attendee.email),
+                                ])
                         cls.write(attendees2, attendee._attendee2update())
 
     @classmethod
@@ -1110,10 +1115,11 @@ class TodoAttendee(ModelSQL, ModelView):
 
         for attendee in todo_attendees:
             todo = attendee.todo
-            if todo.calendar.owner \
-                    and (todo.organizer == todo.calendar.owner.email \
-                    or (todo.parent \
-                    and todo.parent.organizer == todo.calendar.owner.email)):
+            if (todo.calendar.owner
+                    and (todo.organizer == todo.calendar.owner.email
+                        or (todo.parent
+                            and todo.parent.organizer
+                            == todo.calendar.owner.email))):
                 if todo.organizer == todo.calendar.owner.email:
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.organizer]
@@ -1131,10 +1137,10 @@ class TodoAttendee(ModelSQL, ModelView):
                             ('email', '=', attendee.email),
                             ])
                         cls.delete(attendees)
-            elif todo.calendar.organizer \
-                    and ((todo.organizer \
-                    or (todo.parent and todo.parent.organizer)) \
-                    and attendee.email == todo.calendar.owner.email):
+            elif (todo.calendar.organizer
+                    and ((todo.organizer
+                            or (todo.parent and todo.parent.organizer))
+                        and attendee.email == todo.calendar.owner.email)):
                 if todo.organizer:
                     organizer = todo.organizer
                 else:

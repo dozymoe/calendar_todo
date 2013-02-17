@@ -109,7 +109,7 @@ class Collection:
         if uri and (uri not in ('Calendars', 'Calendars/')) and \
                 uri.startswith('Calendars/'):
             calendar_id = cls.calendar(uri)
-            if  calendar_id and not (uri[10:].split('/', 1) + [None])[1]:
+            if calendar_id and not (uri[10:].split('/', 1) + [None])[1]:
                 domain = cls._caldav_filter_domain_todo(filter)
                 todos = Todo.search([
                     ('calendar', '=', calendar_id),
@@ -175,16 +175,16 @@ class Collection:
                 for i in range(0, len(ids), cursor.IN_MAX):
                     sub_ids = ids[i:i + cursor.IN_MAX]
                     red_sql, red_ids = reduce_ids('id', sub_ids)
-                    cursor.execute('SELECT id, ' \
-                            'EXTRACT(epoch FROM create_date) ' \
-                        'FROM "' + Todo.__table__ + '" ' \
+                    cursor.execute('SELECT id, '
+                            'EXTRACT(epoch FROM create_date) '
+                        'FROM "' + Todo.__table__ + '" '
                         'WHERE ' + red_sql, red_ids)
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
                         if cache is not None:
                             cache['_calendar'][Todo.__name__]\
-                                    .setdefault(todo_id2, {})
+                                .setdefault(todo_id2, {})
                             cache['_calendar'][Todo.__name__][
                                 todo_id2]['creationdate'] = date
                 if res is not None:
@@ -220,19 +220,19 @@ class Collection:
                     red_id_sql, red_id_ids = reduce_ids('id', sub_ids)
                     red_parent_sql, red_parent_ids = reduce_ids('parent',
                             sub_ids)
-                    cursor.execute('SELECT COALESCE(parent, id), ' \
-                                'MAX(EXTRACT(epoch FROM ' \
-                                'COALESCE(write_date, create_date))) ' \
-                            'FROM "' + Todo.__table__ + '" ' \
-                            'WHERE ' + red_id_sql + ' ' \
-                                'OR ' + red_parent_sql + ' ' \
-                            'GROUP BY parent, id', red_id_ids + red_parent_ids)
+                    cursor.execute('SELECT COALESCE(parent, id), '
+                            'MAX(EXTRACT(epoch FROM '
+                            'COALESCE(write_date, create_date))) '
+                        'FROM "' + Todo.__table__ + '" '
+                        'WHERE ' + red_id_sql + ' '
+                            'OR ' + red_parent_sql + ' '
+                        'GROUP BY parent, id', red_id_ids + red_parent_ids)
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
                         if cache is not None:
                             cache['_calendar'][Todo.__name__]\
-                                    .setdefault(todo_id2, {})
+                                .setdefault(todo_id2, {})
                             cache['_calendar'][Todo.__name__][
                                 todo_id2]['lastmodified'] = date
                 if res is not None:
@@ -277,7 +277,7 @@ class Collection:
                 todo, = Todo.create([values])
                 calendar = Calendar(calendar_id)
                 return Transaction().cursor.database_name + '/Calendars/' + \
-                        calendar.name + '/' + todo.uuid + '.ics'
+                    calendar.name + '/' + todo.uuid + '.ics'
             else:
                 values = Todo.ical2values(todo_id, ical, calendar_id)
                 Todo.write([Todo(todo_id)], values)
