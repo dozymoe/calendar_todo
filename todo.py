@@ -117,13 +117,10 @@ class Todo(ModelSQL, ModelView):
         cls._sql_constraints = [
             #XXX should be unique across all componenets
             ('uuid_recurrence_uniq', 'UNIQUE(uuid, calendar, recurrence)',
-                'UUID and recurrence must be unique in a calendar!'),
-            ]
-        cls._constraints += [
-            ('check_recurrence', 'invalid_recurrence'),
+                'UUID and recurrence must be unique in a calendar.'),
             ]
         cls._error_messages.update({
-                'invalid_recurrence': 'Recurrence can not be recurrent!',
+                'invalid_recurrence': 'Todo "%s" can not be recurrent.',
                 })
 
     @classmethod
@@ -191,6 +188,12 @@ class Todo(ModelSQL, ModelView):
     def search_calendar_field(cls, name, clause):
         return [('calendar.' + name[9:],) + tuple(clause[1:])]
 
+    @classmethod
+    def validate(cls, todos):
+        super(todos, cls).validate(todos)
+        for todo in todos:
+            todo.check_recurrence()
+
     def check_recurrence(self):
         '''
         Check the recurrence is not recurrent.
@@ -202,8 +205,7 @@ class Todo(ModelSQL, ModelView):
                 or self.exdates
                 or self.exrules
                 or self.occurences):
-            return False
-        return True
+            self.raise_user_error('invalid_recurrence', (self.rec_name,))
 
     @classmethod
     def create(cls, vlist):
