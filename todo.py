@@ -12,6 +12,8 @@ from trytond.backend import TableHandler
 from trytond.pyson import Eval, If, Bool
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from trytond.modules.calendar import AlarmMixin, DateMixin, RRuleMixin, \
+    AttendeeMixin
 
 __all__ = ['Todo', 'TodoCategory', 'TodoRDate', 'TodoRRule', 'TodoExDate',
     'TodoExRule', 'TodoAttendee', 'TodoAlarm']
@@ -133,7 +135,6 @@ class Todo(ModelSQL, ModelView):
             models_data = ModelData.search([
                 ('fs_id', '=', 'rule_group_read_todo_line3'),
                 ('module', '=', module_name),
-                ('inherit', '=', None),
                 ], limit=1)
             if models_data:
                 model_data, = models_data
@@ -869,13 +870,10 @@ class TodoCategory(ModelSQL):
             ondelete='CASCADE', required=True, select=True)
 
 
-class TodoRDate(ModelSQL, ModelView):
+class TodoRDate(DateMixin, ModelSQL, ModelView):
     'Todo Recurrence Date'
     __name__ = 'calendar.todo.rdate'
-    _inherits = {'calendar.date': 'calendar_date'}
     _rec_name = 'datetime'
-    calendar_date = fields.Many2One('calendar.date', 'Calendar Date',
-            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             select=True, required=True)
 
@@ -889,6 +887,19 @@ class TodoRDate(ModelSQL, ModelView):
             table.column_rename(old_column, 'calendar_date')
 
         super(TodoRDate, cls).__register__(module_name)
+
+        table = TableHandler(cursor, cls, module_name)
+
+        # Migration from 2.6: Remove inherits calendar.date
+        if table.column_exist('calendar_date'):
+            cursor.execute('UPDATE "' + cls._table + '" AS e '
+                'SET date = (SELECT a.date '
+                    'FROM calendar_date AS a '
+                    'WHERE a.id = e.calendar_date), '
+                'datetime = (SELECT a.datetime '
+                    'FROM calendar_date AS a '
+                    'WHERE a.id = e.calendar_date)')
+            table.drop_column('calendar_date', True)
 
     @classmethod
     def create(cls, vlist):
@@ -917,39 +928,38 @@ class TodoRDate(ModelSQL, ModelView):
     def delete(cls, todo_rdates):
         pool = Pool()
         Todo = pool.get('calendar.todo')
-        Rdate = pool.get('calendar.date')
-        rdates = [a.calendar_date for a in todo_rdates]
         todos = [x.todo for x in todo_rdates]
         if todos:
             # Update write_date of todo
             Todo.write(todos, {})
         super(TodoRDate, cls).delete(todo_rdates)
-        if rdates:
-            Rdate.delete(rdates)
-
-    def _date2update(self):
-        return self.calendar_date._date2update()
-
-    @classmethod
-    def date2values(cls, date):
-        Date = Pool().get('calendar.date')
-        return Date.date2values(date.calendar_date)
-
-    @classmethod
-    def date2date(cls, date):
-        Date = Pool().get('calendar.date')
-        return Date.date2date(date.calendar_date)
 
 
-class TodoRRule(ModelSQL, ModelView):
+class TodoRRule(RRuleMixin, ModelSQL, ModelView):
     'Recurrence Rule'
     __name__ = 'calendar.todo.rrule'
-    _inherits = {'calendar.rrule': 'calendar_rrule'}
     _rec_name = 'freq'
-    calendar_rrule = fields.Many2One('calendar.rrule', 'Calendar RRule',
-            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             select=True, required=True)
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+
+        super(TodoRRule, cls).__register__(module_name)
+
+        table = TableHandler(cursor, cls, module_name)
+
+        # Migration from 2.6: Remove inherits calendar.rrule
+        if table.column_exist('calendar_rrule'):
+            for field in (f for f in dir(RRuleMixin)
+                    if isinstance(f, fields.Field)):
+                cursor.execute(('UPDATE "' + cls._table + '" AS e '
+                        'SET "%(field)s" = (SELECT a."%(field)s" '
+                            'FROM calendar_rrule AS r '
+                            'WHERE r.id = e.calendar_rrule)')
+                    % {'field': field})
+            table.drop_column('calendar_rrule', True)
 
     @classmethod
     def create(cls, vlist):
@@ -978,28 +988,11 @@ class TodoRRule(ModelSQL, ModelView):
     def delete(cls, todo_rrules):
         pool = Pool()
         Todo = pool.get('calendar.todo')
-        Rrule = pool.get('calendar.rrule')
-        rrules = [a.calendar_rrule for a in todo_rrules]
         todos = [x.todo for x in todo_rrules]
         if todos:
             # Update write_date of todo
             Todo.write(todos, {})
         super(TodoRRule, cls).delete(todo_rrules)
-        if rrules:
-            Rrule.delete(rrules)
-
-    def _rule2update(self):
-        return self.calendar_rrule._rule2update()
-
-    @classmethod
-    def rule2values(cls, rule):
-        Rule = Pool().get('calendar.rrule')
-        return Rule.rule2values(rule.calendar_rrule)
-
-    @classmethod
-    def rule2rule(cls, rule):
-        Rule = Pool().get('calendar.rrule')
-        return Rule.rule2rule(rule.calendar_rrule)
 
 
 class TodoExDate(TodoRDate):
@@ -1014,14 +1007,30 @@ class TodoExRule(TodoRRule):
     _table = 'calendar_todo_exrule'  # Needed to override TodoRRule._table
 
 
-class TodoAttendee(ModelSQL, ModelView):
+class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
     'Attendee'
     __name__ = 'calendar.todo.attendee'
-    _inherits = {'calendar.attendee': 'calendar_attendee'}
-    calendar_attendee = fields.Many2One('calendar.attendee',
-        'Calendar Attendee', required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             required=True, select=True)
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+
+        super(TodoAttendee, cls).__register__(module_name)
+
+        table = TableHandler(cursor, cls, module_name)
+
+        # Migration from 2.6: Remove inherits calendar.attendee
+        if table.column_exist('calendar_attendee'):
+            cursor.execute('UPDATE "' + cls._table + '" AS e '
+                'SET email = (SELECT a.email '
+                    'FROM calendar_attendee AS a '
+                    'WHERE a.id = e.calendar_attendee), '
+                'status = (SELECT a.status '
+                    'FROM calendar_attendee AS a '
+                    'WHERE a.id = e.calendar_attendee)')
+            table.drop_column('calendar_attendee', True)
 
     @classmethod
     def create(cls, vlist):
@@ -1107,9 +1116,7 @@ class TodoAttendee(ModelSQL, ModelView):
     def delete(cls, todo_attendees):
         pool = Pool()
         Todo = pool.get('calendar.todo')
-        Attendee = pool.get('calendar.attendee')
 
-        calendar_attendees = [a.calendar_attendee for a in todo_attendees]
         todos = [x.todo for x in todo_attendees]
         if todos:
             # Update write_date of todo
@@ -1160,47 +1167,29 @@ class TodoAttendee(ModelSQL, ModelView):
                             'status': 'declined',
                             })
         super(TodoAttendee, cls).delete(todo_attendees)
-        if calendar_attendees:
-            Attendee.delete(calendar_attendees)
-
-    @classmethod
-    def copy(cls, todo_attendees, default=None):
-        Attendee = Pool().get('calendar.attendee')
-
-        if default is None:
-            default = {}
-        default = default.copy()
-        new_attendees = []
-        for attendee in todo_attendees:
-            default['calendar_attendee'], = Attendee.copy(
-                [attendee.calendar_attendee])
-            new_attendee, = super(TodoAttendee, cls).copy([attendee],
-                default=default)
-            new_attendees.append(new_attendee)
-        return new_attendees
-
-    def _attendee2update(self):
-        return self.calendar_attendee._attendee2update()
-
-    @classmethod
-    def attendee2values(cls, attendee):
-        Attendee = Pool().get('calendar.attendee')
-        return Attendee.attendee2values(attendee.calendar_attendee)
-
-    @classmethod
-    def attendee2attendee(cls, attendee):
-        Attendee = Pool().get('calendar.attendee')
-        return Attendee.attendee2attendee(attendee.calendar_attendee)
 
 
-class TodoAlarm(ModelSQL):
+class TodoAlarm(AlarmMixin, ModelSQL, ModelView):
     'Alarm'
     __name__ = 'calendar.todo.alarm'
-    _inherits = {'calendar.alarm': 'calendar_alarm'}
-    calendar_alarm = fields.Many2One('calendar.alarm', 'Calendar Alarm',
-            required=True, ondelete='CASCADE', select=True)
     todo = fields.Many2One('calendar.todo', 'Todo', ondelete='CASCADE',
             required=True, select=True)
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+
+        super(TodoAlarm, cls).__register__(module_name)
+
+        table = TableHandler(cursor, cls, module_name)
+
+        # Migration from 2.6: Remove inherits calendar.alarm
+        if table.column_exist('calendar_alarm'):
+            cursor.execute('UPDATE "' + cls._table + '" AS t '
+                'SET valarm = (SELECT a.valarm '
+                    'FROM calendar_alarm AS a '
+                    'WHERE a.id = t.calendar_alarm)')
+            table.drop_column('calendar_alarm', True)
 
     @classmethod
     def create(cls, vlist):
@@ -1229,21 +1218,8 @@ class TodoAlarm(ModelSQL):
     def delete(cls, todo_alarms):
         pool = Pool()
         Todo = pool.get('calendar.todo')
-        Alarm = pool.get('calendar.alarm')
-        alarms = [a.calendar_alarm for a in todo_alarms]
         todos = [x.todo for x in todo_alarms]
         if todos:
             # Update write_date of todo
             Todo.write(todos, {})
         super(TodoAlarm, cls).delete(todo_alarms)
-        if alarms:
-            Alarm.delete(alarms)
-
-    @classmethod
-    def valarm2values(cls, alarm):
-        Alarm = Pool().get('calendar.alarm')
-        return Alarm.valarm2values(alarm.calendar_alarm)
-
-    def alarm2valarm(self, alarm):
-        Alarm = Pool().get('calendar.alarm')
-        return Alarm.alarm2valarm(alarm.calendar_alarm)
