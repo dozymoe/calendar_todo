@@ -3,6 +3,10 @@
 import vobject
 import urllib
 from pywebdav.lib.errors import DAV_NotFound, DAV_Forbidden
+from sql.functions import Extract
+from sql.conditionals import Coalesce
+from sql.aggregate import Max
+
 from trytond.tools import reduce_ids
 from trytond.transaction import Transaction
 from trytond.cache import Cache
@@ -149,6 +153,7 @@ class Collection:
     @classmethod
     def get_creationdate(cls, uri, cache=None):
         Todo = Pool().get('calendar.todo')
+        todo = Todo.__table__()
 
         cursor = Transaction().cursor
 
@@ -174,11 +179,10 @@ class Collection:
                 res = None
                 for i in range(0, len(ids), cursor.IN_MAX):
                     sub_ids = ids[i:i + cursor.IN_MAX]
-                    red_sql, red_ids = reduce_ids('id', sub_ids)
-                    cursor.execute('SELECT id, '
-                            'EXTRACT(epoch FROM create_date) '
-                        'FROM "' + Todo.__table__ + '" '
-                        'WHERE ' + red_sql, red_ids)
+                    red_sql = reduce_ids(todo.id, sub_ids)
+                    cursor.execute(*todo.select(todo.id,
+                            Extract('EPOCH', todo.create_date),
+                            where=red_sql))
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
@@ -195,6 +199,7 @@ class Collection:
     @classmethod
     def get_lastmodified(cls, uri, cache=None):
         Todo = Pool().get('calendar.todo')
+        todo = Todo.__table__()
 
         cursor = Transaction().cursor
 
@@ -217,16 +222,13 @@ class Collection:
                 res = None
                 for i in range(0, len(ids), cursor.IN_MAX / 2):
                     sub_ids = ids[i:i + cursor.IN_MAX / 2]
-                    red_id_sql, red_id_ids = reduce_ids('id', sub_ids)
-                    red_parent_sql, red_parent_ids = reduce_ids('parent',
-                            sub_ids)
-                    cursor.execute('SELECT COALESCE(parent, id), '
-                            'MAX(EXTRACT(epoch FROM '
-                            'COALESCE(write_date, create_date))) '
-                        'FROM "' + Todo.__table__ + '" '
-                        'WHERE ' + red_id_sql + ' '
-                            'OR ' + red_parent_sql + ' '
-                        'GROUP BY parent, id', red_id_ids + red_parent_ids)
+                    red_id_sql = reduce_ids(todo.id, sub_ids)
+                    red_parent_sql = reduce_ids(todo.parent, sub_ids)
+                    cursor.execute(*todo.select(Coalesce(todo.parent, todo.id),
+                            Max(Extract('EPOCH', Coalesce(todo.write_date,
+                                        todo.create_date))),
+                            where=red_id_sql | red_parent_sql,
+                            group_by=(todo.parent, todo.id)))
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
                             res = date
