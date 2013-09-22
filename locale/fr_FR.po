@@ -647,20 +647,8 @@ msgid "Confidential"
 msgstr "Confidentiel"
 
 msgctxt "selection:calendar.todo,classification:"
-msgid "Confidential"
-msgstr "Confidentiel"
-
-msgctxt "selection:calendar.todo,classification:"
 msgid "Private"
 msgstr "Privé"
-
-msgctxt "selection:calendar.todo,classification:"
-msgid "Private"
-msgstr "Privé"
-
-msgctxt "selection:calendar.todo,classification:"
-msgid "Public"
-msgstr "Publique"
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
@@ -671,14 +659,6 @@ msgid ""
 msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
-msgid ""
-msgstr ""
-
-msgctxt "selection:calendar.todo,status:"
-msgid "Cancelled"
-msgstr "Annulé"
-
-msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
 msgstr "Annulé"
 
@@ -687,20 +667,8 @@ msgid "Completed"
 msgstr "Complété"
 
 msgctxt "selection:calendar.todo,status:"
-msgid "Completed"
-msgstr "Complété"
-
-msgctxt "selection:calendar.todo,status:"
 msgid "In-Process"
 msgstr "En court"
-
-msgctxt "selection:calendar.todo,status:"
-msgid "In-Process"
-msgstr "En court"
-
-msgctxt "selection:calendar.todo,status:"
-msgid "Needs-Action"
-msgstr "Nécessite une action"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
@@ -847,28 +815,12 @@ msgid "Attendee"
 msgstr "Participant"
 
 msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr "Participant"
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr "Participants"
-
-msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
 msgstr "Participants"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Date"
 msgstr "Date d'exception"
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Date"
-msgstr "Date d'exception"
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Dates"
-msgstr "Dates d'exception"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
@@ -879,28 +831,12 @@ msgid "Exception Rule"
 msgstr "Règle d'exception"
 
 msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr "Règle d'exception"
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr "Règles d'exception"
-
-msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
 msgstr "Règles d'exception"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
 msgstr "Date de récurrence"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Date"
-msgstr "Date de récurrence"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Dates"
-msgstr "Dates de récurrence"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
@@ -911,20 +847,8 @@ msgid "Recurrence Rule"
 msgstr "Règle de récurrence"
 
 msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr "Règle de récurrence"
-
-msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rules"
 msgstr "Règles de récurrence"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr "Règles de récurrence"
-
-msgctxt "view:calendar.todo:"
-msgid "Attendees"
-msgstr "Participants"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
@@ -935,14 +859,6 @@ msgid "Categories"
 msgstr "Catégories"
 
 msgctxt "view:calendar.todo:"
-msgid "Categories"
-msgstr "Catégories"
-
-msgctxt "view:calendar.todo:"
-msgid "General"
-msgstr "Général"
-
-msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "Général"
 
@@ -951,20 +867,8 @@ msgid "Occurences"
 msgstr "Occurrences"
 
 msgctxt "view:calendar.todo:"
-msgid "Occurences"
-msgstr "Occurrences"
-
-msgctxt "view:calendar.todo:"
 msgid "Todo"
 msgstr "Tâche"
-
-msgctxt "view:calendar.todo:"
-msgid "Todo"
-msgstr "Tâche"
-
-msgctxt "view:calendar.todo:"
-msgid "Todos"
-msgstr "Tâches"
 
 msgctxt "view:calendar.todo:"
 msgid "Todos"
