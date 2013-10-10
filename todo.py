@@ -191,7 +191,7 @@ class Todo(ModelSQL, ModelView):
 
     @classmethod
     def validate(cls, todos):
-        super(todos, cls).validate(todos)
+        super(Todo, cls).validate(todos)
         for todo in todos:
             todo.check_recurrence()
 
