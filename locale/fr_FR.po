@@ -604,7 +604,7 @@ msgstr "Tâche"
 
 msgctxt "model:calendar.todo-calendar.category,name:"
 msgid "Todo - Category"
-msgstr "Todo - Catégorie"
+msgstr "Tâche - Catégorie"
 
 msgctxt "model:calendar.todo.alarm,name:"
 msgid "Alarm"
@@ -624,7 +624,7 @@ msgstr "Règle d'exception"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Date de récurrence"
+msgstr "Date de récurrence de tâche"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
