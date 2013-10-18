@@ -658,10 +658,9 @@ msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
 msgstr "Público"
 
-#, fuzzy
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr "Punto de Orden"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -679,10 +678,9 @@ msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
 msgstr "Necesita una Acción"
 
-#, fuzzy
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr "Punto de Orden"
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
