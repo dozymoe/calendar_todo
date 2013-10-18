@@ -4,7 +4,7 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
-msgstr "El campo \"por dia\" de la regla de recurrencia \"%s\" no es correcto."
+msgstr "El campo \"por día\" de la regla de recurrencia \"%s\" no es correcto."
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Hour\" in recurrence rule \"%s\""
@@ -46,7 +46,7 @@ msgstr ""
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
-msgstr "Define un \"hasta\" y un \"contador\"."
+msgstr "Puede establecer \"hasta\" o bien \"nº de veces\", no ambos."
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
@@ -92,7 +92,7 @@ msgstr ""
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
-msgstr "Define un \"hasta\" y un \"contador\"."
+msgstr "Puede establecer \"hasta\" o bien \"nº de veces\", no ambos."
 
 msgctxt "error:calendar.todo:"
 msgid "Todo \"%s\" can not be recurrent."
@@ -292,7 +292,7 @@ msgstr "Tarea"
 
 msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
-msgstr "valarm"
+msgstr "Alarma"
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
@@ -416,7 +416,7 @@ msgstr "Por día del año"
 
 msgctxt "field:calendar.todo.exrule,count:"
 msgid "Count"
-msgstr "Contador"
+msgstr "Nº de veces"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
@@ -540,7 +540,7 @@ msgstr "Por día del año"
 
 msgctxt "field:calendar.todo.rrule,count:"
 msgid "Count"
-msgstr "Contador"
+msgstr "Nº de veces"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
@@ -596,19 +596,19 @@ msgstr "Identificador universal único."
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnora la hora del campo \"Fecha\", pero usar como única fecha."
+msgstr "Ingnorar la hora del campo \"Fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.exrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ingnora la hora del campo \"Hasta la fecha\", pero usar como única fecha."
+msgstr "Ingnorar la hora del campo \"Hasta la fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.rdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnora la hora del campo \"Fecha\", pero usar como única fecha."
+msgstr "Ingnorar la hora del campo \"Fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.rrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ingnora la hora del campo \"Hasta la fecha\", pero usar como única fecha."
+msgstr "Ingnora la hora del campo \"Hasta la fecha\" y usar sólo el día."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
@@ -684,7 +684,7 @@ msgstr "En proceso"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
-msgstr "Necesidad-Acción"
+msgstr "Requiere acción"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
@@ -696,15 +696,15 @@ msgstr "Acceptado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Declined"
-msgstr "Rechazar"
+msgstr "Rechazado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Delegated"
-msgstr "Delegar"
+msgstr "Delegado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Needs Action"
-msgstr "Necesidad  Acción"
+msgstr "Requiere acción"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Tentative"
@@ -844,7 +844,7 @@ msgstr "Regla de excepción"
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
-msgstr "Reglas de excepciones"
+msgstr "Reglas de excepción"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
