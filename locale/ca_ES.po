@@ -666,7 +666,7 @@ msgstr "Públic"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -686,7 +686,7 @@ msgstr "Necessitat-Acció"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
