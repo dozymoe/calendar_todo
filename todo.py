@@ -482,7 +482,7 @@ class Todo(ModelSQL, ModelView):
         if hasattr(vtodo, 'percent_complete'):
             res['percent_complete'] = int(vtodo.percent_complete.value)
         else:
-            res['percent_complete'] = None
+            res['percent_complete'] = 0
 
         if hasattr(vtodo, 'completed'):
             if not isinstance(vtodo.completed.value, datetime.datetime):
