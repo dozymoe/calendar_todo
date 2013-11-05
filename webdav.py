@@ -29,13 +29,13 @@ class Collection:
                 calendar_id = cls.calendar(uri)
                 if not calendar_id:
                     return None
-            todo_ids = Todo.search([
+            todos = Todo.search([
                 ('calendar', '=', calendar_id),
                 ('uuid', '=', todo_uri[:-4]),
                 ('parent', '=', None),
                 ], limit=1)
-            if todo_ids:
-                return todo_ids[0]
+            if todos:
+                return todos[0].id
 
     @classmethod
     def _caldav_filter_domain_todo(cls, filter):
