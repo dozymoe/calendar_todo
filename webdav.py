@@ -177,7 +177,7 @@ class Collection:
                     red_sql, red_ids = reduce_ids('id', sub_ids)
                     cursor.execute('SELECT id, ' \
                             'EXTRACT(epoch FROM create_date) ' \
-                        'FROM "' + Todo.__table__ + '" ' \
+                        'FROM "' + Todo._table + '" ' \
                         'WHERE ' + red_sql, red_ids)
                     for todo_id2, date in cursor.fetchall():
                         if todo_id2 == todo_id:
@@ -223,7 +223,7 @@ class Collection:
                     cursor.execute('SELECT COALESCE(parent, id), ' \
                                 'MAX(EXTRACT(epoch FROM ' \
                                 'COALESCE(write_date, create_date))) ' \
-                            'FROM "' + Todo.__table__ + '" ' \
+                            'FROM "' + Todo._table + '" ' \
                             'WHERE ' + red_id_sql + ' ' \
                                 'OR ' + red_parent_sql + ' ' \
                             'GROUP BY parent, id', red_id_ids + red_parent_ids)
