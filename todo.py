@@ -813,7 +813,7 @@ class Todo(ModelSQL, ModelView):
             vtodo.add('class')
             getattr(vtodo, 'class').value = self.classification.upper()
         elif getattr(vtodo, 'class').value.lower() in \
-                dict(self.classification.selection):
+                dict(self.__class__.classification.selection):
             getattr(vtodo, 'class').value = self.classification.upper()
         if self.location:
             if not hasattr(vtodo, 'location'):
