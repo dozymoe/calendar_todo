@@ -156,12 +156,6 @@ class Todo(ModelSQL, ModelView):
         return 'public'
 
     @staticmethod
-    def default_timezone():
-        User = Pool().get('res.user')
-        user = User(Transaction().user)
-        return user.timezone
-
-    @staticmethod
     def default_percent_complete():
         return 0
 
@@ -712,14 +706,8 @@ class Todo(ModelSQL, ModelView):
         '''
         Return an iCalendar instance of vobject for todo
         '''
-        pool = Pool()
-        User = pool.get('res.user')
-
-        user = User(Transaction().user)
         if self.timezone:
             tztodo = dateutil.tz.gettz(self.timezone)
-        elif user.timezone:
-            tztodo = dateutil.tz.gettz(user.timezone)
         else:
             tztodo = tzlocal
 
