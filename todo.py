@@ -271,19 +271,19 @@ class Todo(ModelSQL, ModelView):
         res['location'] = self.location.id
         res['status'] = self.status
         res['organizer'] = self.organizer
-        res['rdates'] = [('delete_all',)]
+        res['rdates'] = [('delete', [r.id for r in self.rdates])]
         to_create = [rdate._date2update() for rdate in self.rdates]
         if to_create:
             res['rdates'].append(('create', to_create))
-        res['exdates'] = [('delete_all',)]
+        res['exdates'] = [('delete', [r.id for r in self.exdates])]
         to_create = [exdate._date2update() for exdate in self.exdates]
         if to_create:
             res['exdates'].append(('create', to_create))
-        res['rrules'] = [('delete_all',)]
+        res['rrules'] = [('delete', [r.id for r in self.rrules])]
         to_create = [rrule._rule2update() for rrule in self.rrules]
         if to_create:
             res['rrules'].append(('create', to_create))
-        res['exrules'] = [('delete_all',)]
+        res['exrules'] = [('delete', [r.id for r in self.exrules])]
         to_create = [exrule._rule2update() for exrule in self.exrules]
         if to_create:
             res['exrules'].append(('create', to_create))
@@ -544,6 +544,8 @@ class Todo(ModelSQL, ModelView):
             res['status'] = vtodo.status.value.lower()
         else:
             res['status'] = ''
+
+        res['categories'] = [('remove', [c.id for c in todo.categories])]
         if hasattr(vtodo, 'categories'):
             categories = Category.search([
                 ('name', 'in', [x for x in vtodo.categories.value]),
@@ -559,9 +561,7 @@ class Todo(ModelSQL, ModelView):
                             })
             if to_create:
                 categories += Category.create(to_create)
-            res['categories'] = [('set', [c.id for c in categories])]
-        else:
-            res['categories'] = [('unlink_all',)]
+            res['categories'] += [('add', [c.id for c in categories])]
         if hasattr(vtodo, 'class'):
             if getattr(vtodo, 'class').value.lower() in \
                     dict(cls.classification.selection):
