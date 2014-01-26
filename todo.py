@@ -82,7 +82,7 @@ class Todo(ModelSQL, ModelView):
         ('completed', 'Completed'),
         ('in-process', 'In-Process'),
         ('cancelled', 'Cancelled'),
-        ], 'Status', on_change=['status', 'completed', 'percent_complete'])
+        ], 'Status')
     summary = fields.Char('Summary')
     uuid = fields.Char('UUID', required=True,
             help='Universally Unique Identifier', select=True)
@@ -159,6 +159,7 @@ class Todo(ModelSQL, ModelView):
     def default_percent_complete():
         return 0
 
+    @fields.depends('status', 'completed', 'percent_complete')
     def on_change_status(self):
         res = {}
         if not getattr(self, 'status', None):
