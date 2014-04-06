@@ -84,7 +84,7 @@ msgstr "Solo un \"hasta\" y \"contar\" pude ser establecido!"
 
 msgctxt "error:calendar.todo:"
 msgid "Todo \"%s\" can not be recurrent."
-msgstr "Tareas por Hacer \"%s\" no puede ser recurrente."
+msgstr "La tarea pendiente \"%s\" no puede ser recursiva."
 
 msgctxt "error:calendar.todo:"
 msgid "UUID and recurrence must be unique in a calendar."
@@ -144,7 +144,7 @@ msgstr "Fecha Inicio"
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
-msgstr "Fecha Debida"
+msgstr "Fecha Esperada"
 
 msgctxt "field:calendar.todo,exdates:"
 msgid "Exception Dates"
@@ -208,7 +208,7 @@ msgstr "Resumen"
 
 msgctxt "field:calendar.todo,timezone:"
 msgid "Timezone"
-msgstr "Zona horaria"
+msgstr "Zona Horaria"
 
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
@@ -216,7 +216,7 @@ msgstr "UUID"
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
-msgstr "v- por hacer"
+msgstr "vpendiente"
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
@@ -248,7 +248,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo-calendar.category,todo:"
 msgid "To-Do"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
@@ -276,7 +276,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
@@ -320,7 +320,7 @@ msgstr "Estado de Participación"
 
 msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
@@ -356,7 +356,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
@@ -432,7 +432,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.exrule,until:"
 msgid "Until Date"
@@ -444,7 +444,7 @@ msgstr "Esta Fecha"
 
 msgctxt "field:calendar.todo.exrule,wkst:"
 msgid "Week Day"
-msgstr "Día de la Semana"
+msgstr "Día de Semana"
 
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
@@ -480,7 +480,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
@@ -556,7 +556,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "field:calendar.todo.rrule,until:"
 msgid "Until Date"
@@ -568,7 +568,7 @@ msgstr "Esta Fecha"
 
 msgctxt "field:calendar.todo.rrule,wkst:"
 msgid "Week Day"
-msgstr "Día de la Semana"
+msgstr "Día de Semana"
 
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
@@ -604,7 +604,7 @@ msgstr ""
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "model:calendar.todo-calendar.category,name:"
 msgid "Todo - Category"
@@ -636,15 +636,15 @@ msgstr "Regla de Repetición"
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr "Por hacer"
+msgstr "Pendientes"
 
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
-msgstr "Por hacer"
+msgstr "Pendientes"
 
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
-msgstr "Por hacer"
+msgstr "Pendiente"
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Confidential"
@@ -731,6 +731,10 @@ msgid "Yearly"
 msgstr "Anualmente"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
 msgstr "Viernes"
 
@@ -785,6 +789,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -872,8 +880,8 @@ msgstr "Ocurrencias"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
-msgstr "Por Hacer"
+msgstr "Pendiente"
 
 msgctxt "view:calendar.todo:"
 msgid "Todos"
-msgstr "Por hacer"
+msgstr "Pendientes"
