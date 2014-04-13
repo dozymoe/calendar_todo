@@ -727,6 +727,10 @@ msgid "Yearly"
 msgstr "Letno"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
 msgstr "Petek"
 
@@ -781,6 +785,10 @@ msgstr "Tedensko"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Letno"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
