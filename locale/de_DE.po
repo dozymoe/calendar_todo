@@ -137,7 +137,7 @@ msgstr "Erstellt durch"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
-msgstr "Bezeichnung"
+msgstr "Beschreibung"
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
@@ -281,7 +281,7 @@ msgstr "Aufgabe"
 
 msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
-msgstr ""
+msgstr "Alarm"
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
@@ -736,6 +736,10 @@ msgid "Yearly"
 msgstr "Jährlich"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
 msgstr "Freitag"
 
@@ -790,6 +794,10 @@ msgstr "Wöchentlich"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Jährlich"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
