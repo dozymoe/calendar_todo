@@ -188,7 +188,7 @@ msgstr "Percentatge total"
 
 msgctxt "field:calendar.todo,rdates:"
 msgid "Recurrence Dates"
-msgstr "Dates de recurrencia"
+msgstr "Dates de recurrència"
 
 msgctxt "field:calendar.todo,rec_name:"
 msgid "Name"
@@ -196,11 +196,11 @@ msgstr "Nom"
 
 msgctxt "field:calendar.todo,recurrence:"
 msgid "Recurrence"
-msgstr "Recurrencia"
+msgstr "Recurrència"
 
 msgctxt "field:calendar.todo,rrules:"
 msgid "Recurrence Rules"
-msgstr "Regles de recurrencia"
+msgstr "Regles de recurrència"
 
 msgctxt "field:calendar.todo,sequence:"
 msgid "Sequence"
@@ -312,7 +312,7 @@ msgstr "Usuari creació"
 
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
-msgstr "Email"
+msgstr "Correu electrònic"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
@@ -412,7 +412,7 @@ msgstr "Per dia de l'any"
 
 msgctxt "field:calendar.todo.exrule,count:"
 msgid "Count"
-msgstr "Contador"
+msgstr "Comptador"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
@@ -432,7 +432,7 @@ msgstr "ID"
 
 msgctxt "field:calendar.todo.exrule,interval:"
 msgid "Interval"
-msgstr "Intèrval"
+msgstr "Interval"
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
@@ -536,7 +536,7 @@ msgstr "Per dia de l'any"
 
 msgctxt "field:calendar.todo.rrule,count:"
 msgid "Count"
-msgstr "Contador"
+msgstr "Comptador"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
@@ -556,7 +556,7 @@ msgstr "ID"
 
 msgctxt "field:calendar.todo.rrule,interval:"
 msgid "Interval"
-msgstr "Intèrval"
+msgstr "Interval"
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
@@ -588,25 +588,25 @@ msgstr "Usuari modificació"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
-msgstr "Identificador universal únic"
+msgstr "Identificador universal únic."
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnora la hora del camp \"Data\", però utilitza com a única data."
+msgstr "Ignora la hora del camp \"Data\", però utilitza com a única data."
 
 msgctxt "help:calendar.todo.exrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
 msgstr ""
-"Ingnora la hora del camp \"Fins a la data\", però utilitza com a única data."
+"Ignora la hora del camp \"Fins a la data\", però utilitza com a única data."
 
 msgctxt "help:calendar.todo.rdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnora la hora del camp \"Data\", però utilitza com a única data."
+msgstr "Ignora la hora del camp \"Data\", però utilitza com a única data."
 
 msgctxt "help:calendar.todo.rrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
 msgstr ""
-"Ingnora la hora del camp \"Fins a la data\", però utilitza com a única data."
+"Ignora la hora del camp \"Fins a la data\", però utilitza com a única data."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
@@ -634,11 +634,11 @@ msgstr "Regla d'excepció"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Data de recurrencia"
+msgstr "Data de recurrència"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
-msgstr "Regla de recurrencia"
+msgstr "Regla de recurrència"
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
@@ -710,7 +710,7 @@ msgstr "Temptatiu"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Daily"
-msgstr "Diariament"
+msgstr "Diàriament"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Hourly"
@@ -735,6 +735,10 @@ msgstr "Setmanalment"
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr "Anualment"
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -766,7 +770,7 @@ msgstr "Dimecres"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Daily"
-msgstr "Diariament"
+msgstr "Diàriament"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Hourly"
@@ -791,6 +795,10 @@ msgstr "Setmanalment"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualment"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -846,15 +854,15 @@ msgstr "Regles d'excepcions"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
-msgstr "Data de recurrencia"
+msgstr "Data de recurrència"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
-msgstr "Dates de recurrencia"
+msgstr "Dates de recurrència"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
-msgstr "Regla de recurrencia"
+msgstr "Regla de recurrència"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rules"
