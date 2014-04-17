@@ -741,6 +741,10 @@ msgid "Yearly"
 msgstr "Anualmente"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
 msgstr "Viernes"
 
@@ -795,6 +799,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
