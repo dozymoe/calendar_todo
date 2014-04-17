@@ -328,7 +328,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.attendee,status:"
 msgid "Participation Status"
-msgstr "Estat de participacions"
+msgstr "Estado de participación"
 
 msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
@@ -436,7 +436,7 @@ msgstr "ID"
 
 msgctxt "field:calendar.todo.exrule,interval:"
 msgid "Interval"
-msgstr "Intérvalo"
+msgstr "Intervalo"
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
@@ -560,7 +560,7 @@ msgstr "ID"
 
 msgctxt "field:calendar.todo.rrule,interval:"
 msgid "Interval"
-msgstr "Intérvalo"
+msgstr "Intervalo"
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
@@ -596,19 +596,19 @@ msgstr "Identificador universal único."
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnorar la hora del campo \"Fecha\" y usar sólo el día."
+msgstr "Ignora la hora del campo \"Fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.exrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ingnorar la hora del campo \"Hasta la fecha\" y usar sólo el día."
+msgstr "Ignora la hora del campo \"Hasta la fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.rdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ingnorar la hora del campo \"Fecha\" y usar sólo el día."
+msgstr "Ignora la hora del campo \"Fecha\" y usar sólo el día."
 
 msgctxt "help:calendar.todo.rrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ingnora la hora del campo \"Hasta la fecha\" y usar sólo el día."
+msgstr "Ignora la hora del campo \"Hasta la fecha\" y usar sólo el día."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
@@ -692,7 +692,7 @@ msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
-msgstr "Acceptado"
+msgstr "Aceptado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Declined"
@@ -737,6 +737,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -793,6 +797,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
