@@ -732,6 +732,10 @@ msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr ""
 
+msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
+
 #, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -793,6 +797,10 @@ msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
+msgstr ""
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
 msgstr ""
 
 #, fuzzy
