@@ -7,7 +7,7 @@ from sql.functions import Extract
 from sql.conditionals import Coalesce
 from sql.aggregate import Max
 
-from trytond.tools import reduce_ids
+from trytond.tools import reduce_ids, grouped_slice
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pool import Pool, PoolMeta
@@ -177,8 +177,7 @@ class Collection:
                 else:
                     ids = [todo_id]
                 res = None
-                for i in range(0, len(ids), cursor.IN_MAX):
-                    sub_ids = ids[i:i + cursor.IN_MAX]
+                for sub_ids in grouped_slice(ids):
                     red_sql = reduce_ids(todo.id, sub_ids)
                     cursor.execute(*todo.select(todo.id,
                             Extract('EPOCH', todo.create_date),
@@ -220,8 +219,7 @@ class Collection:
                 else:
                     ids = [todo_id]
                 res = None
-                for i in range(0, len(ids), cursor.IN_MAX / 2):
-                    sub_ids = ids[i:i + cursor.IN_MAX / 2]
+                for sub_ids in grouped_slice(ids, cursor.IN_MAX / 2):
                     red_id_sql = reduce_ids(todo.id, sub_ids)
                     red_parent_sql = reduce_ids(todo.parent, sub_ids)
                     cursor.execute(*todo.select(Coalesce(todo.parent, todo.id),
