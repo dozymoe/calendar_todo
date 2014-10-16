@@ -4,87 +4,89 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
-msgstr "\"Par jour\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par jour » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Hour\" in recurrence rule \"%s\""
-msgstr "\"Par heure\" invalide dans la règle de récurrence \"%s\""
+msgstr "« Par heure » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Minute\" in recurrence rule \"%s\""
-msgstr "\"Par minute\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par minute » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Month Day\" in recurrence rule \"%s\""
-msgstr "Champ \"Par jour du mois\" invalide pour la règle de récurrence \"%s\"."
+msgstr ""
+"Champ « Par jour du mois » invalide pour la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Month\" in recurrence rule \"%s\""
-msgstr "Champ \"Par mois\" invalide pour la règle de récurrence \"%s\"."
+msgstr "Champ « Par mois » invalide pour la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Position\" in recurrence rule \"%s\""
-msgstr "\"Par position\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par position » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Second\" in recurrence rule \"%s\""
-msgstr "\"Par seconde\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par seconde » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Week Number\" in recurrence rule \"%s\""
-msgstr "\"Par numéro de semaine\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par numéro de semaine » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Year Day\" in recurrence rule \"%s\""
-msgstr "\"Par jour de l'année\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par jour de l'année » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
-msgstr "\"Date de fin\" et \"Répétitions\" sont mutuellement exclusifs"
+msgstr "« Date de fin » et « Répétitions » sont mutuellement exclusifs."
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
-msgstr "\"Par jour\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par jour » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Hour\" in recurrence rule \"%s\""
-msgstr "\"Par heure\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par heure » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Minute\" in recurrence rule \"%s\""
-msgstr "\"Par minute\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par minute » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Month Day\" in recurrence rule \"%s\""
-msgstr "Champ \"Par jour du mois\" invalide pour la règle de récurrence \"%s\"."
+msgstr ""
+"Champ « Par jour du mois » invalide pour la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Month\" in recurrence rule \"%s\""
-msgstr "Champ \"Par mois\" invalide pour la règle de récurrence \"%s\"."
+msgstr "Champ « Par mois » invalide pour la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Position\" in recurrence rule \"%s\""
-msgstr "\"Par position\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par position » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Second\" in recurrence rule \"%s\""
-msgstr "\"Par seconde\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par seconde » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Week Number\" in recurrence rule \"%s\""
-msgstr "\"Par numéro de semaine\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par numéro de semaine » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Year Day\" in recurrence rule \"%s\""
-msgstr "\"Par jour de l'année\" invalide dans la règle de récurrence \"%s\"."
+msgstr "« Par jour de l'année » invalide dans la règle de récurrence « %s »"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
-msgstr "\"Date de fin\" et \"Répétitions\" sont mutuellement exclusifs"
+msgstr "« Date de fin » et « Répétitions » sont mutuellement exclusifs."
 
 msgctxt "error:calendar.todo:"
 msgid "Todo \"%s\" can not be recurrent."
-msgstr "La tâche \"%s\" ne peut pas être récurrente."
+msgstr "La tâche « %s » ne peut pas être récurrente."
 
 msgctxt "error:calendar.todo:"
 msgid "UUID and recurrence must be unique in a calendar."
@@ -304,7 +306,7 @@ msgstr "Créé par"
 
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
-msgstr "E-mail"
+msgstr "Email"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
@@ -584,19 +586,21 @@ msgstr "Identificateur unique universel"
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ignorer l'heure du champ \"Date\" et considérer uniquement la date"
+msgstr "Ignorer l'heure du champ « Date » et considérer uniquement la date."
 
 msgctxt "help:calendar.todo.exrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ignorer l'heure du champ \"Date de fin\" et considérer uniquement la date"
+msgstr ""
+"Ignorer l'heure du champ « Date de fin » et considérer uniquement la date."
 
 msgctxt "help:calendar.todo.rdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
-msgstr "Ignorer l'heure du champ \"Date\" et considérer uniquement la date"
+msgstr "Ignorer l'heure du champ « Date » et considérer uniquement la date."
 
 msgctxt "help:calendar.todo.rrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ignorer l'heure du champ \"Date de fin\" et considérer uniquement la date"
+msgstr ""
+"Ignorer l'heure du champ « Date de fin » et considérer uniquement la date."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
