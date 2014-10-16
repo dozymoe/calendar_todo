@@ -128,11 +128,11 @@ msgstr "Zaključeno"
 
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
@@ -232,11 +232,11 @@ msgstr "Kategorija"
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
@@ -260,11 +260,11 @@ msgstr "Zapisal"
 
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
@@ -296,11 +296,11 @@ msgstr "Navzoči"
 
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
@@ -332,11 +332,11 @@ msgstr "Zapisal"
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
@@ -408,11 +408,11 @@ msgstr "Število"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
@@ -456,11 +456,11 @@ msgstr "Zapisal"
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
@@ -532,11 +532,11 @@ msgstr "Število"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr "Ustvarjeno"
+msgstr "Izdelano"
 
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr "Ustvaril"
+msgstr "Izdelal"
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
