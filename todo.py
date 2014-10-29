@@ -160,15 +160,12 @@ class Todo(ModelSQL, ModelView):
 
     @fields.depends('status', 'completed', 'percent_complete')
     def on_change_status(self):
-        res = {}
-        if not getattr(self, 'status', None):
-            return res
+        if not self.status:
+            return
         if self.status == 'completed':
-            res['percent_complete'] = 100
-            if not getattr(self, 'completed', None):
-                res['completed'] = datetime.datetime.now()
-
-        return res
+            self.percent_complete = 100
+            if not self.completed:
+                self.completed = datetime.datetime.now()
 
     @staticmethod
     def timezones():
