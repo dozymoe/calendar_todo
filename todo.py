@@ -1,5 +1,5 @@
-#This file is part of Tryton.  The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
 import uuid
 import vobject
 import dateutil.tz
@@ -119,7 +119,7 @@ class Todo(ModelSQL, ModelView):
     def __setup__(cls):
         super(Todo, cls).__setup__()
         cls._sql_constraints = [
-            #XXX should be unique across all componenets
+            # XXX should be unique across all componenets
             ('uuid_recurrence_uniq', 'UNIQUE(uuid, calendar, recurrence)',
                 'UUID and recurrence must be unique in a calendar.'),
             ]
@@ -329,20 +329,23 @@ class Todo(ModelSQL, ModelView):
                                 if x.status != 'declined'
                                 and x.email != todo.organizer]
                     else:
-                        attendee_emails = [x.email for x in todo.parent.attendees
-                                if x.status != 'declined'
-                                and x.email != todo.parent.organizer]
+                        attendee_emails = [
+                            x.email for x in todo.parent.attendees
+                            if x.status != 'declined'
+                            and x.email != todo.parent.organizer]
                     if attendee_emails:
                         with Transaction().set_context(_check_access=False):
                             todo2s = cls.search([
-                                ('uuid', '=', todo.uuid),
-                                ('calendar.owner.email', 'in', attendee_emails),
-                                ('id', '!=', todo.id),
-                                ('recurrence', '=', todo.recurrence),
-                                ])
+                                    ('uuid', '=', todo.uuid),
+                                    ('calendar.owner.email', 'in',
+                                        attendee_emails),
+                                    ('id', '!=', todo.id),
+                                    ('recurrence', '=', todo.recurrence),
+                                    ])
                         for todo2 in todo2s:
                             if todo2.calendar.owner.email in attendee_emails:
-                                attendee_emails.remove(todo2.calendar.owner.email)
+                                attendee_emails.remove(
+                                    todo2.calendar.owner.email)
                         with Transaction().set_context(_check_access=False):
                             cls.write(todos, todo._todo2update())
                     if attendee_emails:
@@ -1040,8 +1043,8 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
                     values=[attendee.select(attendee.email,
                             where=attendee.id == sql_table.calendar_attendee),
                         attendee.select(attendee.status,
-                            where=
-                            attendee.id == sql_table.calendar_attendee)]))
+                            where=(
+                                attendee.id == sql_table.calendar_attendee))]))
             table.drop_column('calendar_attendee', True)
 
     @classmethod
