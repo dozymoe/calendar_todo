@@ -4,8 +4,10 @@ this repository contains the full copyright notices and license terms. -->
 <tree string="Todos">
     <field name="calendar"/>
     <field name="summary"/>
-    <field name="dtstart"/>
-    <field name="due"/>
+    <field name="dtstart" widget="date"/>
+    <field name="dtstart" widget="time" string="Start Time"/>
+    <field name="due" widget="date"/>
+    <field name="due" widget="time" string="Due Time"/>
     <field name="status"/>
     <field name="percent_complete"/>
 </tree>
