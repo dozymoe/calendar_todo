@@ -107,12 +107,6 @@ class Todo(ModelSQL, ModelView):
             states={
                 'invisible': Bool(Eval('parent')),
             }, depends=['parent'])
-    calendar_owner = fields.Function(fields.Many2One('res.user', 'Owner'),
-            'get_calendar_field', searcher='search_calendar_field')
-    calendar_read_users = fields.Function(fields.One2Many('res.user', None,
-        'Read Users'), 'get_calendar_field', searcher='search_calendar_field')
-    calendar_write_users = fields.Function(fields.One2Many('res.user', None,
-        'Write Users'), 'get_calendar_field', searcher='search_calendar_field')
     vtodo = fields.Binary('vtodo')
 
     @classmethod
@@ -170,17 +164,6 @@ class Todo(ModelSQL, ModelView):
     @staticmethod
     def timezones():
         return [(x, x) for x in pytz.common_timezones] + [('', '')]
-
-    def get_calendar_field(self, name):
-        name = name[9:]
-        if name in ('read_users', 'write_users'):
-            return [x.id for x in getattr(self.calendar, name)]
-        else:
-            return getattr(self.calendar, name).id
-
-    @classmethod
-    def search_calendar_field(cls, name, clause):
-        return [('calendar.' + name[9:],) + tuple(clause[1:])]
 
     @classmethod
     def validate(cls, todos):
