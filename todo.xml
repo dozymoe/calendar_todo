@@ -27,7 +27,7 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_todo_form">
             <field name="name">Todos</field>
             <field name="res_model">calendar.todo</field>
-            <field name="domain">[('parent', '=', None)]</field>
+            <field name="domain" eval="[('parent', '=', None)]" pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_todo_form_view1">
             <field name="sequence" eval="10"/>
@@ -45,7 +45,9 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_todo_form3">
             <field name="name">Todos</field>
             <field name="res_model">calendar.todo</field>
-            <field name="domain">[('parent', '=', None), ('calendar', 'in', Eval('active_ids'))]</field>
+            <field name="domain"
+                eval="[('parent', '=', None), ('calendar', 'in', Eval('active_ids', []))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_todo_form3_view1">
             <field name="sequence" eval="10"/>
@@ -74,7 +76,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_delete" eval="True"/>
         </record>
         <record model="ir.rule" id="rule_group_todo_admin_line1">
-            <field name="domain">[]</field>
+            <field name="domain" eval="[]" pyson="1"/>
             <field name="rule_group" ref="rule_group_todo_admin"/>
         </record>
         <record model="ir.rule.group-res.group"
@@ -93,11 +95,15 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_delete" eval="False"/>
         </record>
         <record model="ir.rule" id="rule_group_read_todo_line1">
-            <field name="domain">[('calendar.owner', '=', user.id)]</field>
+            <field name="domain"
+                eval="[('calendar.owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
             <field name="rule_group" ref="rule_group_read_todo"/>
         </record>
         <record model="ir.rule" id="rule_group_read_todo_line2">
-            <field name="domain">[('calendar.read_users', '=', user.id)]</field>
+            <field name="domain"
+                eval="[('calendar.read_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
             <field name="rule_group" ref="rule_group_read_todo"/>
         </record>
 
@@ -111,11 +117,15 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_delete" eval="True"/>
         </record>
         <record model="ir.rule" id="rule_group_write_todo_line1">
-            <field name="domain">[('calendar.owner', '=', user.id)]</field>
+            <field name="domain"
+                eval="[('calendar.owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
             <field name="rule_group" ref="rule_group_write_todo"/>
         </record>
         <record model="ir.rule" id="rule_group_write_todo_line2">
-            <field name="domain">[('calendar.write_users', '=', user.id)]</field>
+            <field name="domain"
+                eval="[('calendar.write_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
             <field name="rule_group" ref="rule_group_write_todo"/>
         </record>
 

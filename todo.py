@@ -11,7 +11,7 @@ from sql import Table, Column
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.tools import reduce_ids
 from trytond import backend
-from trytond.pyson import Eval, If, Bool
+from trytond.pyson import Eval, If, Bool, PYSONEncoder
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from trytond.modules.calendar import AlarmMixin, DateMixin, RRuleMixin, \
@@ -183,6 +183,12 @@ class Todo(ModelSQL, ModelView):
                 or self.exrules
                 or self.occurences):
             self.raise_user_error('invalid_recurrence', (self.rec_name,))
+
+    @classmethod
+    def view_attributes(cls):
+        return [('//page[@id="occurences"]', 'states', {
+                    'invisible': Bool(Eval('_parent_parent')),
+                    })]
 
     @classmethod
     def create(cls, vlist):
