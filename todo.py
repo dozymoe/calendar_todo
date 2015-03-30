@@ -133,13 +133,14 @@ class Todo(ModelSQL, ModelView):
         # Migrate from 1.4: remove classification_public
         ModelData = pool.get('ir.model.data')
         Rule = pool.get('ir.rule')
-        models_data = ModelData.search([
-            ('fs_id', '=', 'rule_group_read_todo_line3'),
-            ('module', '=', module_name),
-            ], limit=1)
-        if models_data:
-            model_data, = models_data
-            Rule.delete([Rule(model_data.db_id)])
+        with Transaction().set_user(0):
+            models_data = ModelData.search([
+                ('fs_id', '=', 'rule_group_read_todo_line3'),
+                ('module', '=', module_name),
+                ], limit=1)
+            if models_data:
+                model_data, = models_data
+                Rule.delete([Rule(model_data.db_id)])
         super(Todo, cls).__register__(module_name)
 
     @staticmethod
@@ -226,7 +227,7 @@ class Todo(ModelSQL, ModelView):
                             if x.status != 'declined'
                             and x.email != todo.parent.organizer]
                 if attendee_emails:
-                    with Transaction().set_context(_check_access=False):
+                    with Transaction().set_user(0):
                         calendars = Calendar.search([
                             ('owner.email', 'in', attendee_emails),
                             ])
@@ -336,7 +337,7 @@ class Todo(ModelSQL, ModelView):
                                 if x.status != 'declined'
                                 and x.email != todo.parent.organizer]
                     if attendee_emails:
-                        with Transaction().set_context(_check_access=False):
+                        with Transaction().set_user(0):
                             todo2s = cls.search([
                                 ('uuid', '=', todo.uuid),
                                 ('calendar.owner.email', 'in', attendee_emails),
@@ -346,10 +347,10 @@ class Todo(ModelSQL, ModelView):
                         for todo2 in todo2s:
                             if todo2.calendar.owner.email in attendee_emails:
                                 attendee_emails.remove(todo2.calendar.owner.email)
-                        with Transaction().set_context(_check_access=False):
+                        with Transaction().set_user(0):
                             cls.write(todos, todo._todo2update())
                     if attendee_emails:
-                        with Transaction().set_context(_check_access=False):
+                        with Transaction().set_user(0):
                             calendars = Calendar.search([
                                 ('owner.email', 'in', attendee_emails),
                                 ])
@@ -402,7 +403,7 @@ class Todo(ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.parent.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    with Transaction().set_context(_check_access=False):
+                    with Transaction().set_user(0):
                         todos_delete = cls.search([
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
@@ -416,7 +417,7 @@ class Todo(ModelSQL, ModelView):
                     organizer = todo.organizer
                 else:
                     organizer = todo.parent.organizer
-                with Transaction().set_context(_check_access=False):
+                with Transaction().set_user(0):
                     todo2s = cls.search([
                         ('uuid', '=', todo.uuid),
                         ('calendar.owner.email', '=', organizer),
@@ -1073,7 +1074,7 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.parent.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    with Transaction().set_context(_check_access=False):
+                    with Transaction().set_user(0):
                         todos = Todo.search([
                             ('uuid', '=', todo.uuid),
                             ('calendar.owner.email', 'in', attendee_emails),
@@ -1122,7 +1123,7 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.parent.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    with Transaction().set_context(_check_access=False):
+                    with Transaction().set_user(0):
                         attendees2 = cls.search([
                                 ('todo.uuid', '=', todo.uuid),
                                 ('todo.calendar.owner.email', 'in',
@@ -1157,7 +1158,7 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
                     attendee_emails = [x.email for x in todo.attendees
                             if x.email != todo.parent.organizer]
                 if attendee_emails:
-                    with Transaction().set_context(_check_access=False):
+                    with Transaction().set_user(0):
                         attendees = cls.search([
                             ('todo.uuid', '=', todo.uuid),
                             ('todo.calendar.owner.email', 'in',
@@ -1175,7 +1176,7 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
                     organizer = todo.organizer
                 else:
                     organizer = todo.parent.organizer
-                with Transaction().set_context(_check_access=False):
+                with Transaction().set_user(0):
                     attendees = cls.search([
                         ('todo.uuid', '=', todo.uuid),
                         ('todo.calendar.owner.email', '=', organizer),
