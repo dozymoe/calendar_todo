@@ -103,18 +103,6 @@ msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr "Kalender"
 
-msgctxt "field:calendar.todo,calendar_owner:"
-msgid "Owner"
-msgstr "Besitzer"
-
-msgctxt "field:calendar.todo,calendar_read_users:"
-msgid "Read Users"
-msgstr "Benutzer mit Leseberechtigung"
-
-msgctxt "field:calendar.todo,calendar_write_users:"
-msgid "Write Users"
-msgstr "Benutzer mit Schreibberechtigung"
-
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
 msgstr "Kategorien"
@@ -341,7 +329,7 @@ msgstr "Erstellt durch"
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
-msgstr "Als Datum"
+msgstr "Nur Datum verwenden"
 
 msgctxt "field:calendar.todo.exdate,datetime:"
 msgid "Date"
@@ -441,7 +429,7 @@ msgstr "Bis Datum"
 
 msgctxt "field:calendar.todo.exrule,until_date:"
 msgid "Is Date"
-msgstr "Als Datum"
+msgstr "Nur Datum verwenden"
 
 msgctxt "field:calendar.todo.exrule,wkst:"
 msgid "Week Day"
@@ -465,7 +453,7 @@ msgstr "Erstellt durch"
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
-msgstr "Als Datum"
+msgstr "Nur Datum verwenden"
 
 msgctxt "field:calendar.todo.rdate,datetime:"
 msgid "Date"
@@ -565,7 +553,7 @@ msgstr "Bis Datum"
 
 msgctxt "field:calendar.todo.rrule,until_date:"
 msgid "Is Date"
-msgstr "Als Datum"
+msgstr "Nur Datum verwenden"
 
 msgctxt "field:calendar.todo.rrule,wkst:"
 msgid "Week Day"
@@ -876,12 +864,20 @@ msgid "Categories"
 msgstr "Kategorien"
 
 msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr "Fälligkeitszeit"
+
+msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "Allgemein"
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
 msgstr "Ereignisse"
+
+msgctxt "view:calendar.todo:"
+msgid "Start Time"
+msgstr "Anfangszeit"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
