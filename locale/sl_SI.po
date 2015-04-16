@@ -84,7 +84,7 @@ msgstr "Nastavi se lahko samo \"do\" ali \"število\"."
 
 msgctxt "error:calendar.todo:"
 msgid "Todo \"%s\" can not be recurrent."
-msgstr "Todo \"%s\" se ne more ponavljati."
+msgstr "Zadolžitve \"%s\" ni možno ponavljati."
 
 msgctxt "error:calendar.todo:"
 msgid "UUID and recurrence must be unique in a calendar."
@@ -101,18 +101,6 @@ msgstr "Navzoči"
 msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr "Koledar"
-
-msgctxt "field:calendar.todo,calendar_owner:"
-msgid "Owner"
-msgstr "Imetnik"
-
-msgctxt "field:calendar.todo,calendar_read_users:"
-msgid "Read Users"
-msgstr "Bralci"
-
-msgctxt "field:calendar.todo,calendar_write_users:"
-msgid "Write Users"
-msgstr "Zapisovalci"
 
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
@@ -276,7 +264,7 @@ msgstr "Ime"
 
 msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
@@ -320,7 +308,7 @@ msgstr "Status udeleženca"
 
 msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
@@ -356,7 +344,7 @@ msgstr "Ime"
 
 msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
@@ -432,7 +420,7 @@ msgstr "Ime"
 
 msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.exrule,until:"
 msgid "Until Date"
@@ -480,7 +468,7 @@ msgstr "Ime"
 
 msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
@@ -556,7 +544,7 @@ msgstr "Ime"
 
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "field:calendar.todo.rrule,until:"
 msgid "Until Date"
@@ -600,11 +588,11 @@ msgstr "Prezri čas v polju \"Do dne\" in ga samo obravnavaj kot datum."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "model:calendar.todo-calendar.category,name:"
 msgid "Todo - Category"
-msgstr "Todo - Kategorija"
+msgstr "Zadolžitev - Kategorija"
 
 msgctxt "model:calendar.todo.alarm,name:"
 msgid "Alarm"
@@ -624,7 +612,7 @@ msgstr "Izjemno pravilo"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Todo datum ponovitve"
+msgstr "Datum ponovitve zadolžitve"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
@@ -632,15 +620,15 @@ msgstr "Pravilo ponovitve"
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr "Todoji"
+msgstr "Zadolžitve"
 
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
-msgstr "Todoji"
+msgstr "Zadolžitve"
 
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
-msgstr "Todoji"
+msgstr "Zadolžitve"
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Confidential"
@@ -867,6 +855,10 @@ msgid "Categories"
 msgstr "Kategorije"
 
 msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr "Zapadlost"
+
+msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "Splošno"
 
@@ -875,9 +867,13 @@ msgid "Occurences"
 msgstr "Pojavljanje"
 
 msgctxt "view:calendar.todo:"
+msgid "Start Time"
+msgstr "Začetek"
+
+msgctxt "view:calendar.todo:"
 msgid "Todo"
-msgstr "Todo"
+msgstr "Zadolžitev"
 
 msgctxt "view:calendar.todo:"
 msgid "Todos"
-msgstr "Todoji"
+msgstr "Zadolžitve"
