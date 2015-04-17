@@ -114,18 +114,6 @@ msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr "Calendario"
 
-msgctxt "field:calendar.todo,calendar_owner:"
-msgid "Owner"
-msgstr "Dueño"
-
-msgctxt "field:calendar.todo,calendar_read_users:"
-msgid "Read Users"
-msgstr "Usuarios con lectura"
-
-msgctxt "field:calendar.todo,calendar_write_users:"
-msgid "Write Users"
-msgstr "Usuarios con escritura"
-
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
 msgstr "Categorías"
@@ -152,7 +140,7 @@ msgstr "Descripción"
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
-msgstr "Fecha inicio"
+msgstr "Fecha inicial"
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
@@ -881,12 +869,20 @@ msgid "Categories"
 msgstr "Categorías"
 
 msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr "Hora prevista"
+
+msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "General"
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
 msgstr "Ocurrencias"
+
+msgctxt "view:calendar.todo:"
+msgid "Start Time"
+msgstr "Hora de inicio"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
