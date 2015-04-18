@@ -104,18 +104,6 @@ msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr "Calendrier"
 
-msgctxt "field:calendar.todo,calendar_owner:"
-msgid "Owner"
-msgstr "Propriétaire"
-
-msgctxt "field:calendar.todo,calendar_read_users:"
-msgid "Read Users"
-msgstr "Utilisateurs en lecture"
-
-msgctxt "field:calendar.todo,calendar_write_users:"
-msgid "Write Users"
-msgstr "Utilisateurs en écriture"
-
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
 msgstr "Catégories"
@@ -871,12 +859,20 @@ msgid "Categories"
 msgstr "Catégories"
 
 msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr "Heure d'échéance"
+
+msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "Général"
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
 msgstr "Occurrences"
+
+msgctxt "view:calendar.todo:"
+msgid "Start Time"
+msgstr "Heure de début"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
