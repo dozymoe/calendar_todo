@@ -647,6 +647,10 @@ msgid "Public"
 msgstr "Público"
 
 msgctxt "selection:calendar.todo,status:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
 msgstr "Cancelada"
 
@@ -661,6 +665,10 @@ msgstr "En Proceso"
 msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
 msgstr "Necesita una Acción"
+
+msgctxt "selection:calendar.todo.attendee,status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -709,6 +717,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.exrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -765,6 +777,10 @@ msgstr "Semanalmente"
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualmente"
+
+msgctxt "selection:calendar.todo.rrule,wkst:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"

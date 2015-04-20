@@ -102,18 +102,6 @@ msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr ""
 
-msgctxt "field:calendar.todo,calendar_owner:"
-msgid "Owner"
-msgstr ""
-
-msgctxt "field:calendar.todo,calendar_read_users:"
-msgid "Read Users"
-msgstr ""
-
-msgctxt "field:calendar.todo,calendar_write_users:"
-msgid "Write Users"
-msgstr ""
-
 #, fuzzy
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
