@@ -535,7 +535,9 @@ class Todo(ModelSQL, ModelView):
         else:
             res['status'] = ''
 
-        res['categories'] = [('remove', [c.id for c in todo.categories])]
+        res['categories'] = []
+        if todo:
+            res['categories'] += [('remove', [c.id for c in todo.categories])]
         if hasattr(vtodo, 'categories'):
             categories = Category.search([
                 ('name', 'in', [x for x in vtodo.categories.value]),
