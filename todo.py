@@ -8,7 +8,7 @@ import datetime
 import xml.dom.minidom
 from sql import Table, Column
 
-from trytond.model import ModelSQL, ModelView, fields
+from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.tools import reduce_ids
 from trytond import backend
 from trytond.pyson import Eval, If, Bool, PYSONEncoder
@@ -112,9 +112,11 @@ class Todo(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Todo, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
             # XXX should be unique across all componenets
-            ('uuid_recurrence_uniq', 'UNIQUE(uuid, calendar, recurrence)',
+            ('uuid_recurrence_uniq',
+                Unique(t, t.uuid, t.calendar, t.recurrence),
                 'UUID and recurrence must be unique in a calendar.'),
             ]
         cls._error_messages.update({
