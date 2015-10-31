@@ -839,6 +839,10 @@ msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
 msgstr ""
 
+msgctxt "view:calendar.todo.exdate:"
+msgid "Time"
+msgstr ""
+
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
 msgstr ""
@@ -853,6 +857,10 @@ msgstr ""
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
+msgstr ""
+
+msgctxt "view:calendar.todo.rdate:"
+msgid "Time"
 msgstr ""
 
 msgctxt "view:calendar.todo.rrule:"
@@ -872,6 +880,10 @@ msgctxt "view:calendar.todo:"
 msgid "Categories"
 msgstr "Categorieën"
 
+msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr ""
+
 #, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "General"
@@ -879,6 +891,10 @@ msgstr "Algemeen"
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
+msgstr ""
+
+msgctxt "view:calendar.todo:"
+msgid "Start Time"
 msgstr ""
 
 msgctxt "view:calendar.todo:"

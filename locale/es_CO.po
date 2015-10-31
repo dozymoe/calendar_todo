@@ -826,6 +826,10 @@ msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
 msgstr "Fechas de Excepción"
 
+msgctxt "view:calendar.todo.exdate:"
+msgid "Time"
+msgstr ""
+
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
 msgstr "Regla de Excepción"
@@ -841,6 +845,10 @@ msgstr "Fecha de Repetición"
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
 msgstr "Fechas de Repetición"
+
+msgctxt "view:calendar.todo.rdate:"
+msgid "Time"
+msgstr ""
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"

@@ -822,6 +822,10 @@ msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
 msgstr "Izjemni datumi"
 
+msgctxt "view:calendar.todo.exdate:"
+msgid "Time"
+msgstr "Čas"
+
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
 msgstr "Izjemno pravilo"
@@ -837,6 +841,10 @@ msgstr "Datum ponovitve"
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
 msgstr "Datumi ponovitev"
+
+msgctxt "view:calendar.todo.rdate:"
+msgid "Time"
+msgstr "Čas"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"

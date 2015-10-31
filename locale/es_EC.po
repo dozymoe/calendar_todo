@@ -4,41 +4,41 @@ msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Hour\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Hora\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por hora\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Minute\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Minuto\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por minuto\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Month Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día del Mes\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día del mes\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Month\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Mes\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por mes\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Position\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Ubicación\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por ubicación\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Second\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Segundo\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por segundo\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Week Number\" in recurrence rule \"%s\""
 msgstr ""
-"El campo \"Por Número de la Semana\" de la regla de recurrencia \"%s\" no es"
-" válido."
+"El campo \"Por número de la semana\" de la regla de recurrencia \"%s\" no es"
+" válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Invalid \"By Year Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día del Año\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día del año\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.exrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
@@ -46,41 +46,41 @@ msgstr "¡Puede establecer \"hasta\" o bien \"nº de veces\", no ambos!"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Hour\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Hora\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por hora\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Minute\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Minuto\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por minuto\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Month Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día del Mes\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día del mes\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Month\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Mes\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por mes\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Position\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Ubicación\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por ubicación\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Second\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Segundo\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por segundo\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Week Number\" in recurrence rule \"%s\""
 msgstr ""
-"El campo \"Por Número de la Semana\" de la regla de recurrencia \"%s\" no es"
-" válido."
+"El campo \"Por número de la semana\" de la regla de recurrencia \"%s\" no es"
+" válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Invalid \"By Year Day\" in recurrence rule \"%s\""
-msgstr "El campo \"Por Día del Año\" de la regla de recurrencia \"%s\" no es válido."
+msgstr "El campo \"Por día del año\" de la regla de recurrencia \"%s\" no es válido"
 
 msgctxt "error:calendar.todo.rrule:"
 msgid "Only one of \"until\" and \"count\" can be set."
@@ -120,11 +120,11 @@ msgstr "Completada"
 
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
@@ -132,19 +132,19 @@ msgstr "Descripción"
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
-msgstr "Fecha Inicio"
+msgstr "Fecha inicial"
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
-msgstr "Fecha de Vencimiento"
+msgstr "Fecha de vencimiento"
 
 msgctxt "field:calendar.todo,exdates:"
 msgid "Exception Dates"
-msgstr "Fechas de Excepción"
+msgstr "Fechas de excepción"
 
 msgctxt "field:calendar.todo,exrules:"
 msgid "Exception Rules"
-msgstr "Reglas de Excepción"
+msgstr "Reglas de excepción"
 
 msgctxt "field:calendar.todo,id:"
 msgid "ID"
@@ -172,7 +172,7 @@ msgstr "Porcentaje completado"
 
 msgctxt "field:calendar.todo,rdates:"
 msgid "Recurrence Dates"
-msgstr "Fechas de Recurrencia"
+msgstr "Fechas de recurrencia"
 
 msgctxt "field:calendar.todo,rec_name:"
 msgid "Name"
@@ -184,7 +184,7 @@ msgstr "Recurrencia"
 
 msgctxt "field:calendar.todo,rrules:"
 msgid "Recurrence Rules"
-msgstr "Reglas de Recurrencia"
+msgstr "Reglas de recurrencia"
 
 msgctxt "field:calendar.todo,sequence:"
 msgid "Sequence"
@@ -200,7 +200,7 @@ msgstr "Resumen"
 
 msgctxt "field:calendar.todo,timezone:"
 msgid "Timezone"
-msgstr "Zona Horaria"
+msgstr "Zona horaria"
 
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
@@ -212,11 +212,11 @@ msgstr "vtarea"
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
@@ -224,11 +224,11 @@ msgstr "Categoría"
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
@@ -244,19 +244,19 @@ msgstr "Por hacer"
 
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo-calendar.category,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
@@ -276,11 +276,11 @@ msgstr "valarm"
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.alarm,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.attendee,attendee:"
 msgid "attendee"
@@ -288,15 +288,15 @@ msgstr "asistente"
 
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
-msgstr "Correo Electrónico"
+msgstr "Correo electrónico"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
@@ -308,7 +308,7 @@ msgstr "Nombre"
 
 msgctxt "field:calendar.todo.attendee,status:"
 msgid "Participation Status"
-msgstr "Estado de Participación"
+msgstr "Estado de participación"
 
 msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
@@ -316,23 +316,23 @@ msgstr "Tarea"
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.attendee,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
-msgstr "Es una Fecha"
+msgstr "Es una fecha"
 
 msgctxt "field:calendar.todo.exdate,datetime:"
 msgid "Date"
@@ -352,47 +352,47 @@ msgstr "Tarea"
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.exdate,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.exrule,byday:"
 msgid "By Day"
-msgstr "Por Día"
+msgstr "Por día"
 
 msgctxt "field:calendar.todo.exrule,byhour:"
 msgid "By Hour"
-msgstr "Por Hora"
+msgstr "Por hora"
 
 msgctxt "field:calendar.todo.exrule,byminute:"
 msgid "By Minute"
-msgstr "Por Minuto"
+msgstr "Por minuto"
 
 msgctxt "field:calendar.todo.exrule,bymonth:"
 msgid "By Month"
-msgstr "Por Mes"
+msgstr "Por mes"
 
 msgctxt "field:calendar.todo.exrule,bymonthday:"
 msgid "By Month Day"
-msgstr "Por Día del Mes"
+msgstr "Por día del mes"
 
 msgctxt "field:calendar.todo.exrule,bysecond:"
 msgid "By Second"
-msgstr "Por Segundo"
+msgstr "Por segundo"
 
 msgctxt "field:calendar.todo.exrule,bysetpos:"
 msgid "By Position"
-msgstr "Por Posición"
+msgstr "Por posición"
 
 msgctxt "field:calendar.todo.exrule,byweekno:"
 msgid "By Week Number"
-msgstr "Por Número de la Semana"
+msgstr "Por número de la semana"
 
 msgctxt "field:calendar.todo.exrule,byyearday:"
 msgid "By Year Day"
-msgstr "Por Día del Año"
+msgstr "Por día del año"
 
 msgctxt "field:calendar.todo.exrule,count:"
 msgid "Count"
@@ -400,11 +400,11 @@ msgstr "Nº de veces"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
@@ -432,31 +432,31 @@ msgstr "Hasta la fecha"
 
 msgctxt "field:calendar.todo.exrule,until_date:"
 msgid "Is Date"
-msgstr "Es una Fecha"
+msgstr "Es una fecha"
 
 msgctxt "field:calendar.todo.exrule,wkst:"
 msgid "Week Day"
-msgstr "Día de la Semana"
+msgstr "Día de la semana"
 
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.exrule,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
-msgstr "Es una Fecha"
+msgstr "Es una fecha"
 
 msgctxt "field:calendar.todo.rdate,datetime:"
 msgid "Date"
@@ -476,47 +476,47 @@ msgstr "Tarea"
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.rdate,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "field:calendar.todo.rrule,byday:"
 msgid "By Day"
-msgstr "Por Día"
+msgstr "Por día"
 
 msgctxt "field:calendar.todo.rrule,byhour:"
 msgid "By Hour"
-msgstr "Por Hora"
+msgstr "Por hora"
 
 msgctxt "field:calendar.todo.rrule,byminute:"
 msgid "By Minute"
-msgstr "Por Minuto"
+msgstr "Por minuto"
 
 msgctxt "field:calendar.todo.rrule,bymonth:"
 msgid "By Month"
-msgstr "Por Mes"
+msgstr "Por mes"
 
 msgctxt "field:calendar.todo.rrule,bymonthday:"
 msgid "By Month Day"
-msgstr "Por Día del Mes"
+msgstr "Por día del mes"
 
 msgctxt "field:calendar.todo.rrule,bysecond:"
 msgid "By Second"
-msgstr "Por Segundo"
+msgstr "Por segundo"
 
 msgctxt "field:calendar.todo.rrule,bysetpos:"
 msgid "By Position"
-msgstr "Por Ubicación"
+msgstr "Por ubicación"
 
 msgctxt "field:calendar.todo.rrule,byweekno:"
 msgid "By Week Number"
-msgstr "Por Número de la Semana"
+msgstr "Por número de la semana"
 
 msgctxt "field:calendar.todo.rrule,byyearday:"
 msgid "By Year Day"
-msgstr "Por Día del Año"
+msgstr "Por día del año"
 
 msgctxt "field:calendar.todo.rrule,count:"
 msgid "Count"
@@ -524,11 +524,11 @@ msgstr "Nº de veces"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha de creación"
 
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr "Creado por Usuario"
+msgstr "Creado por usuario"
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
@@ -552,27 +552,27 @@ msgstr "Tarea"
 
 msgctxt "field:calendar.todo.rrule,until:"
 msgid "Until Date"
-msgstr "Hasta la Fecha"
+msgstr "Hasta la fecha"
 
 msgctxt "field:calendar.todo.rrule,until_date:"
 msgid "Is Date"
-msgstr "Es una Fecha"
+msgstr "Es una fecha"
 
 msgctxt "field:calendar.todo.rrule,wkst:"
 msgid "Week Day"
-msgstr "Día de la Semana"
+msgstr "Día de la semana"
 
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
-msgstr "Fecha de Modificación"
+msgstr "Fecha de modificación"
 
 msgctxt "field:calendar.todo.rrule,write_uid:"
 msgid "Write User"
-msgstr "Modificado por Usuario"
+msgstr "Modificado por usuario"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
-msgstr "Identificador Universal Único"
+msgstr "Identificador universal único"
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
@@ -580,7 +580,7 @@ msgstr "Ignorar la hora del campo \"Fecha\" y considerar sólo la fecha."
 
 msgctxt "help:calendar.todo.exrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ignorar la hora del campo \"Hasta la Fecha\" y considerar sólo la fecha."
+msgstr "Ignorar la hora del campo \"Hasta la fecha\" y considerar sólo la fecha."
 
 msgctxt "help:calendar.todo.rdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
@@ -588,7 +588,7 @@ msgstr "Ignorar la hora del campo \"Fecha\" y considerar sólo la fecha."
 
 msgctxt "help:calendar.todo.rrule,until_date:"
 msgid "Ignore time of field \"Until Date\", but handle as date only."
-msgstr "Ignorar la hora del campo \"Hasta la Fecha\" y considerar sólo la fecha."
+msgstr "Ignorar la hora del campo \"Hasta la fecha\" y considerar sólo la fecha."
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
@@ -608,19 +608,19 @@ msgstr "Asistente"
 
 msgctxt "model:calendar.todo.exdate,name:"
 msgid "Exception Date"
-msgstr "Fecha de Excepción"
+msgstr "Fecha de excepción"
 
 msgctxt "model:calendar.todo.exrule,name:"
 msgid "Exception Rule"
-msgstr "Regla de Excepción"
+msgstr "Regla de excepción"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Fecha de Recurrencia de Tarea"
+msgstr "Fecha de recurrencia de tarea"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
-msgstr "Regla de Recurrencia"
+msgstr "Regla de recurrencia"
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
@@ -660,11 +660,11 @@ msgstr "Completado"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "In-Process"
-msgstr "En Proceso"
+msgstr "En proceso"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
-msgstr "Necesita una Acción"
+msgstr "Necesita una acción"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
@@ -684,7 +684,7 @@ msgstr "Delegado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Needs Action"
-msgstr "Necesita una Acción"
+msgstr "Necesita una acción"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Tentative"
@@ -696,11 +696,11 @@ msgstr "Diariamente"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Hourly"
-msgstr "Cada Hora"
+msgstr "Cada hora"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Minutely"
-msgstr "Cada Minuto"
+msgstr "Cada minuto"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Monthly"
@@ -708,7 +708,7 @@ msgstr "Mensualmente"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Secondly"
-msgstr "Cada Segundo"
+msgstr "Cada segundo"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Weekly"
@@ -756,11 +756,11 @@ msgstr "Diariamente"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Hourly"
-msgstr "Cada Hora"
+msgstr "Cada hora"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Minutely"
-msgstr "Cada Minuto"
+msgstr "Cada minuto"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Monthly"
@@ -768,7 +768,7 @@ msgstr "Mensualmente"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Secondly"
-msgstr "Cada Segundo"
+msgstr "Cada segundo"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Weekly"
@@ -820,35 +820,43 @@ msgstr "Asistentes"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Date"
-msgstr "Fecha de Excepción"
+msgstr "Fecha de excepción"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
-msgstr "Fechas de Excepción"
+msgstr "Fechas de excepción"
+
+msgctxt "view:calendar.todo.exdate:"
+msgid "Time"
+msgstr "Hora"
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
-msgstr "Regla de Excepción"
+msgstr "Regla de excepción"
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
-msgstr "Reglas de Excepción"
+msgstr "Reglas de excepción"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
-msgstr "Fecha de Recurrencia"
+msgstr "Fecha de recurrencia"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
-msgstr "Fechas de Recurrencia"
+msgstr "Fechas de recurrencia"
+
+msgctxt "view:calendar.todo.rdate:"
+msgid "Time"
+msgstr "Hora"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
-msgstr "Regla de Recurrencia"
+msgstr "Regla de recurrencia"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rules"
-msgstr "Reglas de Recurrencia"
+msgstr "Reglas de recurrencia"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
@@ -872,7 +880,7 @@ msgstr "Ocurrencias"
 
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
-msgstr "Hora de Inicio"
+msgstr "Hora de inicio"
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"

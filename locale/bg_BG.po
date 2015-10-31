@@ -842,6 +842,10 @@ msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
 msgstr "Дати на грешките"
 
+msgctxt "view:calendar.todo.exdate:"
+msgid "Time"
+msgstr ""
+
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
 msgstr "Правило при грешка"
@@ -857,6 +861,10 @@ msgstr "Повтаряща се дата"
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
 msgstr "Дати на повторяемост"
+
+msgctxt "view:calendar.todo.rdate:"
+msgid "Time"
+msgstr ""
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
@@ -875,12 +883,20 @@ msgid "Categories"
 msgstr "Категории"
 
 msgctxt "view:calendar.todo:"
+msgid "Due Time"
+msgstr ""
+
+msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr "Основен"
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
 msgstr "Събития"
+
+msgctxt "view:calendar.todo:"
+msgid "Start Time"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
