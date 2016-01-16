@@ -2,7 +2,7 @@
 # this repository contains the full copyright notices and license terms.
 from pywebdav.lib import propfind
 from pywebdav.lib.utils import get_uriparentpath
-from trytond.protocols.webdav import TrytonDAVInterface
+from trytond.modules.webdav.protocol import TrytonDAVInterface
 
 _mk_prop_response = propfind.PROPFIND.mk_prop_response
 
