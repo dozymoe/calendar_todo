@@ -285,7 +285,8 @@ class Todo(ModelSQL, ModelView):
         Collection = pool.get('webdav.collection')
         table = cls.__table__()
 
-        cursor = Transaction().cursor
+        transaction = Transaction()
+        cursor = transaction.connection.cursor()
 
         actions = iter(args)
         args = []
@@ -298,8 +299,8 @@ class Todo(ModelSQL, ModelView):
         super(Todo, cls).write(*args)
 
         ids = [t.id for t in todos]
-        for i in range(0, len(ids), cursor.IN_MAX):
-            sub_ids = ids[i:i + cursor.IN_MAX]
+        for i in range(0, len(ids), transaction.database.IN_MAX):
+            sub_ids = ids[i:i + transaction.database.IN_MAX]
             red_sql = reduce_ids(table.id, sub_ids)
             cursor.execute(*table.update(
                     columns=[table.sequence],
@@ -874,17 +875,17 @@ class TodoRDate(DateMixin, ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         TableHandler = backend.get('TableHandler')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         sql_table = cls.__table__()
         # Migration from 1.4: calendar_rdate renamed to calendar_date
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
         old_column = 'calendar_rdate'
         if table.column_exist(old_column):
             table.column_rename(old_column, 'calendar_date')
 
         super(TodoRDate, cls).__register__(module_name)
 
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
 
         # Migration from 2.6: Remove inherits calendar.date
         if table.column_exist('calendar_date'):
@@ -945,12 +946,12 @@ class TodoRRule(RRuleMixin, ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         TableHandler = backend.get('TableHandler')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         sql_table = cls.__table__()
 
         super(TodoRRule, cls).__register__(module_name)
 
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
 
         # Migration from 2.6: Remove inherits calendar.rrule
         if table.column_exist('calendar_rrule'):
@@ -1022,12 +1023,12 @@ class TodoAttendee(AttendeeMixin, ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         TableHandler = backend.get('TableHandler')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         sql_table = cls.__table__()
 
         super(TodoAttendee, cls).__register__(module_name)
 
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
 
         # Migration from 2.6: Remove inherits calendar.attendee
         if table.column_exist('calendar_attendee'):
@@ -1193,12 +1194,12 @@ class TodoAlarm(AlarmMixin, ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         TableHandler = backend.get('TableHandler')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         sql_table = cls.__table__()
 
         super(TodoAlarm, cls).__register__(module_name)
 
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
 
         # Migration from 2.6: Remove inherits calendar.alarm
         if table.column_exist('calendar_alarm'):

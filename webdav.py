@@ -93,7 +93,7 @@ class Collection:
                     if not dbname:
                         continue
                     dbname == urllib.unquote_plus(dbname)
-                    if dbname != Transaction().cursor.database_name:
+                    if dbname != Transaction().database.name:
                         continue
                     if uri:
                         uri = urllib.unquote_plus(uri)
@@ -155,7 +155,7 @@ class Collection:
         Todo = Pool().get('calendar.todo')
         todo = Todo.__table__()
 
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         calendar_id = cls.calendar(uri)
         if not calendar_id:
@@ -200,7 +200,8 @@ class Collection:
         Todo = Pool().get('calendar.todo')
         todo = Todo.__table__()
 
-        cursor = Transaction().cursor
+        transaction = Transaction()
+        cursor = transaction.connection.cursor()
 
         calendar_id = cls.calendar(uri)
         if calendar_id and (uri[10:].split('/', 1) + [None])[1]:
@@ -219,7 +220,8 @@ class Collection:
                 else:
                     ids = [todo_id]
                 res = None
-                for sub_ids in grouped_slice(ids, cursor.IN_MAX / 2):
+                for sub_ids in grouped_slice(ids,
+                        transaction.database.IN_MAX / 2):
                     red_id_sql = reduce_ids(todo.id, sub_ids)
                     red_parent_sql = reduce_ids(todo.parent, sub_ids)
                     cursor.execute(*todo.select(Coalesce(todo.parent, todo.id),
@@ -276,7 +278,7 @@ class Collection:
                 values = Todo.ical2values(None, ical, calendar_id)
                 todo, = Todo.create([values])
                 calendar = Calendar(calendar_id)
-                return Transaction().cursor.database_name + '/Calendars/' + \
+                return Transaction().database.name + '/Calendars/' + \
                     calendar.name + '/' + todo.uuid + '.ics'
             else:
                 values = Todo.ical2values(todo_id, ical, calendar_id)
