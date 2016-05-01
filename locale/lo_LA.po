@@ -92,115 +92,115 @@ msgstr ""
 
 msgctxt "field:calendar.todo,alarms:"
 msgid "Alarms"
-msgstr "Аларми"
+msgstr ""
 
 msgctxt "field:calendar.todo,attendees:"
 msgid "Attendees"
-msgstr "Присъстващи"
+msgstr ""
 
 msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
-msgstr "Календар"
+msgstr ""
 
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
-msgstr "Категории"
+msgstr ""
 
 msgctxt "field:calendar.todo,classification:"
 msgid "Classification"
-msgstr "Класификация"
+msgstr ""
 
 msgctxt "field:calendar.todo,completed:"
 msgid "Completed"
-msgstr "Изпълнен"
+msgstr ""
 
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
-msgstr "Описание"
+msgstr ""
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
-msgstr "Начална дата"
+msgstr ""
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
-msgstr "Дата на изпълнение"
+msgstr ""
 
 msgctxt "field:calendar.todo,exdates:"
 msgid "Exception Dates"
-msgstr "Дати на грешките"
+msgstr ""
 
 msgctxt "field:calendar.todo,exrules:"
 msgid "Exception Rules"
-msgstr "Правила при грешка"
+msgstr ""
 
 msgctxt "field:calendar.todo,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo,location:"
 msgid "Location"
-msgstr "Местоположение"
+msgstr ""
 
 msgctxt "field:calendar.todo,occurences:"
 msgid "Occurences"
-msgstr "Събития"
+msgstr ""
 
 msgctxt "field:calendar.todo,organizer:"
 msgid "Organizer"
-msgstr "Организатор"
+msgstr ""
 
 msgctxt "field:calendar.todo,parent:"
 msgid "Parent"
-msgstr "Родител"
+msgstr ""
 
 msgctxt "field:calendar.todo,percent_complete:"
 msgid "Percent complete"
-msgstr "Процент изпълнено"
+msgstr ""
 
 msgctxt "field:calendar.todo,rdates:"
 msgid "Recurrence Dates"
-msgstr "Дати на повторяемост"
+msgstr ""
 
 msgctxt "field:calendar.todo,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo,recurrence:"
 msgid "Recurrence"
-msgstr "Повторение"
+msgstr ""
 
 msgctxt "field:calendar.todo,rrules:"
 msgid "Recurrence Rules"
-msgstr "Правила за повторяемост"
+msgstr ""
 
 msgctxt "field:calendar.todo,sequence:"
 msgid "Sequence"
-msgstr "Последователност"
+msgstr ""
 
 msgctxt "field:calendar.todo,status:"
 msgid "Status"
-msgstr "Състояние"
+msgstr ""
 
 msgctxt "field:calendar.todo,summary:"
 msgid "Summary"
-msgstr "Обобщено"
+msgstr ""
 
 msgctxt "field:calendar.todo,timezone:"
 msgid "Timezone"
-msgstr "Времева зона"
+msgstr ""
 
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
-msgstr "UUID"
+msgstr ""
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
@@ -208,63 +208,63 @@ msgstr ""
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
-msgstr "Категория"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,todo:"
 msgid "To-Do"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
@@ -272,37 +272,35 @@ msgstr ""
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.attendee,attendee:"
 msgid "attendee"
-msgstr "Присъстващ"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,status:"
 msgid "Participation Status"
@@ -310,52 +308,51 @@ msgstr ""
 
 msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
 msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.exdate,datetime:"
 msgid "Date"
-msgstr "Дата"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,byday:"
 msgid "By Day"
@@ -399,11 +396,11 @@ msgstr ""
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
@@ -411,7 +408,7 @@ msgstr ""
 
 msgctxt "field:calendar.todo.exrule,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,interval:"
 msgid "Interval"
@@ -419,11 +416,11 @@ msgstr ""
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,until:"
 msgid "Until Date"
@@ -433,55 +430,53 @@ msgctxt "field:calendar.todo.exrule,until_date:"
 msgid "Is Date"
 msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.exrule,wkst:"
 msgid "Week Day"
-msgstr "Ден от седмица"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
 msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.rdate,datetime:"
 msgid "Date"
-msgstr "Дата"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,byday:"
 msgid "By Day"
@@ -525,11 +520,11 @@ msgstr ""
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr "Създадено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr "Създадено от"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
@@ -537,7 +532,7 @@ msgstr ""
 
 msgctxt "field:calendar.todo.rrule,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,interval:"
 msgid "Interval"
@@ -545,11 +540,11 @@ msgstr ""
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
-msgstr "Име"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,until:"
 msgid "Until Date"
@@ -559,22 +554,21 @@ msgctxt "field:calendar.todo.rrule,until_date:"
 msgid "Is Date"
 msgstr ""
 
-#, fuzzy
 msgctxt "field:calendar.todo.rrule,wkst:"
 msgid "Week Day"
-msgstr "Ден от седмица"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
-msgstr "Променено на"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,write_uid:"
 msgid "Write User"
-msgstr "Променено от"
+msgstr ""
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
-msgstr "Универсален иникален идентификатор"
+msgstr ""
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
@@ -594,59 +588,59 @@ msgstr ""
 
 msgctxt "model:calendar.todo,name:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "model:calendar.todo-calendar.category,name:"
 msgid "Todo - Category"
-msgstr "Задача - Категория"
+msgstr ""
 
 msgctxt "model:calendar.todo.alarm,name:"
 msgid "Alarm"
-msgstr "Аларма"
+msgstr ""
 
 msgctxt "model:calendar.todo.attendee,name:"
 msgid "Attendee"
-msgstr "Присъстващ"
+msgstr ""
 
 msgctxt "model:calendar.todo.exdate,name:"
 msgid "Exception Date"
-msgstr "Дата на грешка"
+msgstr ""
 
 msgctxt "model:calendar.todo.exrule,name:"
 msgid "Exception Rule"
-msgstr "Правило при грешка"
+msgstr ""
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Дата на повторение на задача"
+msgstr ""
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
-msgstr "Правило за повторение"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_todo_form"
 msgid "Todos"
-msgstr "Задачи"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_todo_form3"
 msgid "Todos"
-msgstr "Задачи"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_todo_form"
 msgid "Todos"
-msgstr "Задачи"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Confidential"
-msgstr "Поверителен"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Private"
-msgstr "Частен"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
-msgstr "Публичен"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
@@ -654,19 +648,19 @@ msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
-msgstr "Отказан"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Completed"
-msgstr "Изпълнен"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "In-Process"
-msgstr "Обработва се"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
-msgstr "Необходимо е действие"
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
@@ -684,15 +678,13 @@ msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Delegated"
 msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Needs Action"
-msgstr "Необходимо е действие"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Tentative"
-msgstr "Пробен"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Daily"
@@ -726,40 +718,33 @@ msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
 msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
-msgstr "Петък"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Monday"
-msgstr "Понеделник"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Saturday"
-msgstr "Събота"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Sunday"
-msgstr "Неделя"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Thursday"
-msgstr "Четвъртък"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Tuesday"
-msgstr "Вторник"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Wednesday"
-msgstr "Сряда"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Daily"
@@ -793,56 +778,49 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
 msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
-msgstr "Петък"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Monday"
-msgstr "Понеделник"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Saturday"
-msgstr "Събота"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Sunday"
-msgstr "Неделя"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Thursday"
-msgstr "Четвъртък"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Tuesday"
-msgstr "Вторник"
+msgstr ""
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
-msgstr "Сряда"
+msgstr ""
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
-msgstr "Присъстващ"
+msgstr ""
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
-msgstr "Присъстващи"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Date"
-msgstr "Дата на грешка"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
-msgstr "Дати на грешките"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
@@ -850,19 +828,19 @@ msgstr ""
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
-msgstr "Правило при грешка"
+msgstr ""
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
-msgstr "Правила при грешка"
+msgstr ""
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
-msgstr "Повтаряща се дата"
+msgstr ""
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
-msgstr "Дати на повторяемост"
+msgstr ""
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
@@ -870,19 +848,19 @@ msgstr ""
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
-msgstr "Правило за повторение"
+msgstr ""
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rules"
-msgstr "Правила за повторяемост"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
-msgstr "Присъстващи"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Categories"
-msgstr "Категории"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Due Time"
@@ -890,11 +868,11 @@ msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "General"
-msgstr "Основен"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
-msgstr "Събития"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
@@ -902,8 +880,8 @@ msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Todo"
-msgstr "Задача"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Todos"
-msgstr "Задачи"
+msgstr ""

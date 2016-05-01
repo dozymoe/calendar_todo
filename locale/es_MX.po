@@ -818,61 +818,73 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Miércoles"
 
+#, fuzzy
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
-msgstr ""
+msgstr "Asistentes"
 
+#, fuzzy
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
-msgstr ""
+msgstr "Asistentes"
 
+#, fuzzy
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Date"
-msgstr ""
+msgstr "Fecha excluida"
 
+#, fuzzy
 msgctxt "view:calendar.todo.exdate:"
 msgid "Exception Dates"
-msgstr ""
+msgstr "Fechas excluidas"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
-msgstr ""
+msgstr "Regla de excepción"
 
+#, fuzzy
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
-msgstr ""
+msgstr "Reglas de excepciones"
 
+#, fuzzy
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Date"
-msgstr ""
+msgstr "Fechas de recurrencia"
 
+#, fuzzy
 msgctxt "view:calendar.todo.rdate:"
 msgid "Recurrence Dates"
-msgstr ""
+msgstr "Fechas de recurrencia"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
-msgstr ""
+msgstr "Regla de recurrencia"
 
+#, fuzzy
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rules"
-msgstr ""
+msgstr "Reglas de recurrencia"
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
-msgstr ""
+msgstr "Asistentes"
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 msgctxt "view:calendar.todo:"
 msgid "Due Time"
@@ -882,18 +894,21 @@ msgctxt "view:calendar.todo:"
 msgid "General"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
-msgstr ""
+msgstr "Ocurrencias"
 
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Todo"
-msgstr ""
+msgstr "Tarea"
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Todos"
-msgstr ""
+msgstr "Tareas"
