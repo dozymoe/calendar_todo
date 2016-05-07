@@ -653,7 +653,7 @@ msgstr "Öffentlich"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -673,7 +673,7 @@ msgstr "Benötigt Eingriff"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -725,7 +725,7 @@ msgstr "Jährlich"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -785,7 +785,7 @@ msgstr "Jährlich"
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"

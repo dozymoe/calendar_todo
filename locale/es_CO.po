@@ -648,7 +648,7 @@ msgstr "Público"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -668,7 +668,7 @@ msgstr "Necesita una Acción"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -720,7 +720,7 @@ msgstr "Anualmente"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -780,7 +780,7 @@ msgstr "Anualmente"
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -828,7 +828,7 @@ msgstr "Fechas de Excepción"
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
@@ -848,7 +848,7 @@ msgstr "Fechas de Repetición"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
