@@ -92,23 +92,25 @@ msgstr "UUID y recurrencia debe ser única en un calendario."
 
 msgctxt "field:calendar.todo,alarms:"
 msgid "Alarms"
-msgstr "Alarmas"
+msgstr ""
 
 msgctxt "field:calendar.todo,attendees:"
 msgid "Attendees"
-msgstr "Asistentes"
+msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
 msgstr "Calendario"
 
+#, fuzzy
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
 msgstr "Categorías"
 
 msgctxt "field:calendar.todo,classification:"
 msgid "Classification"
-msgstr "Clasificación"
+msgstr ""
 
 msgctxt "field:calendar.todo,completed:"
 msgid "Completed"
@@ -124,7 +126,7 @@ msgstr "Creado por Usuario"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
-msgstr "Descripción"
+msgstr ""
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
@@ -144,7 +146,7 @@ msgstr "Reglas de Excepción"
 
 msgctxt "field:calendar.todo,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo,location:"
 msgid "Location"
@@ -152,15 +154,15 @@ msgstr "Lugar"
 
 msgctxt "field:calendar.todo,occurences:"
 msgid "Occurences"
-msgstr "Ocurrencias"
+msgstr ""
 
 msgctxt "field:calendar.todo,organizer:"
 msgid "Organizer"
-msgstr "Organizador"
+msgstr ""
 
 msgctxt "field:calendar.todo,parent:"
 msgid "Parent"
-msgstr "Padre"
+msgstr ""
 
 msgctxt "field:calendar.todo,percent_complete:"
 msgid "Percent complete"
@@ -172,7 +174,7 @@ msgstr "Fechas de Repetición"
 
 msgctxt "field:calendar.todo,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo,recurrence:"
 msgid "Recurrence"
@@ -184,15 +186,15 @@ msgstr "Reglas de Repetición"
 
 msgctxt "field:calendar.todo,sequence:"
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr ""
 
 msgctxt "field:calendar.todo,status:"
 msgid "Status"
-msgstr "Estado"
+msgstr ""
 
 msgctxt "field:calendar.todo,summary:"
 msgid "Summary"
-msgstr "Resumen"
+msgstr ""
 
 msgctxt "field:calendar.todo,timezone:"
 msgid "Timezone"
@@ -200,7 +202,7 @@ msgstr "Zona Horaria"
 
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
-msgstr "UUID"
+msgstr ""
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
@@ -216,7 +218,7 @@ msgstr "Modificado por Usuario"
 
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
-msgstr "Categoría"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
@@ -228,11 +230,11 @@ msgstr "Creado por Usuario"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo-calendar.category,todo:"
 msgid "To-Do"
@@ -256,11 +258,11 @@ msgstr "Creado por Usuario"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
@@ -296,11 +298,11 @@ msgstr "Correo Electrónico"
 
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.attendee,status:"
 msgid "Participation Status"
@@ -332,15 +334,15 @@ msgstr "Esta Fecha"
 
 msgctxt "field:calendar.todo.exdate,datetime:"
 msgid "Date"
-msgstr "Fecha"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
@@ -404,19 +406,19 @@ msgstr "Creado por Usuario"
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
-msgstr "Frecuencia"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,interval:"
 msgid "Interval"
-msgstr "Intervalo"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
@@ -456,15 +458,15 @@ msgstr "Esta Fecha"
 
 msgctxt "field:calendar.todo.rdate,datetime:"
 msgid "Date"
-msgstr "Fecha"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
@@ -528,19 +530,19 @@ msgstr "Creado por Usuario"
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
-msgstr "Frecuencia"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,interval:"
 msgid "Interval"
-msgstr "Intervalo"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
@@ -600,7 +602,7 @@ msgstr "Por Hacer - Categoria"
 
 msgctxt "model:calendar.todo.alarm,name:"
 msgid "Alarm"
-msgstr "Alarma"
+msgstr ""
 
 msgctxt "model:calendar.todo.attendee,name:"
 msgid "Attendee"
@@ -636,15 +638,15 @@ msgstr "Pendiente"
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Confidential"
-msgstr "Confidencial"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Private"
-msgstr "Privado"
+msgstr ""
 
 msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
-msgstr "Público"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
@@ -672,7 +674,7 @@ msgstr " "
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
-msgstr "Aceptado"
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Declined"
@@ -680,7 +682,7 @@ msgstr "Declinado"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Delegated"
-msgstr "Delegado"
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Needs Action"
@@ -704,7 +706,7 @@ msgstr "Cada Minuto"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Monthly"
-msgstr "Mensualmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Secondly"
@@ -712,11 +714,11 @@ msgstr "En segundo lugar"
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Weekly"
-msgstr "Semanalmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
-msgstr "Anualmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
@@ -724,31 +726,31 @@ msgstr " "
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
-msgstr "Viernes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Monday"
-msgstr "Lunes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Saturday"
-msgstr "Sábado"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Sunday"
-msgstr "Domingo"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Thursday"
-msgstr "Jueves"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Tuesday"
-msgstr "Martes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Wednesday"
-msgstr "Miércoles"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Daily"
@@ -764,7 +766,7 @@ msgstr "Cada Minuto"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Monthly"
-msgstr "Mensualmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Secondly"
@@ -772,11 +774,11 @@ msgstr "En segundo lugar"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Weekly"
-msgstr "Semanalmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
-msgstr "Anualmente"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
@@ -784,47 +786,40 @@ msgstr " "
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
-msgstr "Viernes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Monday"
-msgstr "Lunes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Saturday"
-msgstr "Sábado"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Sunday"
-msgstr "Domingo"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Thursday"
-msgstr "Jueves"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Tuesday"
-msgstr "Martes"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
-msgstr "Miércoles"
+msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
 msgstr "Asistente"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
-msgstr "Asistentes"
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Date"
-msgstr "Fecha de Excepción"
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Dates"
-msgstr "Fechas de Excepción"
+msgstr ""
 
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
@@ -837,14 +832,6 @@ msgstr "Regla de Excepción"
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
 msgstr "Reglas de Excepción"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Date"
-msgstr "Fecha de Repetición"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Dates"
-msgstr "Fechas de Repetición"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
@@ -860,8 +847,9 @@ msgstr "Reglas de Repetición"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
-msgstr "Asistentes"
+msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Categories"
 msgstr "Categorías"
@@ -872,20 +860,12 @@ msgstr "Fecha Debida"
 
 msgctxt "view:calendar.todo:"
 msgid "General"
-msgstr "General"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Occurences"
-msgstr "Ocurrencias"
+msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
 msgstr "Fecha de Inicio"
-
-msgctxt "view:calendar.todo:"
-msgid "Todo"
-msgstr "Pendiente"
-
-msgctxt "view:calendar.todo:"
-msgid "Todos"
-msgstr "Pendientes"

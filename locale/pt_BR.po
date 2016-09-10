@@ -642,9 +642,10 @@ msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
 msgstr "Público"
 
+#, fuzzy
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr ""
+msgstr "Português (Brasil)"
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -662,9 +663,10 @@ msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
 msgstr "Requer Ação"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr ""
+msgstr "Português (Brasil)"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -714,9 +716,10 @@ msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr "Anual"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
-msgstr ""
+msgstr "Português (Brasil)"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -774,9 +777,10 @@ msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anual"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
-msgstr ""
+msgstr "Português (Brasil)"
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -815,14 +819,6 @@ msgid "Attendees"
 msgstr "Participantes"
 
 msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Date"
-msgstr "Data da exceção"
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Dates"
-msgstr "Datas da exceção"
-
-msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Hora"
 
@@ -833,14 +829,6 @@ msgstr "Regra da exceção"
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
 msgstr "Regras da exceção"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Date"
-msgstr "Data de Recorrência"
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Dates"
-msgstr "Datas de Recorrência"
 
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
@@ -877,11 +865,3 @@ msgstr "Ocorrências"
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
 msgstr "Hora de início"
-
-msgctxt "view:calendar.todo:"
-msgid "Todo"
-msgstr "Tarefa"
-
-msgctxt "view:calendar.todo:"
-msgid "Todos"
-msgstr "Tarefas"

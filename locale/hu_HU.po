@@ -98,13 +98,15 @@ msgctxt "field:calendar.todo,attendees:"
 msgid "Attendees"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,calendar:"
 msgid "Calendar"
-msgstr ""
+msgstr "Naptár"
 
+#, fuzzy
 msgctxt "field:calendar.todo,categories:"
 msgid "Categories"
-msgstr ""
+msgstr "Partner kategóriák"
 
 msgctxt "field:calendar.todo,classification:"
 msgid "Classification"
@@ -114,17 +116,20 @@ msgctxt "field:calendar.todo,completed:"
 msgid "Completed"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 msgctxt "field:calendar.todo,dtstart:"
 msgid "Start Date"
@@ -142,13 +147,15 @@ msgctxt "field:calendar.todo,exrules:"
 msgid "Exception Rules"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo,location:"
 msgid "Location"
-msgstr ""
+msgstr "Raktár hely"
 
 msgctxt "field:calendar.todo,occurences:"
 msgid "Occurences"
@@ -158,9 +165,10 @@ msgctxt "field:calendar.todo,organizer:"
 msgid "Organizer"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,parent:"
 msgid "Parent"
-msgstr ""
+msgstr "Szülő (csomag)"
 
 msgctxt "field:calendar.todo,percent_complete:"
 msgid "Percent complete"
@@ -170,9 +178,10 @@ msgctxt "field:calendar.todo,rdates:"
 msgid "Recurrence Dates"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo,recurrence:"
 msgid "Recurrence"
@@ -182,85 +191,102 @@ msgctxt "field:calendar.todo,rrules:"
 msgid "Recurrence Rules"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,sequence:"
 msgid "Sequence"
-msgstr ""
+msgstr "Számkör"
 
 msgctxt "field:calendar.todo,status:"
 msgid "Status"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,summary:"
 msgid "Summary"
-msgstr ""
+msgstr "Leírás"
 
+#, fuzzy
 msgctxt "field:calendar.todo,timezone:"
 msgid "Timezone"
-msgstr ""
+msgstr "Időzóna"
 
+#, fuzzy
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo-calendar.category,todo:"
 msgid "To-Do"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo-calendar.category,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.alarm,todo:"
 msgid "Todo"
@@ -270,37 +296,44 @@ msgctxt "field:calendar.todo.alarm,valarm:"
 msgid "valarm"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.alarm,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
 msgctxt "field:calendar.todo.attendee,attendee:"
 msgid "attendee"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.attendee,status:"
 msgid "Participation Status"
@@ -310,49 +343,58 @@ msgctxt "field:calendar.todo.attendee,todo:"
 msgid "Todo"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.attendee,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,datetime:"
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.exdate,todo:"
 msgid "Todo"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exdate,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
 msgctxt "field:calendar.todo.exrule,byday:"
 msgid "By Day"
@@ -394,29 +436,33 @@ msgctxt "field:calendar.todo.exrule,count:"
 msgid "Count"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.exrule,interval:"
 msgid "Interval"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.exrule,todo:"
 msgid "Todo"
@@ -430,53 +476,63 @@ msgctxt "field:calendar.todo.exrule,until_date:"
 msgid "Is Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,wkst:"
 msgid "Week Day"
-msgstr ""
+msgstr "Hét napja:"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.exrule,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,datetime:"
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.rdate,todo:"
 msgid "Todo"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rdate,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
 msgctxt "field:calendar.todo.rrule,byday:"
 msgid "By Day"
@@ -518,29 +574,33 @@ msgctxt "field:calendar.todo.rrule,count:"
 msgid "Count"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Létrehozás détuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Által létrehozva "
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:calendar.todo.rrule,interval:"
 msgid "Interval"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 msgctxt "field:calendar.todo.rrule,todo:"
 msgid "Todo"
@@ -554,21 +614,25 @@ msgctxt "field:calendar.todo.rrule,until_date:"
 msgid "Is Date"
 msgstr ""
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,wkst:"
 msgid "Week Day"
-msgstr ""
+msgstr "Hét napja:"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "utolsó módosítás dátuma"
 
+#, fuzzy
 msgctxt "field:calendar.todo.rrule,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Által módosítva"
 
+#, fuzzy
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
-msgstr ""
+msgstr "Universally Unique Identifier"
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
@@ -718,33 +782,40 @@ msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
 msgstr ""
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
-msgstr ""
+msgstr "Péntek"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Monday"
-msgstr ""
+msgstr "Hétfő"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Saturday"
-msgstr ""
+msgstr "Szombat"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Sunday"
-msgstr ""
+msgstr "Vasárnap"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Thursday"
-msgstr ""
+msgstr "Csütörtök"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Tuesday"
-msgstr ""
+msgstr "Kedd"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Wednesday"
-msgstr ""
+msgstr "Szerda"
 
 msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Daily"
@@ -778,33 +849,40 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
 msgstr ""
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
-msgstr ""
+msgstr "Péntek"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Monday"
-msgstr ""
+msgstr "Hétfő"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Saturday"
-msgstr ""
+msgstr "Szombat"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Sunday"
-msgstr ""
+msgstr "Vasárnap"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Thursday"
-msgstr ""
+msgstr "Csütörtök"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Tuesday"
-msgstr ""
+msgstr "Kedd"
 
+#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
-msgstr ""
+msgstr "Szerda"
 
 msgctxt "view:calendar.todo.attendee:"
 msgid "Attendee"
@@ -814,17 +892,10 @@ msgctxt "view:calendar.todo.attendee:"
 msgid "Attendees"
 msgstr ""
 
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Date"
-msgstr ""
-
-msgctxt "view:calendar.todo.exdate:"
-msgid "Exception Dates"
-msgstr ""
-
+#, fuzzy
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
-msgstr ""
+msgstr "Idő"
 
 msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rule"
@@ -834,17 +905,10 @@ msgctxt "view:calendar.todo.exrule:"
 msgid "Exception Rules"
 msgstr ""
 
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Date"
-msgstr ""
-
-msgctxt "view:calendar.todo.rdate:"
-msgid "Recurrence Dates"
-msgstr ""
-
+#, fuzzy
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
-msgstr ""
+msgstr "Idő"
 
 msgctxt "view:calendar.todo.rrule:"
 msgid "Recurrence Rule"
@@ -858,9 +922,10 @@ msgctxt "view:calendar.todo:"
 msgid "Attendees"
 msgstr ""
 
+#, fuzzy
 msgctxt "view:calendar.todo:"
 msgid "Categories"
-msgstr ""
+msgstr "Partner kategóriák"
 
 msgctxt "view:calendar.todo:"
 msgid "Due Time"
@@ -876,12 +941,4 @@ msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Start Time"
-msgstr ""
-
-msgctxt "view:calendar.todo:"
-msgid "Todo"
-msgstr ""
-
-msgctxt "view:calendar.todo:"
-msgid "Todos"
 msgstr ""
