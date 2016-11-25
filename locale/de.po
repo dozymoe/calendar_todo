@@ -569,7 +569,7 @@ msgstr "Letzte Änderung durch"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
-msgstr "Universally Unique Identifier"
+msgstr "Universeller eindeutiger Identifikator"
 
 msgctxt "help:calendar.todo.exdate,date:"
 msgid "Ignore time of field \"Date\", but handle as date only."
@@ -653,7 +653,7 @@ msgstr "Öffentlich"
 
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -673,7 +673,7 @@ msgstr "Benötigt Eingriff"
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -725,7 +725,7 @@ msgstr "Jährlich"
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -785,7 +785,7 @@ msgstr "Jährlich"
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -815,37 +815,13 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Mittwoch"
 
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr "Teilnehmer"
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr "Teilnehmer"
-
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Zeit"
 
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr "Ausnahmeregel"
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr "Ausnahmeregeln"
-
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr "Zeit"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr "Wiederholungsregel"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr "Wiederholungsregeln"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"

@@ -96,7 +96,7 @@ msgstr "La tasca \"%s\" no pot ser recurrent."
 
 msgctxt "error:calendar.todo:"
 msgid "UUID and recurrence must be unique in a calendar."
-msgstr "UUID i la recurrència han de ser únic en el calendari."
+msgstr "El UUID i la recurrència han de ser únics per calendari."
 
 msgctxt "field:calendar.todo,alarms:"
 msgid "Alarms"
@@ -124,11 +124,11 @@ msgstr "Completada"
 
 msgctxt "field:calendar.todo,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo,description:"
 msgid "Description"
@@ -140,7 +140,7 @@ msgstr "Data inicial"
 
 msgctxt "field:calendar.todo,due:"
 msgid "Due Date"
-msgstr "Data de venciment"
+msgstr "Data venciment"
 
 msgctxt "field:calendar.todo,exdates:"
 msgid "Exception Dates"
@@ -208,7 +208,7 @@ msgstr "Zona horària"
 
 msgctxt "field:calendar.todo,uuid:"
 msgid "UUID"
-msgstr "UUID"
+msgstr "ID"
 
 msgctxt "field:calendar.todo,vtodo:"
 msgid "vtodo"
@@ -216,11 +216,11 @@ msgstr "vtodo"
 
 msgctxt "field:calendar.todo,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo-calendar.category,category:"
 msgid "Category"
@@ -228,11 +228,11 @@ msgstr "Categoria"
 
 msgctxt "field:calendar.todo-calendar.category,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo-calendar.category,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo-calendar.category,id:"
 msgid "ID"
@@ -248,19 +248,19 @@ msgstr "Per fer"
 
 msgctxt "field:calendar.todo-calendar.category,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo-calendar.category,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.alarm,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.alarm,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.alarm,id:"
 msgid "ID"
@@ -280,11 +280,11 @@ msgstr "valarm"
 
 msgctxt "field:calendar.todo.alarm,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.alarm,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.attendee,attendee:"
 msgid "attendee"
@@ -292,11 +292,11 @@ msgstr "assistent"
 
 msgctxt "field:calendar.todo.attendee,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.attendee,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.attendee,email:"
 msgid "Email"
@@ -320,19 +320,19 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.attendee,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.attendee,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.exdate,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.exdate,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.exdate,date:"
 msgid "Is Date"
@@ -356,11 +356,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.exdate,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.exdate,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.exrule,byday:"
 msgid "By Day"
@@ -404,11 +404,11 @@ msgstr "Comptador"
 
 msgctxt "field:calendar.todo.exrule,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.exrule,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.exrule,freq:"
 msgid "Frequency"
@@ -444,19 +444,19 @@ msgstr "Dia de la setmana"
 
 msgctxt "field:calendar.todo.exrule,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.exrule,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.rdate,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.rdate,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.rdate,date:"
 msgid "Is Date"
@@ -480,11 +480,11 @@ msgstr "Tasca"
 
 msgctxt "field:calendar.todo.rdate,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.rdate,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:calendar.todo.rrule,byday:"
 msgid "By Day"
@@ -528,11 +528,11 @@ msgstr "Comptador"
 
 msgctxt "field:calendar.todo.rrule,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:calendar.todo.rrule,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:calendar.todo.rrule,freq:"
 msgid "Frequency"
@@ -568,11 +568,11 @@ msgstr "Dia de la setmana"
 
 msgctxt "field:calendar.todo.rrule,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:calendar.todo.rrule,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "help:calendar.todo,uuid:"
 msgid "Universally Unique Identifier"
@@ -622,7 +622,7 @@ msgstr "Regla d'excepció"
 
 msgctxt "model:calendar.todo.rdate,name:"
 msgid "Todo Recurrence Date"
-msgstr "Data de recurrència"
+msgstr "Data recurrència"
 
 msgctxt "model:calendar.todo.rrule,name:"
 msgid "Recurrence Rule"
@@ -652,10 +652,9 @@ msgctxt "selection:calendar.todo,classification:"
 msgid "Public"
 msgstr "Públic"
 
-#, fuzzy
 msgctxt "selection:calendar.todo,status:"
 msgid ""
-msgstr "Cancel·lat"
+msgstr ""
 
 msgctxt "selection:calendar.todo,status:"
 msgid "Cancelled"
@@ -673,10 +672,9 @@ msgctxt "selection:calendar.todo,status:"
 msgid "Needs-Action"
 msgstr "Necessitat-Acció"
 
-#, fuzzy
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid ""
-msgstr "Cancel·lat"
+msgstr ""
 
 msgctxt "selection:calendar.todo.attendee,status:"
 msgid "Accepted"
@@ -726,10 +724,9 @@ msgctxt "selection:calendar.todo.exrule,freq:"
 msgid "Yearly"
 msgstr "Anualment"
 
-#, fuzzy
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid ""
-msgstr "Cancel·lat"
+msgstr ""
 
 msgctxt "selection:calendar.todo.exrule,wkst:"
 msgid "Friday"
@@ -787,10 +784,9 @@ msgctxt "selection:calendar.todo.rrule,freq:"
 msgid "Yearly"
 msgstr "Anualment"
 
-#, fuzzy
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid ""
-msgstr "Cancel·lat"
+msgstr ""
 
 msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Friday"
@@ -820,37 +816,13 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Dimecres"
 
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr "Assistent"
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr "Assistents"
-
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Hora"
 
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr "Regla d'excepció"
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr "Regles d'excepcions"
-
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr "Hora"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr "Regla de recurrència"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr "Regles de recurrència"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"

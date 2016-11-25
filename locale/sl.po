@@ -806,37 +806,13 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Sreda"
 
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr "Navzoči"
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr "Navzoči"
-
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Čas"
 
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr "Izjemno pravilo"
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr "Izjemna pravila"
-
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr "Čas"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr "Pravilo ponovitve"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr "Pravila ponovitev"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"

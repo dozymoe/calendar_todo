@@ -828,39 +828,15 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Сряда"
 
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr "Присъстващ"
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr "Присъстващи"
-
 #, fuzzy
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Време"
 
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr "Правило при грешка"
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr "Правила при грешка"
-
 #, fuzzy
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr "Време"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr "Правило за повторение"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr "Правила за повторяемост"
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"

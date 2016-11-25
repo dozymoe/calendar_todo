@@ -884,39 +884,15 @@ msgctxt "selection:calendar.todo.rrule,wkst:"
 msgid "Wednesday"
 msgstr "Szerda"
 
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendee"
-msgstr ""
-
-msgctxt "view:calendar.todo.attendee:"
-msgid "Attendees"
-msgstr ""
-
 #, fuzzy
 msgctxt "view:calendar.todo.exdate:"
 msgid "Time"
 msgstr "Idő"
 
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rule"
-msgstr ""
-
-msgctxt "view:calendar.todo.exrule:"
-msgid "Exception Rules"
-msgstr ""
-
 #, fuzzy
 msgctxt "view:calendar.todo.rdate:"
 msgid "Time"
 msgstr "Idő"
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rule"
-msgstr ""
-
-msgctxt "view:calendar.todo.rrule:"
-msgid "Recurrence Rules"
-msgstr ""
 
 msgctxt "view:calendar.todo:"
 msgid "Attendees"
